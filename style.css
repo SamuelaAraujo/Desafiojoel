@@ -39,3 +39,32 @@ body{
     outline: none;
     background-color: transparent;
 }
+
+.box .inputBox label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #ffffff;
+    pointer-events: none;
+    transition: 5s;
+}
+
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label{
+  top: -18px;
+  left: 0;
+  color: #03a9f4;
+  font-size: 12px;  
+}
+
+.box input[type="submit"] {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    background-color: #03a9f4;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
