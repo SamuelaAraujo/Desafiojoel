@@ -2,6 +2,14 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    background-image: url('fotos/20250519_145403.jpg');
+    background-size: cover;      /* faz a imagem cobrir toda a tela */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat;/* evita repetição da imagem */
+    min-height: 100vh;
+}
+html, body {
+    height: 100%;
 }
 
 .box{
