@@ -19,10 +19,12 @@ html, body {
     transform: translate(-50%, -50%);
     width: 400px;
     padding: 40px;
-    background-color: black;
+    background-color: rgba(158, 158, 158, 0.4); /* fundo semi-transparente */
     box-sizing: border-box;
-    box-shadow: black;
     border-radius: 10px;
+    backdrop-filter: blur(2px); /* desfoque no fundo */
+    -webkit-backdrop-filter: blur(8px); /* suporte para Safari */
+    box-shadow: 0 4px 32px rgba(0,0,0,0.2);
 }
 
 .box h2 {
@@ -35,7 +37,7 @@ html, body {
 .box .inputBox {
     position: relative;
 }
-.box .inputBox input {
+.box .inputBox input{
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -63,16 +65,113 @@ html, body {
 .box .inputBox input:valid ~ label{
   top: -18px;
   left: 0;
-  color: #03a9f4;
+  color: #1800AD;
   font-size: 12px;  
 }
 
 .box input[type="submit"] {
-    background-color: transparent;
+    width: 100%;
+    background-color: #1800AD;
+    color: #ffffff;
     border: none;
     outline: none;
-    color: #ffffff;
-    background-color: #03a9f4;
     padding: 10px 20px;
     border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
+
+.CA {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    background-color: #1800AD;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.photo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.circle-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    background: #ccc;
+}
+
+
+.site-title {
+    position: fixed;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3.5em; /* aumentado */
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 1px 8px #333;
+    z-index: 2000;
+    font-family: Golden Varsity;
+}
+
+
+
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .box {
+        position: static;
+        transform: none;
+        width: 95vw;
+        max-width: 350px;
+        padding: 15px;
+        margin: 40px auto;
+    }
+    .site-title {
+        font-size: 1.5em;
+        left: 10px;
+        top: 20px;
+        transform: none;
+        position: absolute;
+    }
+    .circle-photo {
+        width: 40px;
+        height: 40px;
+    }
+    .box h2 {
+        font-size: 1.2em;
+    }
+    .box input[type="submit"],
+    .CA {
+        font-size: 0.9em;
+        padding: 8px 10px;
+    }
+}
+
+/* Responsividade para tablets */
+@media (max-width: 900px) {
+    .box {
+        width: 80vw;
+        max-width: 500px;
+        padding: 25px;
+    }
+    .site-title {
+        font-size: 2em;
+        left: 15px;
+        top: 30px;
+        transform: none;
+        position: absolute;
+    }
+}
+
+/* ...existing code... */

@@ -8,10 +8,10 @@ body {
 .menu {
     width: 100%;
     background: #1800AD;
-    position: fixed;
+    position: fixed; /* Menu fixo no topo */
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 1000;/* Menu fixo no topo */
 }
 
 .menu ul {
