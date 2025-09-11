@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <span class="site-title">Biblioteca <br>André de Carvalho</span>
+    <div class="box">
+        <div class="photo-row">
+            <img src="fotos/IMG-20250513-WA0005-removebg-preview.png" alt="Foto escola" class="circle-photo">
+            <img src="fotos/IMG-20250818-WA0003.jpg" alt="Foto autor" class="circle-photo">
+        </div>
+        <h2>Login</h2>
+        <form action="">
+            <div class="inputBox">
+                <input type="text" name="name" autocomplete="off" autofocus="" required>
+                <label for="">ID</label>
+            </div>
+
+            <div class="inputBox">
+                <input type="password" id="senha" name="senha" autocomplete="off" required>
+                <label for="">Senha</label>
+                <button type="button" onclick="mostrarSenha()"
+                    style="margin-left:5px; vertical-align: middle;">👁️</button>
+            </div>
+            
+            <script>
+                function mostrarSenha() {
+                    const campo = document.getElementById('senha');
+                    campo.type = campo.type === 'password' ? 'text' : 'password';
+                }
+            </script>
+
+        </form>
+        
+        <input type="submit" value="Entrar">
+        <a class="CA" href="#" class="cadastrar">cadastrar</a>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

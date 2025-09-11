@@ -176,6 +176,7 @@ html, body {
 
 /* ...existing code... */
 
+<<<<<<< HEAD
 button{
     display: block;
     margin-top: 15px;
@@ -215,3 +216,5 @@ button{
     text-shadow: 1px 1px 8px #333;
     text-align: center;
 }
+=======
+>>>>>>> 2f95d230462d60374867f0641a920a35ace61592
