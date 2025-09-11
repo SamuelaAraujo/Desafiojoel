@@ -175,14 +175,12 @@ html, body {
 }
 
 /* ...existing code... */
-
-<<<<<<< HEAD
 button{
     display: block;
     margin-top: 15px;
     text-align: center;
     background-color: #1800AD;
-    color: #fff;
+    color: #1800ADff;
     padding: 1px 1px;
     border-radius: 5px;
     text-decoration: none;
@@ -216,5 +214,4 @@ button{
     text-shadow: 1px 1px 8px #333;
     text-align: center;
 }
-=======
->>>>>>> 2f95d230462d60374867f0641a920a35ace61592
+
