@@ -5,13 +5,29 @@ body {
     background: #f4f4f4;
 }
 
+.nome-maria {
+    position: fixed;
+    top: 0;
+    left: 1400px;
+    font-size: 1.5em;
+    color: #000;
+    font-weight: bold;
+    z-index: 1100;
+    padding: 20px 0;
+    letter-spacing: 2px;
+}
+
 .menu {
     width: 100%;
     background: #1800AD;
-    position: fixed; /* Menu fixo no topo */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;/* Menu fixo no topo */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
 }
 
 .menu ul {
@@ -19,7 +35,35 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px 12px;
+    border-radius: 20px 0 0 20px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+.search-bar button {
+    padding: 8px 14px;
+    border-radius: 0 20px 20px 0;
+    border: none;
+    background: #ff0000;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-bar button:hover {
+    background: #1800AD;
 }
 
 .menu li {

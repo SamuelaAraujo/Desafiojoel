@@ -1,0 +1,381 @@
+/* Definições de Cores e Reset Básico */
+:root {
+    --color-blue: #0003ff; /* Azul vibrante */
+    --color-red: #ff0000; /* Vermelho vibrante */
+    --color-purple: #be078b; /* Cor para a top-nav */
+    --color-grey-bg: #e6e6e6; /* Cinza claro dos cards */
+    --color-white: #ffffff;
+    --color-black: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--color-white);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ----------------------------------- */
+/* HEADERS E NAVEGAÇÃO SUPERIOR */
+/* ----------------------------------- */
+
+.main-header {
+    width: 100%;
+    /* Define a estrutura principal do cabeçalho */
+}
+
+/* 1. TOP BAR (CONHECER, FAZER, CONVIVER, SER) */
+.top-bar {
+    background-color: var(--color-purple); /* Fundo Roxeado/Magenta escuro */
+    color: var(--color-white);
+    text-align: right; /* Alinha o menu à direita */
+    padding: 5px 0;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens à direita */
+    max-width: 1200px; /* Largura máxima, ajustável */
+    margin: 0 auto;
+    padding-right: 20px;
+}
+
+.nav-item {
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0 10px;
+    letter-spacing: 0.5px;
+    border-right: 1px solid var(--color-white);
+}
+
+.nav-item:last-child {
+    border-right: none;
+}
+
+/* 2. LOGO, SEARCH BAR E USER ACTIONS */
+.logo-search-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #0003ff;
+}
+
+.logo {
+    color: var(--color-red);
+    font-size: 3em;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+/* Search Bar (Barra de Pesquisa) */
+.search-bar {
+    display: flex;
+    border: 2px solid var(--color-blue);
+    border-radius: 4px;
+    overflow: hidden;
+    width: 400px; /* Ajustável */
+    max-width: 50%;
+}
+
+.search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 15px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+.search-bar button {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.search-bar button:hover {
+    background-color: #cc0000;
+}
+
+/* User Actions (Coração e Perfil) */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.action-link {
+    display: flex;
+    align-items: center;
+    color: var(--color-red);
+    font-weight: bold;
+}
+
+.heart-icon {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.user-icon {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px; /* Tamanho do ícone */
+    width: 44px;
+    height: 44px;
+}
+
+/* 3. BOTTOM NAV (LIVROS, AUTORES, CATEGORIAS) */
+.bottom-nav {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.bottom-nav-item {
+    flex-grow: 1;
+    text-align: center;
+    padding: 15px 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória sutil */
+    transition: background-color 0.2s;
+}
+
+.bottom-nav-item:last-child {
+    border-right: none;
+}
+
+.categories-link {
+    background-color: var(--color-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-icon {
+    font-size: 24px;
+}
+
+/* ----------------------------------- */
+/* CONTEÚDO PRINCIPAL (CARDS) */
+/* ----------------------------------- */
+
+.content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.book-cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.book-card {
+    background-color: var(--color-grey-bg);
+    padding: 20px;
+    width: 33.33%; /* Distribui os 3 cards uniformemente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.book-title {
+    color: var(--color-red);
+    font-size: 1.8em;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    font-weight: 900;
+}
+
+.book-title-small { /* Para "Dom Casmurro" caber melhor */
+    color: var(--color-red);
+    font-size: 1.6em;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    font-weight: 900;
+}
+
+.book-author, .book-author-john-green {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--color-black);
+    margin-bottom: 10px;
+}
+
+.book-author-machado {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--color-blue); /* Autor Machado de Assis em azul */
+    margin-bottom: 10px;
+}
+
+/* Estilo das Capas dos Livros (Placeholder) */
+.book-cover {
+    width: 100%;
+    max-width: 180px; /* Largura das capas no design */
+    height: 280px; /* Altura das capas no design */
+    background-color: var(--color-white);
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+    
+    /* Adiciona o texto do livro simulando a imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 10px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Estilos específicos para simular as capas */
+.book-cover-red-queen {
+    border-left: 10px solid var(--color-red);
+    background-image: url('placeholder_red_queen.png'); /* Idealmente, use a imagem real */
+    background-size: cover;
+    background-position: center;
+}
+
+.book-cover-dom-casmurro {
+    border: 1px solid var(--color-blue);
+    background-image: url('placeholder_dom_casmurro.png'); /* Idealmente, use a imagem real */
+    background-size: cover;
+    background-position: center;
+}
+
+.book-cover-fault-in-stars {
+    border-right: 10px solid var(--color-blue);
+    background-image: url('placeholder_fault_in_stars.png'); /* Idealmente, use a imagem real */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Texto de snippet/sinopse */
+.book-snippet {
+    font-size: 0.75em;
+    color: var(--color-black);
+    margin-bottom: 20px;
+    height: 40px; /* Altura fixa para alinhar botões */
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Botão "SAIBA MAIS" */
+.btn-more {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: auto; /* Garante que o botão fique na parte inferior */
+    transition: background-color 0.2s;
+}
+
+.btn-more:hover {
+    background-color: #0000cc;
+}
+
+/* MEDIA QUERIES para responsividade (Opcional, mas recomendado) */
+@media (max-width: 768px) {
+    .logo-search-user {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .search-bar {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .user-actions {
+        order: -1; /* Move para o topo em telas pequenas */
+        width: 100%;
+        justify-content: center;
+    }
+
+    .bottom-nav {
+        flex-direction: column;
+    }
+
+    .bottom-nav-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .book-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-card {
+        width: 100%;
+        max-width: 350px;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* Centralizar o menu superior */
+        .top-bar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .top-nav {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-item {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 6px 12px;
+            transition: color 0.2s;
+        }
+        .nav-item:hover {
+            color: #007bff;
+        }
+        @media (max-width: 600px) {
+            .top-nav {
+                gap: 12px;
+                font-size: 0.95rem;
+            }
+        }
