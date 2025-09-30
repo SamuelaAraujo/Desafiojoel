@@ -46,15 +46,15 @@ a {
     justify-content: flex-end; /* Alinha os itens à direita */
     max-width: 1200px; /* Largura máxima, ajustável */
     margin: 0 auto;
-    padding-right: 20px;
+    
 }
 
 .nav-item {
     font-size: 0.9em;
     font-weight: bold;
-    padding: 0 10px;
+    padding: 0 20px;
     letter-spacing: 0.5px;
-    border-right: 1px solid var(--color-white);
+    
 }
 
 .nav-item:last-child {
@@ -67,7 +67,7 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
-    max-width: 1200px;
+   
     margin: 0 auto;
     background-color: #0003ff;
 }
@@ -207,7 +207,7 @@ a {
 }
 
 .book-title {
-    color: var(--color-red);
+    color: var(--color-black);
     font-size: 1.8em;
     line-height: 1.1;
     margin-bottom: 5px;
@@ -215,7 +215,7 @@ a {
 }
 
 .book-title-small { /* Para "Dom Casmurro" caber melhor */
-    color: var(--color-red);
+    color: var(--color-black);
     font-size: 1.6em;
     line-height: 1.1;
     margin-bottom: 5px;
@@ -232,7 +232,7 @@ a {
 .book-author-machado {
     font-size: 0.8em;
     font-weight: bold;
-    color: var(--color-blue); /* Autor Machado de Assis em azul */
+    color: var(--color-black); /* Autor Machado de Assis em azul */
     margin-bottom: 10px;
 }
 
