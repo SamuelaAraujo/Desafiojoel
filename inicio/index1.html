@@ -6,9 +6,50 @@
     <title>MLMB - Biblioteca</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
 </head>
 <body>
 
+    
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        
+        <div class="profile">
+            <div class="profile-info">
+                <span>Marcus vinicius</span>
+                
+            </div>
+        </div>
+        
+        <ul class="menu-list">
+            <li>
+                <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-book-open"></i> Meus livros</a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-history"></i> Histórico</a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
+            </li>
+             <li>
+                <a href="#"><i class="fas fa-book-open"></i> Clube Do Livro</a>
+            </li>
+        </ul>
+        
+        <div class="footer-menu">
+            <div class="school-info">
+                <img src="fotos/IMG-20250513-WA0005.jpg" alt="Logo da Escola"> 
+                <div>
+                    <h5>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</h5>
+                    <p>terceiro informatica-2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="main-header">
         <div class="top-bar">
             <nav class="top-nav">
@@ -29,15 +70,18 @@
                 </button>
             </div>
             
-            <div class="user-actions">
-                <a href="#" class="action-link" aria-label="Minhas Listas">
-                    <span class="material-icons heart-icon">favorite_border</span>
-                    Minhas Listas
-                </a>
-                <a href="#" class="user-icon" aria-label="Perfil do Usuário">
-                    <span class="material-icons">person</span>
-                </a>
-            </div>
+            
+            
+           <div class="user-actions" style="display: flex; align-items: flex-end; justify-content: flex-start;">
+    <a href="#" class="action-link" aria-label="Minhas Listas" style="margin-right: 18px;">
+        <span class="material-icons heart-icon">favorite_border</span>
+        Minhas Listas
+    </a>
+    <i class="fas fa-user-circle open-btn"
+       onclick="toggleSidebar()"
+       style="margin-left: 12px; font-size: 2rem; cursor: pointer; position: relative; top: 8px;"
+       aria-label="Abrir menu do usuário"></i>
+</div>
         </div>
 
         <nav class="bottom-nav">
@@ -89,6 +133,13 @@
 
         </div>
     </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
     
 </body>
 </html>

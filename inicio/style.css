@@ -17,6 +17,7 @@
 
 body {
     background-color: var(--color-white);
+    /* Removido 'overflow: hidden' daqui para permitir rolagem do corpo da página principal */
 }
 
 a {
@@ -37,16 +38,20 @@ a {
 .top-bar {
     background-color: var(--color-purple); /* Fundo Roxeado/Magenta escuro */
     color: var(--color-white);
-    text-align: right; /* Alinha o menu à direita */
     padding: 5px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza o nav */
+    align-items: center;
+    margin-bottom: 0;
 }
 
 .top-nav {
     display: flex;
-    justify-content: flex-end; /* Alinha os itens à direita */
-    max-width: 1200px; /* Largura máxima, ajustável */
-    margin: 0 auto;
-    
+    justify-content: space-evenly; /* Espaçamento igual entre os itens */
+    width: 100%;
+    max-width: 6000px;
+    gap: 0;
 }
 
 .nav-item {
@@ -56,6 +61,19 @@ a {
     letter-spacing: 0.5px;
     
 }
+/* Estilo extra do top-nav de style.css - removendo conflitos */
+.nav-item {
+    text-decoration: none;
+    color: var(--color-white); /* Corrigindo a cor para o topo roxo */
+    font-weight: bold;
+    font-size: 0.9em; /* Mantendo o tamanho original */
+    padding: 0 20px; /* Mantendo o padding original */
+    transition: color 0.2s;
+}
+.nav-item:hover {
+    color: (--color-blue); /* Destaque ao passar o mouse */
+}
+/* Fim do estilo extra */
 
 .nav-item:last-child {
     border-right: none;
@@ -119,6 +137,8 @@ a {
     align-items: center;
     gap: 20px;
 }
+
+
 
 .action-link {
     display: flex;
@@ -206,6 +226,29 @@ a {
     text-align: center;
 }
 
+.book-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    z-index: 2;
+}
+
+/* Animação nos botões "SAIBA MAIS" */
+.btn-more {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: auto; /* Garante que o botão fique na parte inferior */
+    transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
+}
+.btn-more:hover {
+    background-color: #0000cc;
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
 .book-title {
     color: var(--color-black);
     font-size: 1.8em;
@@ -287,7 +330,6 @@ a {
     height: 40px; /* Altura fixa para alinhar botões */
     line-height: 1.3;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -348,34 +390,125 @@ a {
 }
 
 
-/* Centralizar o menu superior */
-        .top-bar {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
+/* -- INÍCIO DOS ESTILOS DA SIDEBAR (style22.css) -- */
+
+/* Estilos básicos para o corpo da página */
+        /*body {
+            height: 100vh;
+            overflow: hidden; 
+        }*/ /* Removido para não conflitar com a rolagem do corpo principal */
+      
+        /* Botão para abrir o menu (simulação do ícone de usuário na tela) */
+        .open-btn {
+            position: fixed; /* Fixado no canto superior direito */
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 101;
+            color: #333;
+            background-color: white; /* Adicionado para destacar sobre o header, se necessário */
+            border-radius: 50%;
+            padding: 5px;
         }
-        .top-nav {
+
+        /* Estilo do menu lateral (sidebar) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px; /* Esconde o menu para fora da tela */
+            width: 300px;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1000; /* Garante que o menu fique acima de tudo */
+            transition: right 0.5s ease-in-out; /* Adiciona a transição suave */
             display: flex;
-            gap: 32px;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
         }
-        .nav-item {
+
+        /* Classe para mostrar o menu (adicionada pelo JavaScript) */
+        .sidebar.open {
+            right: 0; /* Move o menu para a posição visível */
+        }
+
+        /* O botão de fechar dentro do menu */
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1001; /* Garante que o botão fechar esteja acima de tudo no menu */
+        }
+
+        /* Estilos dos itens do menu */
+        .profile {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .menu-list li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-list a {
+            display: block;
+            padding: 15px 20px;
             text-decoration: none;
             color: #333;
-            font-weight: 500;
-            font-size: 1.1rem;
-            padding: 6px 12px;
-            transition: color 0.2s;
+            transition: background-color 0.3s;
         }
-        .nav-item:hover {
-            color: #007bff;
+
+        .menu-list a:hover {
+            background-color: #f0f0f0;
         }
-        @media (max-width: 600px) {
-            .top-nav {
-                gap: 12px;
-                font-size: 0.95rem;
-            }
+
+        .menu-list i {
+            margin-right: 15px;
+            font-size: 1.2rem;
         }
+        
+        .footer-menu {
+            margin-top: auto; /* Empurra o rodapé para o final do menu */
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .school-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .school-info img {
+            width: 50px;
+            height: auto;
+        }
+        
+        .school-info h5 {
+            margin: 0;
+        }
+        
+        .school-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #777;
+        }
+/* -- FIM DOS ESTILOS DA SIDEBAR (style22.css) -- */
