@@ -12,92 +12,92 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-left">
-            <!-- Ícone de casa atualizado -->
-            <button class="icone" aria-label="Página Inicial">
-                <i class="fas fa-home"></i>
-            </button>
+<header class="header">
+    <div class="header-left">
+        <!-- Ícone de casa atualizado -->
+        <button class="icone" aria-label="Página Inicial">
+            <i class="fas fa-home"></i>
+        </button>
 
-            <div class="barra-pesquisa">
-                <!-- Ícone de pesquisa atualizado -->
-                <span class="search-icon">
+        <div class="barra-pesquisa">
+            <!-- Ícone de pesquisa atualizado -->
+            <span class="search-icon">
                     <i class="fas fa-search"></i>
                 </span>
-                <input type="search" placeholder="Pesquisar livros..." aria-label="Pesquisar no site" id="search-input">
-                <div id="search-results" class="search-results"></div>
-            </div>
-        </div>
-
-        <h1 class="titulo-genero">GÊNERO</h1>
-
-        <div class="header-right">
-            <!-- Ícone de livros atualizado (usei um ícone de "marcador de livro" que é semelhante) -->
-            <button class="icone" aria-label="Minha Biblioteca">
-                <i class="fas fa-bookmark"></i>
-            </button>
-            <!-- Ícone de perfil atualizado -->
-            <button class="icone" aria-label="Meu Perfil" id="profile-icon">
-                <i class="fas fa-user"></i>
-            </button>
-        </div>
-    </header>
-
-    <div id="side-menu" class="side-menu">
-        <button id="close-menu" class="close-menu">&times;</button>
-        <div class="profile-section">
-            <i class="fas fa-user-circle profile-icon-large"></i>
-            <h2>Nome do Aluno</h2>
-        </div>
-        <ul>
-            <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
-            <li><a href="#"><i class="fas fa-book-open"></i> Meus livros</a></li>
-            <li><a href="#"><i class="fas fa-history"></i> Histórico</a></li>
-            <li><a href="#"><i class="fas fa-id-card"></i> Meus Dados</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Clube Do Livro</a></li>
-            <li><a href="#"><i class="fas fa-book"></i> Cadastro de Livro</a></li>
-        </ul>
-        <div class="school-logo-container">
-            <img src="fotos/melhor.png.jpg" alt="Logo da Escola">
-            <p>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</p>
-            <p>terceiro informatica</p>
+            <input type="search" placeholder="Pesquisar livros..." aria-label="Pesquisar no site" id="search-input">
+            <div id="search-results" class="search-results"></div>
         </div>
     </div>
-    <div id="overlay" class="overlay"></div>
 
-    <main class="main-content">
-        <section class="secao-livro">
-            <div class="container-detalhes">
-                <div class="capa-container">
-                    <img src="fotos/melhor.png.jpg" alt="Capa do livro Melhor do que os Nossos Filmes por Lynn Painter" class="capa-livro">
-                    <span class="marcador-flutuante">2</span>
+    <h1 class="titulo-genero">GÊNERO</h1>
+
+    <div class="header-right">
+        <!-- Ícone de livros atualizado (usei um ícone de "marcador de livro" que é semelhante) -->
+        <button class="icone" aria-label="Minha Biblioteca">
+            <i class="fas fa-bookmark"></i>
+        </button>
+        <!-- Ícone de perfil atualizado -->
+        <button class="icone" aria-label="Meu Perfil" id="profile-icon">
+            <i class="fas fa-user"></i>
+        </button>
+    </div>
+</header>
+
+<div id="side-menu" class="side-menu">
+    <button id="close-menu" class="close-menu">&times;</button>
+    <div class="profile-section">
+        <i class="fas fa-user-circle profile-icon-large"></i>
+        <h2>Nome do Aluno</h2>
+    </div>
+    <ul>
+        <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
+        <li><a href="#"><i class="fas fa-book-open"></i> Meus livros</a></li>
+        <li><a href="#"><i class="fas fa-history"></i> Histórico</a></li>
+        <li><a href="#"><i class="fas fa-id-card"></i> Meus Dados</a></li>
+        <li><a href="#"><i class="fas fa-users"></i> Clube Do Livro</a></li>
+        <li><a href="#"><i class="fas fa-book"></i> Cadastro de Livro</a></li>
+    </ul>
+    <div class="school-logo-container">
+        <img src="fotos/melhor.png.jpg" alt="Logo da Escola">
+        <p>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</p>
+        <p>terceiro informatica 2025</p>
+    </div>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<main class="main-content">
+    <section class="secao-livro">
+        <div class="container-detalhes">
+            <div class="capa-container">
+                <img src="fotos/melhor.png.jpg" alt="Capa do livro Melhor do que os Nossos Filmes por Lynn Painter" class="capa-livro">
+                <span class="marcador-flutuante">2</span>
+            </div>
+
+            <div class="detalhes-sinopse">
+                <div class="info-basica">
+                    <span class="label">Nome:</span>
+                    <span class="valor">Melhor do que os Nossos Filmes</span>
+                    <span class="label">Autor:</span>
+                    <span class="valor">Lynn Painter</span>
                 </div>
 
-                <div class="detalhes-sinopse">
-                    <div class="info-basica">
-                        <span class="label">Nome:</span>
-                        <span class="valor">Melhor do que os Nossos Filmes</span>
-                        <span class="label">Autor:</span>
-                        <span class="valor">Lynn Painter</span>
-                    </div>
-
-                    <div class="sinopse-bloco">
-                        <h2 id="sinopse-titulo">Sinopse:</h2>
-                        <p>
-                            "Melhor do que os nossos filmes" é um romance juvenil de autoria de Lynn Painter, 
-                            publicado em 2023 no Brasil pela Editora Intrínseca, sobre Liz Buxbaum, 
-                            uma adolescente que planeja conquistar o amor da sua vida com a ajuda do seu vizinho, 
-                            que ela considera o seu arqui-inimigo, mas acaba por descobrir que o amor pode 
-                            ser surpreendente e melhor do que imaginava.
-                        </p>
-                    </div>
+                <div class="sinopse-bloco">
+                    <h2 id="sinopse-titulo">Sinopse:</h2>
+                    <p>
+                        "Melhor do que os nossos filmes" é um romance juvenil de autoria de Lynn Painter,
+                        publicado em 2023 no Brasil pela Editora Intrínseca, sobre Liz Buxbaum,
+                        uma adolescente que planeja conquistar o amor da sua vida com a ajuda do seu vizinho,
+                        que ela considera o seu arqui-inimigo, mas acaba por descobrir que o amor pode
+                        ser surpreendente e melhor do que imaginava.
+                    </p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <footer class="footer">
-        </footer>
-    <script src="main.js" type="module"></script>
+<footer class="footer">
+</footer>
+<script src="main.js" type="module"></script>
 </body>
 </html>
