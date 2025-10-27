@@ -11,7 +11,7 @@
 
         /* Header Style (Dark Blue Bar) */
         .header {
-            background-color: #0000FF; /* Bright Blue */
+            background-color: #97287a ; /* Bright Blue */
             color: white;
             padding: 10px 20px;
             display: flex;
@@ -104,7 +104,7 @@
 }
         /* Footer (Bottom Dark Blue Bar) */
         .footer {
-            background-color: #0000FF; /* Bright Blue */
+            background-color: #97287a; /* Bright Blue */
             height: 50px;
             width: 100%;
             position: fixed; /* Keep it at the bottom */
