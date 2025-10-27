@@ -106,6 +106,7 @@ body {
 
 .titulo-genero {
     display: none;
+     align-items: center;
 }
 
 .main-content {
