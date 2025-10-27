@@ -6,7 +6,7 @@
     <title>Detalhes do Livro - Melhor do que os Nossos Filmes</title>
     <!-- Adicionado Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <meta name="description" content="Página de detalhes e sinopse do livro 'Melhor do que os Nossos Filmes' de Lynn Painter.">
 </head>
