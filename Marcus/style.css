@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-      
+
       
       
 /* Basic Reset and Global Styles */
@@ -48,430 +47,433 @@
 
         /* Main Content Layout */
    .content-container {
-    padding: 30px 50px;
-    display: flex;
-    gap: 50px;
-    align-items: center;      /* Centraliza verticalmente os blocos */
-    justify-content: center;  /* Centraliza horizontalmente */
-=======
-/* Variáveis CSS para cores e fontes */
-:root {
-    --cor-principal: #9B499B; /* Roxo/Magenta */
-    --cor-secundaria: #FFFFFF;
-    --cor-texto: #000000;
-    --cor-amarelo-destaque: #FCEE21;
-    --fonte-principal: 'Montserrat', sans-serif;
->>>>>>> f101452078a75077a53dc7b1f2ef79f61f4e86dd
-}
+       padding: 30px 50px;
+       display: flex;
+       gap: 50px;
+       align-items: center; /* Centraliza verticalmente os blocos */
+       justify-content: center; /* Centraliza horizontalmente */
+   = = = = = = =
+       /* Variáveis CSS para cores e fontes */: root {
+       --cor-principal: #9B499B; /* Roxo/Magenta */
+       --cor-secundaria: #FFFFFF;
+       --cor-texto: #000000;
+       --cor-amarelo-destaque: #FCEE21;
+       --fonte-principal: 'Montserrat', sans-serif;
+   >>> >>> > f101452078a75077a53dc7b1f2ef79f61f4e86dd
+   }
 
-/* 1. RESET BÁSICO E MOBILE FIRST */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+       /* 1. RESET BÁSICO E MOBILE FIRST */
 
-body {
-    font-family: var(--fonte-principal);
-    background-color: var(--cor-secundaria);
-    color: var(--cor-texto);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
 
-/* Icones e Botões (Estilização de ícones simples) */
-.icone {
-    font-size: 1.5rem; /* Tamanho base dos ícones */
-    padding: 0.5rem;
-    color: var(--cor-secundaria);
-    cursor: pointer;
-    transition: color 0.3s, background-color 0.3s;
-    border: none;
-    background: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-<<<<<<< HEAD
-        /* Footer (Bottom Dark Blue Bar) */
-        .footer {
-            background-color: #97287a; /* Bright Blue */
-            height: 50px;
-            width: 100%;
-            position: fixed; /* Keep it at the bottom */
-            bottom: 0;
-            left: 0;
-        }
-=======
->>>>>>> f101452078a75077a53dc7b1f2ef79f61f4e86dd
+       body {
 
-.icone:hover {
-    color: var(--cor-amarelo-destaque); /* Estado hover */
-}
+           background-color: var(--cor-secundaria);
+           color: var(--cor-texto);
+           line-height: 1.6;
+           min-height: 100vh;
+           display: flex;
+           flex-direction: column;
+       }
 
-/* 2. HEADER SEMÂNTICO (Cabeçalho) */
-.header {
-    background-color: var(--cor-principal);
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+       /* Icones e Botões (Estilização de ícones simples) */
 
-/* Grupo de ícones à esquerda */
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-grow: 1;
-    position: relative;
-}
+       .icone {
+           font-size: 1.5rem; /* Tamanho base dos ícones */
+           padding: 0.5rem;
+           color: var(--cor-secundaria);
+           cursor: pointer;
+           transition: color 0.3s, background-color 0.3s;
+           border: none;
+           background: none;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
 
-/* Barra de Pesquisa Responsiva */
-.barra-pesquisa {
-    background-color: var(--cor-secundaria);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    padding: 0.4rem 1rem;
-    width: 80%; /* Mobile: ocupa boa parte da largura */
-    max-width: 300px;
-    position: relative;
-}
+   < < < < < < < HEAD
+       /* Footer (Bottom Dark Blue Bar) */
+   . footer {
+       background-color: #97287a; /* Bright Blue */
+       height: 50px;
+       width: 100%;
+       position: fixed; /* Keep it at the bottom */
+       bottom: 0;
+       left: 0;
+   } = = = = = = = >>> >>> > f101452078a75077a53dc7b1f2ef79f61f4e86dd . icone: hover {
+       color: var(--cor-amarelo-destaque); /* Estado hover */
+   }
 
-.barra-pesquisa input[type="search"] {
-    border: none;
-    background: transparent;
-    outline: none;
-    width: 100%;
-    font-size: 1rem;
-    color: var(--cor-texto);
-}
+       /* 2. HEADER SEMÂNTICO (Cabeçalho) */
 
-.search-icon {
-    color: var(--cor-principal);
-    margin-right: 0.5rem;
-}
+       .header {
+           background-color: var(--cor-principal);
+           padding: 1rem;
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           position: sticky;
+           top: 0;
+           z-index: 1000;
+       }
 
-/* Título "GÊNERO" e Ícones à direita */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+       /* Grupo de ícones à esquerda */
 
-.titulo-genero {
-    color: var(--cor-secundaria);
-    font-weight: 900;
-    font-size: 1.8rem;
-    letter-spacing: 0.2rem;
-    text-transform: uppercase;
-}
+       .header-left {
+           display: flex;
+           align-items: center;
+           gap: 0.5rem;
+           flex-grow: 1;
+           position: relative;
+       }
 
-.titulo-genero {
-    display: none;
-     align-items: center;
-}
+       /* Barra de Pesquisa Responsiva */
 
-.main-content {
-    flex-grow: 1; 
-    padding: 2rem 1rem;
-}
+       .barra-pesquisa {
+           background-color: var(--cor-secundaria);
+           border-radius: 20px;
+           display: flex;
+           align-items: center;
+           padding: 0.4rem 1rem;
+           width: 80%; /* Mobile: ocupa boa parte da largura */
+           max-width: 300px;
+           position: relative;
+       }
 
-.secao-livro {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+       .barra-pesquisa input[type="search"] {
+           border: none;
+           background: transparent;
+           outline: none;
+           width: 100%;
+           font-size: 1rem;
+           color: var(--cor-texto);
+       }
 
-.container-detalhes {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
+       .search-icon {
+           color: var(--cor-principal);
+           margin-right: 0.5rem;
+       }
 
-.capa-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem; 
-}
+       /* Título "GÊNERO" e Ícones à direita */
 
-.capa-livro {
-    width: 80%;
-    max-width: 350px; 
-    height: auto;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-}
+       .header-right {
+           display: flex;
+           align-items: center;
+           gap: 1rem;
+       }
 
-.marcador-flutuante {
-    position: absolute;
-    bottom: 15px;
-    right: 15%; 
-    background-color: var(--cor-secundaria);
-    color: var(--cor-principal);
-    padding: 0.2rem 0.5rem;
-    border: 2px solid var(--cor-principal);
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 1rem;
-    line-height: 1;
-}
+       .titulo-genero {
+           color: var(--cor-secundaria);
+           font-weight: 900;
+           font-size: 1.8rem;
+           letter-spacing: 0.2rem;
+           text-transform: uppercase;
+       }
 
-.detalhes-sinopse {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    font-size: 1.1rem;
-}
+       .titulo-genero {
+           display: none;
+           align-items: center;
+       }
 
-.info-basica, .sinopse-bloco {
-    padding: 1rem 0;
-}
+       .main-content {
+           flex-grow: 1;
+           padding: 2rem 1rem;
+       }
 
-.label {
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #666;
-    margin-bottom: 0.2rem;
-    display: block;
-    font-size: 0.9rem;
-}
+       .secao-livro {
+           max-width: 1200px;
+           margin: 0 auto;
+       }
 
-.valor {
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    display: block;
-}
+       .container-detalhes {
+           display: flex;
+           flex-direction: column;
+           gap: 2rem;
+       }
 
-.sinopse-bloco {
-    border-top: 2px solid #EEE;
-    padding-top: 2rem;
-}
+       .capa-container {
+           position: relative;
+           display: flex;
+           justify-content: center;
+           margin-bottom: 3rem;
+       }
 
-.sinopse-bloco h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
+       .capa-livro {
+           width: 80%;
+           max-width: 350px;
+           height: auto;
+           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+           border-radius: 4px;
+       }
 
-.sinopse-bloco p {
-    font-size: 1.1rem;
-    text-align: justify;
-}
+       .marcador-flutuante {
+           position: absolute;
+           bottom: 15px;
+           right: 15%;
+           background-color: var(--cor-secundaria);
+           color: var(--cor-principal);
+           padding: 0.2rem 0.5rem;
+           border: 2px solid var(--cor-principal);
+           border-radius: 50%;
+           font-weight: bold;
+           font-size: 1rem;
+           line-height: 1;
+       }
 
-.footer {
-    background-color: var(--cor-principal);
-    height: 50px; 
-    width: 100%;
-}
+       .detalhes-sinopse {
+           display: flex;
+           flex-direction: column;
+           gap: 1.5rem;
+           font-size: 1.1rem;
+       }
 
-.side-menu {
-    position: fixed;
-    top: 0;
-    right: 0; /* Alterado de left para right */
-    width: 280px;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Sombra invertida */
-    transform: translateX(100%); /* Alterado de -100% para 100% */
-    transition: transform 0.3s ease-in-out;
-    z-index: 1001;
-    display: flex;
-    flex-direction: column;
-}
+       .info-basica, .sinopse-bloco {
+           padding: 1rem 0;
+       }
 
-.side-menu.active {
-    transform: translateX(0);
-}
+       .label {
+           font-weight: bold;
+           text-transform: uppercase;
+           color: #666;
+           margin-bottom: 0.2rem;
+           display: block;
+           font-size: 0.9rem;
+       }
 
-.close-menu {
-    position: absolute;
-    top: 10px;
-    left: 15px; /* Alterado de right para left */
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
+       .valor {
+           font-weight: 700;
+           font-size: 1.2rem;
+           margin-bottom: 1rem;
+           display: block;
+       }
 
-.profile-section {
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-}
+       .sinopse-bloco {
+           border-top: 2px solid #EEE;
+           padding-top: 2rem;
+       }
 
-.profile-icon-large {
-    font-size: 4rem;
-    color: var(--cor-principal);
-}
+       .sinopse-bloco h2 {
+           font-size: 1.5rem;
+           margin-bottom: 1rem;
+           font-weight: 700;
+           text-transform: uppercase;
+       }
 
-.profile-section h2 {
-    margin-top: 10px;
-    font-size: 1.2rem;
-}
+       .sinopse-bloco p {
+           font-size: 1.1rem;
+           text-align: justify;
+       }
 
-.side-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-}
+       .footer {
+           background-color: var(--cor-principal);
+           height: 50px;
+           width: 100%;
+       }
 
-.side-menu ul li a {
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    text-decoration: none;
-    color: #333;
-    border-bottom: 1px solid #f4f4f4;
-    transition: background-color 0.2s;
-}
+       .side-menu {
+           position: fixed;
+           top: 0;
+           right: 0; /* Alterado de left para right */
+           width: 280px;
+           height: 100%;
+           background-color: #fff;
+           box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra invertida */
+           transform: translateX(100%); /* Alterado de -100% para 100% */
+           transition: transform 0.3s ease-in-out;
+           z-index: 1001;
+           display: flex;
+           flex-direction: column;
+       }
 
-.side-menu ul li a:hover {
-    background-color: #f4f4f9;
-}
+       .side-menu.active {
+           transform: translateX(0);
+       }
 
-.side-menu ul li a i {
-    margin-right: 15px;
-    color: var(--cor-principal);
-}
+       .close-menu {
+           position: absolute;
+           top: 10px;
+           left: 15px; /* Alterado de right para left */
+           font-size: 2rem;
+           background: none;
+           border: none;
+           cursor: pointer;
+       }
 
-.school-logo-container {
-    padding: 20px;
-    text-align: center;
-}
+       .profile-section {
+           padding: 20px;
+           text-align: center;
+           border-bottom: 1px solid #eee;
+       }
 
-.school-logo-container img {
-    width: 80px;
-    margin-bottom: 10px;
-}
+       .profile-icon-large {
+           font-size: 4rem;
+           color: var(--cor-principal);
+       }
 
-.school-logo-container p {
-    font-size: 0.8rem;
-    color: #777;
-}
+       .profile-section h2 {
+           margin-top: 10px;
+           font-size: 1.2rem;
+       }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 1000;
-    display: none;
-}
+       .side-menu ul {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+           flex-grow: 1;
+       }
 
-.overlay.active {
-    display: block;
-}
+       .side-menu ul li a {
+           display: flex;
+           align-items: center;
+           padding: 15px 20px;
+           text-decoration: none;
+           color: #333;
+           border-bottom: 1px solid #f4f4f4;
+           transition: background-color 0.2s;
+       }
 
-.search-results {
-    position: absolute;
-    top: calc(100% + 5px);
-    left: 0;
-    width: 100%;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 5px 5px;
-    display: none;
-    max-height: 300px;
-    overflow-y: auto;
-    z-index: 10;
-}
+       .side-menu ul li a:hover {
+           background-color: #f4f4f9;
+       }
 
-.search-result-item {
-    display: flex;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-}
+       .side-menu ul li a i {
+           margin-right: 15px;
+           color: var(--cor-principal);
+       }
 
-.search-result-item:hover {
-    background-color: #f4f4f9;
-}
+       .school-logo-container {
+           padding: 20px;
+           text-align: center;
+       }
 
-.search-result-item img {
-    width: 50px;
-    height: 70px;
-    margin-right: 10px;
-}
+       .school-logo-container img {
+           width: 80px;
+           margin-bottom: 10px;
+       }
 
-@media (min-width: 768px) {
-    
-    .titulo-genero {
-        display: block; 
-        order: 2; 
-    }
+       .school-logo-container p {
+           font-size: 0.8rem;
+           color: #777;
+       }
 
-    .header-left {
-        order: 1;
-        flex-grow: 0;
-    }
+       .overlay {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: rgba(0, 0, 0, 0.5);
+           z-index: 1000;
+           display: none;
+       }
 
-    .header-right {
-        order: 3;
-    }
+       .overlay.active {
+           display: block;
+       }
 
-    .barra-pesquisa {
-        width: 250px;
-        max-width: none;
-    }
+       .search-results {
+           position: absolute;
+           top: calc(100% + 5px);
+           left: 0;
+           width: 100%;
+           background-color: white;
+           border: 1px solid #ccc;
+           border-top: none;
+           border-radius: 0 0 5px 5px;
+           display: none;
+           max-height: 300px;
+           overflow-y: auto;
+           z-index: 10;
+       }
 
-    .header {
-        justify-content: space-between; 
-    }
+       .search-result-item {
+           display: flex;
+           padding: 10px;
+           border-bottom: 1px solid #eee;
+           cursor: pointer;
+       }
 
-    .icone {
-        font-size: 1.7rem;
-    }
+       .search-result-item:hover {
+           background-color: #f4f4f9;
+       }
 
-    .container-detalhes {
-        display: grid;
-        grid-template-columns: 400px 1fr; 
-        gap: 4rem; 
-        align-items: start;
-    }
+       .search-result-item img {
+           width: 50px;
+           height: 70px;
+           margin-right: 10px;
+       }
 
-    .capa-container {
-        justify-content: flex-start; 
-        margin-bottom: 0;
-    }
+       @media (min-width: 768px) {
 
-    .capa-livro {
-        width: 100%;
-        max-width: 400px; 
-    }
+           .titulo-genero {
+               display: block;
+               order: 2;
+           }
 
-    .marcador-flutuante {
-        right: -10px; 
-        bottom: 10px;
-    }
+           .header-left {
+               order: 1;
+               flex-grow: 0;
+           }
 
-    .detalhes-sinopse {
-        padding-top: 0;
-        gap: 2rem;
-    }
+           .header-right {
+               order: 3;
+           }
 
-    .sinopse-bloco {
-        border-top: none;
-        padding-top: 0;
-    }
-    
-    .main-content {
-        padding: 4rem 2rem;
-    }
+           .barra-pesquisa {
+               width: 250px;
+               max-width: none;
+           }
 
-    .side-menu {
-        width: 320px;
-    }
-}
+           .header {
+               justify-content: space-between;
+           }
+
+           .icone {
+               font-size: 1.7rem;
+           }
+
+           .container-detalhes {
+               display: grid;
+               grid-template-columns: 400px 1fr;
+               gap: 4rem;
+               align-items: start;
+           }
+
+           .capa-container {
+               justify-content: flex-start;
+               margin-bottom: 0;
+           }
+
+           .capa-livro {
+               width: 100%;
+               max-width: 400px;
+           }
+
+           .marcador-flutuante {
+               right: -10px;
+               bottom: 10px;
+           }
+
+           .detalhes-sinopse {
+               padding-top: 0;
+               gap: 2rem;
+           }
+
+           .sinopse-bloco {
+               border-top: none;
+               padding-top: 0;
+           }
+
+           .main-content {
+               padding: 4rem 2rem;
+           }
+
+           .side-menu {
+               width: 320px;
+           }
+       }
+   }
