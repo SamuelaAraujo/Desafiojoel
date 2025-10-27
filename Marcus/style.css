@@ -1,3 +1,4 @@
+<<<<<<< HEAD
       
       
       
@@ -52,56 +53,48 @@
     gap: 50px;
     align-items: center;      /* Centraliza verticalmente os blocos */
     justify-content: center;  /* Centraliza horizontalmente */
+=======
+/* Variáveis CSS para cores e fontes */
+:root {
+    --cor-principal: #9B499B; /* Roxo/Magenta */
+    --cor-secundaria: #FFFFFF;
+    --cor-texto: #000000;
+    --cor-amarelo-destaque: #FCEE21;
+    --fonte-principal: 'Montserrat', sans-serif;
+>>>>>>> f101452078a75077a53dc7b1f2ef79f61f4e86dd
 }
-.book-cover {
+
+/* 1. RESET BÁSICO E MOBILE FIRST */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 300px;
-    min-width: 200px;
-    height: auto;
-    margin-right: 0; /* Remove qualquer margem à direita */
-}
-.book-cover img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
 }
 
-.text-info {
-    margin-top: 20px;
-    align-items: center;
-    text-align: center;
-}
-
-
-        /* Synopsis Area */
-        .synopsis-area {
-            font-size: 1em;
-            line-height: 1.6;
-            align-items: center;
-            text-align: center;
-        }
-        .synopsis-area h3 {
-            text-transform: uppercase;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-.synopsis-block {
-    background: #d0d8e7;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 30px 25px;
-    max-width: 400px;
-    margin-left: 30px;
-    margin-top: 0;
-    flex: 1;
+/* Icones e Botões (Estilização de ícones simples) */
+.icone {
+    font-size: 1.5rem; /* Tamanho base dos ícones */
+    padding: 0.5rem;
+    color: var(--cor-secundaria);
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    border: none;
+    background: none;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+<<<<<<< HEAD
         /* Footer (Bottom Dark Blue Bar) */
         .footer {
             background-color: #97287a; /* Bright Blue */
@@ -111,11 +104,374 @@
             bottom: 0;
             left: 0;
         }
+=======
+>>>>>>> f101452078a75077a53dc7b1f2ef79f61f4e86dd
 
-        /* Using a simple 'icon' representation for the prompt's icons (Home, Book, User) */
-        .icon {
-            font-size: 24px;
-            /* Placeholder styles - ideally you'd use a font icon library like Font Awesome */
-            padding: 0 5px;
-        }
+.icone:hover {
+    color: var(--cor-amarelo-destaque); /* Estado hover */
+}
+
+/* 2. HEADER SEMÂNTICO (Cabeçalho) */
+.header {
+    background-color: var(--cor-principal);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Grupo de ícones à esquerda */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-grow: 1;
+    position: relative;
+}
+
+/* Barra de Pesquisa Responsiva */
+.barra-pesquisa {
+    background-color: var(--cor-secundaria);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    width: 80%; /* Mobile: ocupa boa parte da largura */
+    max-width: 300px;
+    position: relative;
+}
+
+.barra-pesquisa input[type="search"] {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--cor-texto);
+}
+
+.search-icon {
+    color: var(--cor-principal);
+    margin-right: 0.5rem;
+}
+
+/* Título "GÊNERO" e Ícones à direita */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.titulo-genero {
+    color: var(--cor-secundaria);
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+.titulo-genero {
+    display: none;
+     align-items: center;
+}
+
+.main-content {
+    flex-grow: 1; 
+    padding: 2rem 1rem;
+}
+
+.secao-livro {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.capa-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem; 
+}
+
+.capa-livro {
+    width: 80%;
+    max-width: 350px; 
+    height: auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.marcador-flutuante {
+    position: absolute;
+    bottom: 15px;
+    right: 15%; 
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    padding: 0.2rem 0.5rem;
+    border: 2px solid var(--cor-principal);
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.detalhes-sinopse {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.info-basica, .sinopse-bloco {
+    padding: 1rem 0;
+}
+
+.label {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 0.2rem;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.valor {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.sinopse-bloco {
+    border-top: 2px solid #EEE;
+    padding-top: 2rem;
+}
+
+.sinopse-bloco h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.sinopse-bloco p {
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.footer {
+    background-color: var(--cor-principal);
+    height: 50px; 
+    width: 100%;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0; /* Alterado de left para right */
+    width: 280px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Sombra invertida */
+    transform: translateX(100%); /* Alterado de -100% para 100% */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.active {
+    transform: translateX(0);
+}
+
+.close-menu {
+    position: absolute;
+    top: 10px;
+    left: 15px; /* Alterado de right para left */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-section {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-icon-large {
+    font-size: 4rem;
+    color: var(--cor-principal);
+}
+
+.profile-section h2 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.side-menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f4f4f4;
+    transition: background-color 0.2s;
+}
+
+.side-menu ul li a:hover {
+    background-color: #f4f4f9;
+}
+
+.side-menu ul li a i {
+    margin-right: 15px;
+    color: var(--cor-principal);
+}
+
+.school-logo-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.school-logo-container img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.school-logo-container p {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.search-results {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.search-result-item {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background-color: #f4f4f9;
+}
+
+.search-result-item img {
+    width: 50px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+@media (min-width: 768px) {
     
+    .titulo-genero {
+        display: block; 
+        order: 2; 
+    }
+
+    .header-left {
+        order: 1;
+        flex-grow: 0;
+    }
+
+    .header-right {
+        order: 3;
+    }
+
+    .barra-pesquisa {
+        width: 250px;
+        max-width: none;
+    }
+
+    .header {
+        justify-content: space-between; 
+    }
+
+    .icone {
+        font-size: 1.7rem;
+    }
+
+    .container-detalhes {
+        display: grid;
+        grid-template-columns: 400px 1fr; 
+        gap: 4rem; 
+        align-items: start;
+    }
+
+    .capa-container {
+        justify-content: flex-start; 
+        margin-bottom: 0;
+    }
+
+    .capa-livro {
+        width: 100%;
+        max-width: 400px; 
+    }
+
+    .marcador-flutuante {
+        right: -10px; 
+        bottom: 10px;
+    }
+
+    .detalhes-sinopse {
+        padding-top: 0;
+        gap: 2rem;
+    }
+
+    .sinopse-bloco {
+        border-top: none;
+        padding-top: 0;
+    }
+    
+    .main-content {
+        padding: 4rem 2rem;
+    }
+
+    .side-menu {
+        width: 320px;
+    }
+}
