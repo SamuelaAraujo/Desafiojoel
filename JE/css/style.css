@@ -11,18 +11,30 @@ body {
   color: #000;
 }
 
+:root {
+  --color-purple: #be078b;
+}
 /* ======= HEADER ======= */
 header {
-  background-color: #9C1885;
-  height: 70px;
+  background-color: var(--color-purple);
+  height: 72px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  justify-content: center; /* centraliza o container interno */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 16px;
 }
 
 /* ÍCONE E TÍTULO */
@@ -32,48 +44,93 @@ header {
   gap: 10px;
 }
 
-.logo img {
-  width: 32px;
-  height: 32px;
-  filter: invert(1);
+.logo svg {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
 
-.logo-text {
+.brand, .logo-text {
   color: white;
   font-size: 20px;
   font-weight: 700;
+  letter-spacing: 0.6px;
 }
 
 /* CAMPO DE PESQUISA */
-.search-bar input {
-  background-color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 20px;
-  width: 400px;
-  font-size: 14px;
-  outline: none;
-  transition: 0.3s;
+.search-form {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
 }
 
-.search-bar input:focus {
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 360px; /* barra menor conforme solicitado */
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.search-input-wrapper .search-icon circle,
+.search-input-wrapper .search-icon path {
+  stroke: var(--color-purple);
+  stroke-width: 1.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.search-form input {
+  background-color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px 10px 44px; /* espaço à esquerda para o ícone */
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.18s ease;
+}
+
+.search-form input::placeholder {
+  color: #666;
+}
+
+.search-form input:focus {
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.18);
 }
 
 /* ÍCONE PERFIL */
-.profile-icon {
-  background-color: rgba(255,255,255,0.2);
+.user-btn, .profile-icon {
+  background-color: #fff;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
 }
 
-.profile-icon i {
-  color: white;
-  font-size: 20px;
+.user-btn svg, .profile-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.user-btn svg * {
+  fill: var(--color-purple);
+  stroke: var(--color-purple);
 }
 
 /* ======= CONTEÚDO PRINCIPAL ======= */
@@ -248,5 +305,8 @@ header {
   }
 }
 
-
-
+.material-icons {
+  color: white;
+  font-size: 36px;
+  vertical-align: middle;
+}
