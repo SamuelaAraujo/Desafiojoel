@@ -69,7 +69,7 @@
     <section class="secao-livro">
         <div class="container-detalhes">
             <div class="capa-container">
-                <img src="fotos/melhor.png.jpg" alt="Capa do livro Melhor do que os Nossos Filmes por Lynn Painter" class="capa-livro">
+                <img src="../clube.do.livro/fotos/melhor.png.jpg" alt="Capa do livro Melhor do que os Nossos Filmes por Lynn Painter" class="capa-livro">
                 <span class="marcador-flutuante">2</span>
             </div>
 
