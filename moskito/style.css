@@ -1,0 +1,127 @@
+/* --- 1. Layout de Tela Cheia (FullScreen) --- */
+
+html, body {
+    height: 100%; /* Garante que HTML e Body ocupem 100% da altura da viewport */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Organiza Header, Main e Footer verticalmente */
+}
+
+.header-bar, .footer-bar {
+    /* Estas barras terão altura definida pelo conteúdo ou padding */
+    flex-shrink: 0; /* Impede que elas encolham */
+    background-color: #9c27b0; /* Roxo MLMB */
+}
+
+.main-content-wrapper {
+    flex-grow: 1; /* Faz com que o conteúdo principal ocupe todo o espaço restante */
+    display: flex; /* Permite centralizar o formulário */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    overflow-y: auto; /* Permite rolar se o conteúdo for maior que a tela */
+    padding: 20px;
+}
+
+/* --- 2. Estilos do Header e Footer --- */
+
+.header-bar {
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-bar .logo-text {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.header-bar .icon {
+    font-size: 1.8em;
+    margin-right: 5px;
+}
+
+.footer-bar {
+    height: 50px;
+    display: flex;
+    justify-content: center; /* Centraliza o botão, se houver */
+    align-items: center;
+}
+
+.save-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: #9c27b0;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* --- 3. Estilos do Formulário (Container no centro) --- */
+
+.content-container {
+    max-width: 800px;
+    width: 100%; /* Garante que ele use o max-width */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex; 
+    gap: 40px;
+}
+
+/* --- 4. Estilos da Imagem e Campos --- */
+
+.image-upload {
+    flex-shrink: 0;
+    width: 200px;
+    height: 300px;
+    background-color: #555; 
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid #333;
+    cursor: pointer;
+}
+
+.form-fields {
+    flex-grow: 1;
+    padding-top: 15px; /* Ajuste para centralização visual */
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    width: 150px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-row input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 1em;
+}
+
+/* Destaque para Categorias */
+.form-row .highlighted-label {
+    border: 2px solid #9c27b0;
+    padding: 2px 5px;
+    margin-left: -5px; 
+}
