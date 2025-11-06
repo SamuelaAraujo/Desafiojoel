@@ -1,120 +1,127 @@
 /* Estilos básicos para o corpo da página */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            height: 100vh;
-            overflow: hidden; /* Evita a barra de rolagem horizontal */
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    height: 100vh;
+    overflow: hidden; /* Evita a barra de rolagem horizontal */
+}
 
-      
+/* Botão para abrir o menu (simulação do ícone de usuário na tela) */
+.open-btn {
+    position: fixed; /* Fixado no canto superior direito */
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 101;
+    color: #333;
+    /* ADIÇÃO: Transição suave para o ícone de abrir */
+    transition: opacity 0.5s ease-in-out;
+}
 
-        /* Botão para abrir o menu (simulação do ícone de usuário na tela) */
-        .open-btn {
-            position: fixed; /* Fixado no canto superior direito */
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 101;
-            color: #333;
-        }
+/* ADIÇÃO: Nova classe para esconder o botão de abrir */
+.open-btn.hidden {
+    opacity: 0;
+    pointer-events: none; /* Impede que seja clicável quando invisível */
+}
 
-        /* Estilo do menu lateral (sidebar) */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -300px; /* Esconde o menu para fora da tela */
-            width: 300px;
-            height: 100vh;
-            background-color: #fff;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            z-index: 100; /* Garante que o menu fique acima do conteúdo */
-            transition: right 0.5s ease-in-out; /* Adiciona a transição suave */
-            display: flex;
-            flex-direction: column;
-        }
 
-        /* Classe para mostrar o menu (adicionada pelo JavaScript) */
-        .sidebar.open {
-            right: 0; /* Move o menu para a posição visível */
-        }
+/* Estilo do menu lateral (sidebar) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Esconde o menu para fora da tela */
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 100; /* Garante que o menu fique acima do conteúdo */
+    transition: right 0.5s ease-in-out; /* Adiciona a transição suave */
+    display: flex;
+    flex-direction: column;
+}
 
-        /* O botão de fechar dentro do menu */
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
+/* Classe para mostrar o menu (adicionada pelo JavaScript) */
+.sidebar.open {
+    right: 0; /* Move o menu para a posição visível */
+}
 
-        /* Estilos dos itens do menu */
-        .profile {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-        }
+/* O botão de fechar dentro do menu */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 
-        .profile-info {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
+/* Estilos dos itens do menu */
+.profile {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
 
-        .menu-list {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
 
-        .menu-list li {
-            border-bottom: 1px solid #eee;
-        }
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
 
-        .menu-list a {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: #333;
-            transition: background-color 0.3s;
-        }
+.menu-list li {
+    border-bottom: 1px solid #eee;
+}
 
-        .menu-list a:hover {
-            background-color: #f0f0f0;
-        }
+.menu-list a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
 
-        .menu-list i {
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-menu {
-            margin-top: auto; /* Empurra o rodapé para o final do menu */
-            padding: 20px;
-            border-top: 1px solid #eee;
-        }
-        
-        .school-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .school-info img {
-            width: 50px;
-            height: auto;
-        }
-        
-        .school-info h5 {
-            margin: 0;
-        }
-        
-        .school-info p {
-            margin: 0;
-            font-size: 0.8rem;
-            color: #777;
-        }
+.menu-list a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-list i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-menu {
+    margin-top: auto; /* Empurra o rodapé para o final do menu */
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.school-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.school-info img {
+    width: 50px;
+    height: auto;
+}
+
+.school-info h5 {
+    margin: 0;
+}
+
+.school-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #777;
+}
