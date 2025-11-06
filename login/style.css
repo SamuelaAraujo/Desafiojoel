@@ -12,6 +12,7 @@ html, body {
     height: 100%;
 }
 
+/* BOX PRINCIPAL DE LOGIN */
 .box{
     position: absolute;
     top: 50%;
@@ -22,28 +23,29 @@ html, body {
     background-color: rgba(158, 158, 158, 0.4); /* fundo semi-transparente */
     box-sizing: border-box;
     border-radius: 10px;
-    backdrop-filter: blur(2px); /* desfoque no fundo */
+    backdrop-filter: blur(8px); /* desfoque no fundo */
     -webkit-backdrop-filter: blur(8px); /* suporte para Safari */
     box-shadow: 0 4px 32px rgba(0,0,0,0.2);
 }
 
 .box h2 {
-    margin: 0 0 30 px;
+    margin: 0 0 30px; /* Corrigido de "30 px" para "30px" */
     padding: 0;
     color: #ffffff;
     text-align: center;
 }
 
+/* CAMPOS DE INPUT */
 .box .inputBox {
     position: relative;
+    margin-bottom: 30px; /* Garante espaçamento entre os campos */
 }
 .box .inputBox input{
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
     color: #ffffff;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
+    letter-spacing: 1px; /* Espaçamento mais sutil */
     border: none;
     border-bottom: 1px solid #ffffff;
     outline: none;
@@ -58,20 +60,18 @@ html, body {
     font-size: 16px;
     color: #ffffff;
     pointer-events: none;
-    transition: 5s;
+    transition: 0.5s; /* Transição mais suave */
 }
 
 .box .inputBox input:focus ~ label,
 .box .inputBox input:valid ~ label{
-  top: -18px;
-  left: 0;
-  color: #1800AD;
-  font-size: 12px;  
+    top: -18px;
+    left: 0;
+    color: #1800AD;
+    font-size: 12px;
 }
 
-/* ...existing code... */
-
-/* Animação para o botão "Entrar" */
+/* BOTÃO ENTRAR */
 .box input[type="submit"] {
     width: 100%;
     background-color: #1800AD;
@@ -82,16 +82,17 @@ html, body {
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
+    margin-top: 20px; /* Espaço após o último input */
     margin-bottom: 10px;
     transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
 }
 .box input[type="submit"]:hover {
     background-color: #0d0066;
-    transform: scale(1.05);
-    box-shadow: 0 4px 16px rgba(24,0,173,0.18);
+    transform: scale(1.02); /* Escala menor para hover */
+    box-shadow: 0 4px 16px rgba(24,0,173,0.3);
 }
 
-/* Animação para o botão "Cadastrar" */
+/* LINK CADASTRAR */
 .CA {
     display: block;
     margin-top: 15px;
@@ -106,15 +107,14 @@ html, body {
 }
 .CA:hover {
     background-color: #0d0066;
-    transform: scale(1.05);
-    box-shadow: 0 4px 16px rgba(24,0,173,0.18);
+    transform: scale(1.02); /* Escala menor para hover */
+    box-shadow: 0 4px 16px rgba(24,0,173,0.3);
 }
 
-/* ...existing code... */
-
+/* FOTOS DE PERFIL */
 .photo-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza a foto na linha */
     align-items: center;
     margin-bottom: 20px;
 }
@@ -128,83 +128,7 @@ html, body {
     background: #ccc;
 }
 
-
-.site-title {
-    position: fixed;
-    left: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 3.5em; /* aumentado */
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 1px 1px 8px #333;
-    z-index: 2000;
-    font-family: Golden Varsity;
-}
-
-
-
-
-/* Responsividade para telas menores */
-@media (max-width: 600px) {
-    .box {
-        position: static;
-        transform: none;
-        width: 95vw;
-        max-width: 350px;
-        padding: 15px;
-        margin: 40px auto;
-    }
-    .site-title {
-        font-size: 1.5em;
-        left: 10px;
-        top: 20px;
-        transform: none;
-        position: absolute;
-    }
-    .circle-photo {
-        width: 40px;
-        height: 40px;
-    }
-    .box h2 {
-        font-size: 1.2em;
-    }
-    .box input[type="submit"],
-    .CA {
-        font-size: 0.9em;
-        padding: 8px 10px;
-    }
-}
-
-/* Responsividade para tablets */
-@media (max-width: 900px) {
-    .box {
-        width: 80vw;
-        max-width: 500px;
-        padding: 25px;
-    }
-    .site-title {
-        font-size: 2em;
-        left: 15px;
-        top: 30px;
-        transform: none;
-        position: absolute;
-    }
-}
-
-/* ...existing code... */
-button{
-    display: block;
-    margin-top: 15px;
-    text-align: center;
-    background-color: #1800AD;
-    color: #1800ADff;
-    padding: 1px 1px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1em;
-}
-
+/* CABEÇALHO LATERAL (DESKTOP) */
 .site-header {
     position: fixed;
     left: 30px;
@@ -226,38 +150,126 @@ button{
 }
 
 .site-title {
-    font-size: 2.5em;
+    font-size: 2.5em; /* Aumentado um pouco para desktop */
     color: #fff;
     font-weight: bold;
     text-shadow: 1px 1px 8px #333;
     text-align: center;
+    font-family: sans-serif; /* Usando sans-serif como fallback */
 }
 
-/* Animação para o botão do olhinho de ver a senha */
+
+/* BOTÃO MOSTRAR SENHA */
 .inputBox button {
     background: transparent;
     border: none;
     color: #fff;
     font-size: 1.3em;
-    margin-left: 5px;
     cursor: pointer;
     transition: color 0.2s, transform 0.18s;
-    vertical-align: middle;
     outline: none;
+
+    /* POSICIONAMENTO ABSOLUTO DENTRO DO INPUTBOX */
     position: absolute;
     right: 0;
-    top: 8px;
-    padding: 2px 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 8px; /* Adicionado padding para facilitar o clique */
+    z-index: 10;
 }
 .inputBox button:hover {
     color: #1800AD;
-    transform: scale(1.2) rotate(-10deg);
+    transform: translateY(-50%) scale(1.1);
 }
 
-/* ...existing code... */
+
+/* ======= RESPONSIVIDADE ======= */
+
+/* Responsividade para tablets (max-width: 900px) */
+@media (max-width: 900px) {
+
+    /* Box de Login */
+    .box {
+        width: 80vw;
+        max-width: 450px;
+        padding: 30px;
+    }
+
+    /* Cabeçalho Lateral (Se move para o topo) */
+    .site-header {
+        position: relative; /* Deixa de ser fixo */
+        left: auto;
+        top: auto;
+        transform: none;
+        padding: 20px 0;
+        flex-direction: row; /* Coloca a foto ao lado do título */
+        justify-content: center;
+        width: 100%;
+        background-color: rgba(158, 158, 158, 0.2); /* Fundo sutil */
+    }
+
+    .school-photo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+
+    .site-title {
+        font-size: 2em;
+        text-align: left;
+    }
+}
 
 
+/* Responsividade para celulares (max-width: 600px) */
+@media (max-width: 600px) {
 
+    /* Box de Login */
+    .box {
+        position: static; /* Remove o posicionamento absoluto */
+        transform: none;
+        width: 90vw;
+        max-width: 90vw;
+        padding: 20px;
+        margin: 20px auto; /* Centraliza verticalmente e horizontalmente */
+    }
 
+    /* Cabeçalho no topo (ajuste para celular) */
+    .site-header {
+        flex-direction: column; /* Volta a empilhar a foto e o título */
+        padding: 15px 0;
+    }
 
-/*daqui pra baixo é pagina de cadatro*\
+    .school-photo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .site-title {
+        font-size: 1.5em;
+        line-height: 1.2;
+    }
+
+    /* Ajustes menores de fontes e botões */
+    .box h2 {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .box input[type="submit"],
+    .CA {
+        font-size: 0.95em;
+        padding: 10px 15px;
+    }
+
+    .box .inputBox input {
+        font-size: 14px;
+    }
+
+    .inputBox button {
+        font-size: 1.1em;
+    }
+}

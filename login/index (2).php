@@ -1,55 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Login</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="site-header">
-        <img src="fotos/IMG-20250513-WA0005.jpg" alt="Foto escola" class="school-photo"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <span class="site-title">Biblioteca <br>André de Carvalho</span>
+<div class="site-header">
+    <img src="fotos/IMG-20250513-WA0005.jpg" alt="Foto escola" class="school-photo">
+    <span class="site-title">Biblioteca <br>André de Carvalho</span>
+</div>
+
+<div class="box">
+    <div class="photo-row">
+        <img src="fotos/IMG-20250818-WA0003.jpg" alt="Foto autor" class="circle-photo">
     </div>
-    <div class="box">
-        <div class="photo-row">
-            
-            <img src="fotos/IMG-20250818-WA0003.jpg" alt="Foto autor" class="circle-photo">
+    <h2>Login</h2>
+
+    <form action="">
+        <div class="inputBox">
+            <input type="text" name="name" autocomplete="off" autofocus required>
+            <label>Email</label>
         </div>
-        <h2>Login</h2>
-        <form action="">
-            <div class="inputBox">
-                <input type="text" name="name" autocomplete="off" autofocus="" required>
-                <label for="">Email</label>
-            </div>
 
-            <div class="inputBox">
-                <input type="password" id="senha" name="senha" autocomplete="off" required>
-                <label for="">Senha</label>
-                <button type="button" onclick="mostrarSenha()"
-                    style="margin-left:5px; vertical-align: middle;">👁︎</button>
-            </div>
-            
-            <script>
-                function mostrarSenha() {
-                    const campo = document.getElementById('senha');
-                    campo.type = campo.type === 'password' ? 'text' : 'password';
-                }
-            </script>
+        <div class="inputBox">
+            <input type="password" id="senha" name="senha" autocomplete="off" required>
+            <label>Senha</label>
+            <button type="button" onclick="mostrarSenha()" aria-label="Mostrar Senha">👁</button>
+        </div>
 
-        </form>
-        
         <input type="submit" value="Entrar">
-        <a href="Cadastro.html" class="CA" href="#" class="cadastrar" >cadastrar</a>
-        </form>
+        <a href="Cadastro.html" class="CA">Cadastrar</a>
+    </form>
+</div>
 
-    </div>
-
+<script>
+    function mostrarSenha() {
+        const campo = document.getElementById('senha');
+        campo.type = campo.type === 'password' ? 'text' : 'password';
+    }
+</script>
 </body>
-
 </html>
