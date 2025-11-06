@@ -1,0 +1,224 @@
+/* --- CONFIGURAÇÕES GLOBAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Um fundo leve caso o conteúdo seja curto */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF; /* Fundo branco principal */
+}
+
+/* --- CABEÇALHO E RODAPÉ ROXO --- */
+.main-header, .main-footer {
+    background-color: #812483; /* O roxo exato da imagem */
+    color: white;
+    width: 100%;
+}
+
+.main-header {
+    padding: 10px 20px;
+    border-bottom: 4px solid #F0F0F0; /* Borda da imagem */
+}
+
+.main-footer {
+    height: 40px;
+    margin-top: auto; /* Empurra o rodapé para baixo */
+}
+
+/* --- NAVEGAÇÃO DO CABEÇALHO --- */
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-icon {
+    color: white;
+    font-size: 2.5rem; /* Tamanho dos ícones */
+    text-decoration: none;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-image {
+    height: 50px; /* Ajuste o tamanho do seu logo */
+}
+
+.logo-group h1 {
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+/* --- ÁREA DE CONTEÚDO PRINCIPAL --- */
+.content-area {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço disponível */
+
+    /* O SEGREDO DA RESPONSIVIDADE: CSS GRID */
+    display: grid;
+    /* Cria colunas automáticas.
+      Tamanho mínimo de 320px.
+      Tamanho máximo de 1fr (distribui igualmente).
+    */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px; /* Espaço entre as colunas */
+    align-items: start; /* Alinha os itens no topo */
+}
+
+.content-column {
+    text-align: center;
+    padding: 20px;
+}
+
+.content-column h2 {
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* --- Coluna 1: Polaroid --- */
+.polaroid-section {
+    padding-top: 50px; /* Mais espaço para o polaroid respirar */
+}
+
+.polaroid-stack {
+    position: relative;
+    width: 280px;
+    height: 340px;
+    margin: 0 auto; /* Centraliza a pilha */
+}
+
+.polaroid-frame {
+    position: absolute;
+    width: 280px;
+    height: 330px;
+    background-color: white;
+    border: 1px solid #DDD;
+    padding: 15px;
+    padding-bottom: 60px; /* Espaço clássico de polaroid */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.polaroid-front {
+    transform: rotate(-8deg);
+    z-index: 2;
+}
+
+.polaroid-back {
+    transform: rotate(4deg);
+    z-index: 1;
+    background-color: #f0f0f0;
+}
+
+.polaroid-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #EEE;
+}
+
+.paperclip {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 2rem;
+    color: #777;
+    transform: rotate(20deg);
+    z-index: 3;
+}
+
+/* --- Coluna 2: Livro --- */
+.book-cover {
+    max-width: 250px; /* Largura máxima da capa */
+    width: 100%;
+    height: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #CCC;
+}
+
+/* --- Coluna 3: Tabela de Datas --- */
+.date-table {
+    width: 100%;
+    max-width: 350px; /* Limita a largura da tabela */
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid #B0B0B0;
+}
+
+.date-table th, .date-table td {
+    border: 1px solid #B0B0B0;
+    padding: 12px;
+    height: 30px; /* Altura fixa para células */
+}
+
+.date-table thead {
+    background-color: #EAEAEA;
+    color: #444;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 0.9rem;
+}
+
+/* --- AJUSTES RESPONSIVOS (CELULAR) --- */
+@media (max-width: 768px) {
+    .logo-group h1 {
+        font-size: 1.2rem; /* Diminui o título no celular */
+    }
+
+    .logo-image {
+        height: 40px;
+    }
+
+    .nav-icon {
+        font-size: 2rem;
+    }
+
+    .content-area {
+        padding: 20px 10px;
+    }
+
+    .content-column h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Centraliza o polaroid que se mexe */
+    .polaroid-section {
+        min-height: 380px;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Em telas muito pequenas, esconde o texto e deixa só o logo */
+    .logo-group h1 {
+        display: none;
+    }
+
+    .logo-group {
+        justify-content: center;
+        flex-grow: 1; /* Faz o logo centralizar */
+    }
+
+    .content-area {
+        /* Muda a largura mínima para caber na tela */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
