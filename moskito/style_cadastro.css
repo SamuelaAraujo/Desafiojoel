@@ -1,0 +1,335 @@
+/* Variáveis e Reset Básico */
+:root {
+    --color-purple: #be078b;
+    --color-dark: #333;
+    --color-light-gray: #f5f5f5;
+    --color-border: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--color-light-gray);
+    color: var(--color-dark);
+}
+
+/* === HEADER (CABEÇALHO) === */
+.site-header {
+    background-color: var(--color-purple);
+    height: 72px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.logo i {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-icon {
+    color: white;
+    font-size: 30px;
+}
+
+/* === FORMULÁRIO PRINCIPAL === */
+.form-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-container h1 {
+    text-align: center;
+    color: var(--color-purple);
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* Coluna da Imagem (fixa) e Coluna dos Campos */
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* --- COLUNA DA IMAGEM --- */
+.image-upload-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.image-placeholder {
+    width: 200px;
+    height: 300px;
+    border: 2px solid var(--color-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #eee;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-dark);
+    font-weight: bold;
+    text-align: center;
+}
+
+#bookImage {
+    display: none; /* Oculta o input de arquivo nativo */
+}
+
+#image-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Oculta o texto quando a imagem estiver visível */
+.image-placeholder:has(#image-preview:not([style*="none"])) #image-text {
+    display: none;
+}
+
+/* --- COLUNA DOS CAMPOS --- */
+.fields-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    align-items: baseline;
+    font-size: 18px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: var(--color-dark);
+    width: 180px; /* Largura fixa para os rótulos */
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.input-group input {
+    flex-grow: 1;
+    border: none;
+    border-bottom: 2px solid var(--color-dark);
+    padding: 5px 0;
+    font-size: 18px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-bottom-color: var(--color-purple);
+}
+
+/* --- BOTÃO DE SALVAR --- */
+.save-button {
+    display: block;
+    width: 100%;
+    max-width: 400px; /* Limita a largura do botão */
+    margin: 40px auto 10px auto;
+    padding: 15px 30px;
+    background-color: var(--color-purple);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.save-button:hover {
+    background-color: #9c056d;
+}
+
+.save-button:active {
+    transform: scale(0.98);
+}
+
+/* Mensagens */
+.message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 20px; /* Para evitar saltos na tela */
+}
+
+/* Rodapé (Faixa inferior da imagem de exemplo) */
+.site-footer {
+    height: 50px;
+    background-color: var(--color-purple);
+    margin-top: 50px;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Colunas empilhadas em telas pequenas */
+        gap: 20px;
+    }
+
+    .image-upload-wrapper {
+        order: -1; /* Move a imagem para o topo */
+    }
+
+    .input-group label {
+        width: 120px; /* Reduz a largura do rótulo para caber melhor */
+    }
+            body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            height: 100vh;
+            overflow: hidden; /* Evita a barra de rolagem horizontal */
+        }
+
+      
+
+        /* Botão para abrir o menu (simulação do ícone de usuário na tela) */
+        .open-btn {
+            position: fixed; /* Fixado no canto superior direito */
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 101;
+            color: #333;
+        }
+
+        /* Estilo do menu lateral (sidebar) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px; /* Esconde o menu para fora da tela */
+            width: 300px;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 100; /* Garante que o menu fique acima do conteúdo */
+            transition: right 0.5s ease-in-out; /* Adiciona a transição suave */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Classe para mostrar o menu (adicionada pelo JavaScript) */
+        .sidebar.open {
+            right: 0; /* Move o menu para a posição visível */
+        }
+
+        /* O botão de fechar dentro do menu */
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Estilos dos itens do menu */
+        .profile {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .menu-list li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-list a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .menu-list a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .menu-list i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-menu {
+            margin-top: auto; /* Empurra o rodapé para o final do menu */
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .school-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .school-info img {
+            width: 50px;
+            height: auto;
+        }
+        
+        .school-info h5 {
+            margin: 0;
+        }
+        
+        .school-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #777;
+        }
+}

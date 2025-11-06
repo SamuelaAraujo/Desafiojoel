@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Livros - MLMB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style_cadastro.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="logo" aria-label="Ir para a página inicial">
+                <i class="fas fa-home"></i>
+                <span class="brand">MLMB</span>
+            </a>
+            <i class="fas fa-user-circle profile-icon" aria-hidden="true" title="Perfil"></i>
+        </div>
+    </header>
+
+    <main class="form-container">
+        <h1>Cadastro de Novo Livro</h1>
+        
+        <form id="bookForm">
+            <div class="form-grid">
+                
+                <div class="image-upload-wrapper">
+                    <label for="bookImage" class="image-placeholder">
+                        <span id="image-text">Adicionar Imagem</span>
+                        <input type="file" id="bookImage" accept="image/*" required>
+                        <img id="image-preview" src="#" alt="Prévia da capa" style="display:none;">
+                    </label>
+                </div>
+
+                <div class="fields-column">
+                    
+                    <div class="input-group">
+                        <label for="numero">Número do Livro:</label>
+                        <input type="text" id="numero" name="numero" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" name="titulo" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="autor">Autor:</label>
+                        <input type="text" id="autor" name="autor" required>
+                    </div>
+
+                 
+
+                    <div class="input-group">
+                        <label for="sobrenome">Sobrenome (Autor):</label>
+                        <input type="text" id="sobrenome" name="sobrenome" required>
+                    </div>
+
+                  <div class="input-group">
+                        <label for="quantidade">Quantidade:</label>
+                        <input type="number" id="quantidade" name="quantidade" min="1" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="categorias">Categorias:</label>
+                        <input type="text" id="categorias" name="categorias" placeholder="Ex: Romance, Aventura" required>
+                    </div>
+
+                </div>
+            </div>
+            
+            <button type="submit" class="save-button">SALVAR LIVRO</button>
+            <p id="message" class="message"></p>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            </div>
+    </footer>
+
+    <script src="script_cadastro.js"></script>
+</body>   
+</html>
