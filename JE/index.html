@@ -24,7 +24,9 @@
             <circle cx="11" cy="11" r="6"></circle>
             <path d="M21 21l-4.3-4.3"></path>
           </svg>
-          <input type="search" name="q" placeholder="Livros disponíveis" aria-label="Pesquisar livros">
+          <input type="search" name="q" placeholder="Livros disponíveis" aria-label="Pesquisar livros" autocomplete="off">
+          <!-- sugestões recentes -- exibidas dinamicamente pelo JS -->
+          <ul class="search-suggestions" role="listbox" aria-label="Pesquisas recentes" hidden></ul>
         </div>
       </form>
 
@@ -58,19 +60,53 @@
       </div>
 
       <div class="book-card">
-        <img src="imagem/dom casmurro.jpg" alt="Capa de Dom Casmurro">
-        <h3>Dom Casmurro</h3>
-        <p>Machado de Assis</p>
+        <img src="imagem/o lado feio do amor.jpg" alt="Capa de O Lado Feio do Amor">
+        <h3>O Lado Feio do Amor</h3>
+        <p>Colleen Hoover</p>
         <a href="#" class="book-link">SAIBA MAIS</a>
       </div>
 
       <div class="book-card">
-        <img src="imagem/dom casmurro.jpg" alt="Capa de Dom Casmurro">
-        <h3>Dom Casmurro</h3>
-        <p>Machado de Assis</p>
+        <img src="imagem/todas as suas imperfeiçoes.jpg" alt="Capa de Todas as suas imperfeiçoes">
+        <h3>Todas as suas imperfeiçoes</h3>
+        <p>Colleen Hoover</p>
+        <a href="#" class="book-link">SAIBA MAIS</a>
+      </div>
+      <div class="book-card">
+        <img src="imagem/é assim que acaba.jpg" alt="Capa de É assim que acaba">
+        <h3>É assim que acaba</h3>
+        <p>Colleen Hoover</p>
         <a href="#" class="book-link">SAIBA MAIS</a>
       </div>
 
+       <div class="book-card">
+        <img src="imagem/é assim que começa.jpg" alt="Capa de É assim que começa">
+        <h3>É assim que começa</h3>
+        <p>Colleen Hoover</p>
+        <a href="#" class="book-link">SAIBA MAIS</a>
+      </div>
+
+      <div class="book-card">
+        <img src="imagem/melhor do que nos filmes.jpg" alt="Capa de Melhor do que nos Filmes">
+        <h3>Melhor do que nos Filmes</h3>
+        <p>Colleen Hoover</p>
+        <a href="#" class="book-link">SAIBA MAIS</a>
+      </div>
+
+      <div class="book-card">
+        <img src="imagem/uma segunda chance.jpg" alt="Capa de Uma Segunda Chance">
+        <h3>Uma Segunda Chance</h3>
+        <p>Colleen Hoover</p>
+        <a href="#" class="book-link">SAIBA MAIS</a>
+      </div>
+
+      <div class="book-card">
+        <img src="imagem/o verao que mudou a minha vida.jpg" alt="Capa de O Verão que Mudou a Minha Vida">
+        <h3>O Verão que Mudou a Minha Vida</h3>
+        <p>jenn Han</p>
+        <a href="#" class="book-link">SAIBA MAIS</a>
+      </div>
+      
       <!-- você pode duplicar os cards acima se quiser mais livros -->
     </div>
 
