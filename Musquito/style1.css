@@ -31,7 +31,7 @@ body {
 
 
 .main-header {
-    background-color: #0000ff; /* Azul vibrante */
+    background-color: #97287a; /* Azul vibrante */
     color: white;
     padding: 15px 30px;
     display: flex;
@@ -71,7 +71,7 @@ body {
 }
 
 .search-bar button:hover {
-    background: #1800AD;
+    background: #97287a;
 }
 
 .title h1 {
@@ -120,7 +120,7 @@ body {
 
 /* ---- RODAPÉ AZUL ---- */
 .main-footer {
-    background-color: #0000ff; /* Mesmo azul do cabeçalho */
+    background-color: #97287a; /* Mesmo azul do cabeçalho */
     height: 40px;
     width: 100%;
 }
