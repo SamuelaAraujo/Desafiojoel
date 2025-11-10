@@ -1,197 +1,186 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MLMB - Biblioteca</title>
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Font Awesome (used by the menu open icon) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MLMB - Biblioteca</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
+<header class="site-header">
     <div class="header-inner">
-      <!-- Logo / Home -->
-      <a href="#" class="logo" aria-label="Ir para a página inicial">
-        <!-- Logo casa -->
-        
-        <span class="brand">MLMB</span>
-      </a>
+        <a href="#" class="logo" aria-label="Ir para a página inicial">
+            <span class="brand">MLMB</span>
+        </a>
 
-      <!-- Search -->
-      <form class="search-form" role="search" aria-label="Pesquisar livros">
-        <div class="search-input-wrapper">
-          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <circle cx="11" cy="11" r="6"></circle>
-            <path d="M21 21l-4.3-4.3"></path>
-          </svg>
-          <input type="search" name="q" placeholder="Livros disponíveis" aria-label="Pesquisar livros" autocomplete="off">
-          <!-- sugestões recentes -- exibidas dinamicamente pelo JS -->
-          <ul class="search-suggestions" role="listbox" aria-label="Pesquisas recentes" hidden></ul>
-        </div>
-      </form>
-
-      <!-- User icon (replaced by menu open icon from /menu) -->
-      <i class="fas fa-user-circle open-btn" onclick="toggleSidebar()" aria-hidden="true" title="Abrir menu"></i>
-
-      <div class="sidebar" id="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">×</button>
-        
-        <div class="profile">
-            <div class="profile-info">
-                <span>Marcus vinicius</span>
-                
+        <form class="search-form" role="search" aria-label="Pesquisar livros">
+            <div class="search-input-wrapper">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="11" cy="11" r="6"></circle>
+                    <path d="M21 21l-4.3-4.3"></path>
+                </svg>
+                <input type="search" name="q" placeholder="Livros disponíveis" aria-label="Pesquisar livros" autocomplete="off">
+                <ul class="search-suggestions" role="listbox" aria-label="Pesquisas recentes" hidden></ul>
             </div>
-        </div>
-        
-        <ul class="menu-list">
-            <li>
-                <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-book-open"></i> Meus livros</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-history"></i> Histórico</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
-            </li>
-             <li>
-                <a href="#"><i class="fas fa-book-open"></i> Clube Do Livro</a>
-            </li>
-        </ul>
-        
-        <div class="footer-menu">
-            <div class="school-info">
-                <img src="imagem/IMG-20250513-WA0005.jpg" alt="Logo da Escola"> 
-                <div>
-                    <h5>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</h5>
-                    <p>terceiro informatica-2025</p>
+        </form>
+
+        <div class="sidebar" id="sidebar">
+            <button class="close-btn" onclick="toggleSidebar()">×</button>
+
+            <div class="profile">
+                <div class="profile-info">
+                    <span>Marcus vinicius</span>
+
+                </div>
+            </div>
+
+            <ul class="menu-list">
+                <li>
+                    <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-book-open"></i> Meus livros</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-history"></i> Histórico</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-book-open"></i> Clube Do Livro</a>
+                </li>
+            </ul>
+
+            <div class="footer-menu">
+                <div class="school-info">
+                    <img src="imagem/IMG-20250513-WA0005.jpg" alt="Logo da Escola">
+                    <div>
+                        <h5>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</h5>
+                        <p>terceiro informatica-2025</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-        }
-    </script>
+
+        <i class="fas fa-user-circle open-btn" onclick="toggleSidebar()" aria-hidden="true" title="Abrir menu"></i>
+
+        <script>
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('open');
+            }
+        </script>
 
     </div>
-  </header>
+</header>
 
-  <!-- Conteúdo principal (vai receber as próximas partes: botão ROMANCE, carrossel, etc.) -->
-  <main class="main-content">
-    <!-- Categoria Romance -->
-<<!-- Categoria Romance -->
-<section class="category-section">
-  <button class="category-btn">ROMANCE</button>
+<main class="main-content">
+    <section class="category-section">
+        <button class="category-btn">ROMANCE</button>
 
-  <div class="carousel-wrapper">
-    <!-- seta esquerda -->
-    <button class="arrow left" aria-label="Anterior">&#10094;</button>
+        <div class="carousel-wrapper">
+            <button class="arrow left" aria-label="Anterior">&#10094;</button>
 
-    <div class="book-carousel">
-      <div class="book-card">
-        <img src="imagem/dom casmurro.jpg" alt="Capa de Dom Casmurro">
-        <h3>Dom Casmurro</h3>
-        <p>Machado de Assis</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
+            <div class="book-carousel">
+                <div class="book-card">
+                    <img src="imagem/dom casmurro.jpg" alt="Capa de Dom Casmurro">
+                    <h3>Dom Casmurro</h3>
+                    <p>Machado de Assis</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
-      <div class="book-card">
-        <img src="imagem/o lado feio do amor.jpg" alt="Capa de O Lado Feio do Amor">
-        <h3>O Lado Feio do Amor</h3>
-        <p>Colleen Hoover</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
+                <div class="book-card">
+                    <img src="imagem/o lado feio do amor.jpg" alt="Capa de O Lado Feio do Amor">
+                    <h3>O Lado Feio do Amor</h3>
+                    <p>Colleen Hoover</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
-      <div class="book-card">
-        <img src="imagem/todas as suas imperfeiçoes.jpg" alt="Capa de Todas as suas imperfeiçoes">
-        <h3>Todas as suas imperfeiçoes</h3>
-        <p>Colleen Hoover</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
-      <div class="book-card">
-        <img src="imagem/é assim que acaba.jpg" alt="Capa de É assim que acaba">
-        <h3>É assim que acaba</h3>
-        <p>Colleen Hoover</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
+                <div class="book-card">
+                    <img src="imagem/todas as suas imperfeiçoes.jpg" alt="Capa de Todas as suas imperfeiçoes">
+                    <h3>Todas as suas imperfeiçoes</h3>
+                    <p>Colleen Hoover</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
+                <div class="book-card">
+                    <img src="imagem/é assim que acaba.jpg" alt="Capa de É assim que acaba">
+                    <h3>É assim que acaba</h3>
+                    <p>Colleen Hoover</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
-       <div class="book-card">
-        <img src="imagem/é assim que começa.jpg" alt="Capa de É assim que começa">
-        <h3>É assim que começa</h3>
-        <p>Colleen Hoover</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
+                <div class="book-card">
+                    <img src="imagem/é assim que começa.jpg" alt="Capa de É assim que começa">
+                    <h3>É assim que começa</h3>
+                    <p>Colleen Hoover</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
-      <div class="book-card">
-        <img src="imagem/melhor do que nos filmes.jpg" alt="Capa de Melhor do que nos Filmes">
-        <h3>Melhor do que nos Filmes</h3>
-        <p>Colleen Hoover</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
+                <div class="book-card">
+                    <img src="imagem/melhor do que nos filmes.jpg" alt="Capa de Melhor do que nos Filmes">
+                    <h3>Melhor do que nos Filmes</h3>
+                    <p>Colleen Hoover</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
-      <div class="book-card">
-        <img src="imagem/uma segunda chance.jpg" alt="Capa de Uma Segunda Chance">
-        <h3>Uma Segunda Chance</h3>
-        <p>Colleen Hoover</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
+                <div class="book-card">
+                    <img src="imagem/uma segunda chance.jpg" alt="Capa de Uma Segunda Chance">
+                    <h3>Uma Segunda Chance</h3>
+                    <p>Colleen Hoover</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
-      <div class="book-card">
-        <img src="imagem/o verao que mudou a minha vida.jpg" alt="Capa de O Verão que Mudou a Minha Vida">
-        <h3>O Verão que Mudou a Minha Vida</h3>
-        <p>jenn Han</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
+                <div class="book-card">
+                    <img src="imagem/o verao que mudou a minha vida.jpg" alt="Capa de O Verão que Mudou a Minha Vida">
+                    <h3>O Verão que Mudou a Minha Vida</h3>
+                    <p>jenn Han</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
-       <div class="book-card">
-        <img src="imagem/sem você nao é verão.jpg" alt="Capa de Sem Você Não é Verão">
-        <h3>Sem Você Não é Verão</h3>
-        <p>jenn Han</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
+                <div class="book-card">
+                    <img src="imagem/sem você nao é verão.jpg" alt="Capa de Sem Você Não é Verão">
+                    <h3>Sem Você Não é Verão</h3>
+                    <p>jenn Han</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
-      <div class="book-card">
-        <img src="imagem/sempre teremos o verão.jpg" alt="Capa de Sempre Teremos o Verão">
-        <h3>Sempre Teremos o Verão</h3>
-        <p>jenn Han</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
+                <div class="book-card">
+                    <img src="imagem/sempre teremos o verão.jpg" alt="Capa de Sempre Teremos o Verão">
+                    <h3>Sempre Teremos o Verão</h3>
+                    <p>jenn Han</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
-      <div class="book-card">
-        <img src="imagem/verity.jpg" alt="Capa de Verity">
-        <h3>Verity</h3>
-        <p>Colleen Hoover</p>
-        <a href="#" class="book-link">SAIBA MAIS</a>
-      </div>
-      
-      
-      
-      <!-- você pode duplicar os cards acima se quiser mais livros -->
-    </div>
-
-    <!-- seta direita -->
-    <button class="arrow right" aria-label="Próximo">&#10095;</button>
-  </div>
-</section>
+                <div class="book-card">
+                    <img src="imagem/verity.jpg" alt="Capa de Verity">
+                    <h3>Verity</h3>
+                    <p>Colleen Hoover</p>
+                    <a href="#" class="book-link">SAIBA MAIS</a>
+                </div>
 
 
-  </main>
 
-  <script src="main.js"></script>
-  <script>
-    // toggleSidebar is safe if no #sidebar exists — it will do nothing but avoid JS errors
+            </div>
+
+            <button class="arrow right" aria-label="Próximo">&#10095;</button>
+        </div>
+    </section>
+
+
+</main>
+
+<script src="main.js"></script>
+<script>
+    // A função toggleSidebar no final do body foi simplificada para remover a duplicação.
+    // O script dentro do header já basta.
+    /*
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       if (sidebar) sidebar.classList.toggle('open');
     }
-  </script>
+    */
+</script>
 </body>
 </html>

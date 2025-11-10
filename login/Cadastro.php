@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <div class="site-header">
-        <img src="fotos/IMG-20250513-WA0005.jpg" alt="Foto escola" class="school-photo"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <span class="site-title">Biblioteca <br>André de Carvalho</span>
-    </div>
+<div class="site-header">
+    <img src="fotos/IMG-20250513-WA0005.jpg" alt="Foto escola" class="school-photo">
+    <span class="site-title">Biblioteca <br>André de Carvalho</span>
+</div>
     <div class="box">
         <div class="photo-row">
             
@@ -32,6 +32,12 @@
                 <input type="text" name="name" autocomplete="off" autofocus="" required>
                 <label for="">Email</label>
             </div>
+
+            <div class="inputBox">
+                <input type="text" name="name" autocomplete="off" autofocus="" required>
+                <label for="">Telefone</label>
+            </div>
+
             <div class="inputBox">
             <label for="">Cargo</label><br><br>
     <select name="sexo">
