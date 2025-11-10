@@ -5,56 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Livros - MLMB</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="style_cadastro.css"> 
-</head>
+    <link rel="stylesheet" href="style_cadastro.css">
+    </head>
 <body>
     <header class="site-header">
         <div class="header-inner">
-            <a href="#" class="logo" aria-label="Ir para a página inicial">
+            <a href="catalogo.html" class="logo" aria-label="Ir para o Catálogo">
                 <i class="fas fa-home"></i>
                 <span class="brand">MLMB</span>
             </a>
-            <i class="fas fa-user-circle profile-icon" aria-hidden="true" title="Perfil" onclick="toggleSidebar()"></i>
+            <i class="fas fa-user-circle profile-icon" aria-hidden="true" title="Perfil"></i>
         </div>
     </header>
 
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">×</button>
-        
-        <div class="profile">
-            <div class="profile-info">
-                <span>Marcus vinicius</span>
-            </div>
-        </div>
-        
-        <ul class="menu-list">
-            <li>
-                <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-book-open"></i> Meus livros</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-history"></i> Histórico</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
-            </li>
-             <li>
-                <a href="#"><i class="fas fa-book-open"></i> Clube Do Livro</a>
-            </li>
-        </ul>
-        
-        <div class="footer-menu">
-            <div class="school-info">
-                <img src="fotos/IMG-20250513-WA0005.jpg" alt="Logo da Escola">
-                <div>
-                    <h5>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</h5>
-                    <p>terceiro informatica</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <main class="form-container">
         <h1>Cadastro de Novo Livro</h1>
         
@@ -65,17 +28,11 @@
                     <label for="bookImage" class="image-placeholder">
                         <span id="image-text">Adicionar Imagem</span>
                         <input type="file" id="bookImage" accept="image/*" required>
-                        <img id="image-preview" src="#" alt="Prévia da capa" style="display:none;">
+                        <img id="image-preview" src="#" alt="Prévia da Capa" style="display:none; width: 100%; height: 100%; object-fit: cover;">
                     </label>
                 </div>
-
+                
                 <div class="fields-column">
-                    
-                    <div class="input-group">
-                        <label for="numero">Número do Livro:</label>
-                        <input type="text" id="numero" name="numero" required>
-                    </div>
-
                     <div class="input-group">
                         <label for="titulo">Título:</label>
                         <input type="text" id="titulo" name="titulo" required>
@@ -85,9 +42,7 @@
                         <label for="autor">Autor:</label>
                         <input type="text" id="autor" name="autor" required>
                     </div>
-
                  
-
                     <div class="input-group">
                         <label for="sobrenome">Sobrenome (Autor):</label>
                         <input type="text" id="sobrenome" name="sobrenome" required>
@@ -112,17 +67,56 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-inner">
-            </div>
+        <div class="footer-inner"></div>
     </footer>
 
     <script>
-        // Função do menu sidebar
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('bookForm');
+            const imageInput = document.getElementById('bookImage');
+            const imagePreview = document.getElementById('image-preview');
+            const imageText = document.getElementById('image-text');
+            
+            let imageDataURL = null;
+
+            // Pré-visualização da imagem
+            imageInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imageDataURL = e.target.result;
+                        imagePreview.src = imageDataURL;
+                        imagePreview.style.display = 'block';
+                        imageText.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Lógica de salvamento e redirecionamento
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Coleta de dados
+                const book = {
+                    title: document.getElementById('titulo').value,
+                    author: document.getElementById('autor').value,
+                    lastName: document.getElementById('sobrenome').value,
+                    quantity: document.getElementById('quantidade').value,
+                    categories: document.getElementById('categorias').value,
+                    // Usa a imagem capturada ou um placeholder
+                    image: imageDataURL || 'placeholder' 
+                };
+                
+                // Salva o novo livro em localStorage, substituindo o anterior
+                localStorage.setItem('currentBook', JSON.stringify(book));
+                
+                // Exibe mensagem e redireciona (ou apenas redireciona)
+                alert('Livro cadastrado com sucesso! Redirecionando para o catálogo.');
+                window.location.href = 'catalogo.html';
+            });
+        });
     </script>
-    <script src="script_cadastro.js"></script>
 </body>   
 </html>

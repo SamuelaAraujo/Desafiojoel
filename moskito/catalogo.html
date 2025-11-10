@@ -6,8 +6,10 @@
     <title>MLMB - Catálogo de Livros</title>
     <link rel="stylesheet" href="style1.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    
     <header class="site-header">
         <div class="header-inner">
             <a href="#" class="logo" aria-label="Ir para a página inicial">
@@ -18,27 +20,26 @@
             <form class="search-form" role="search" aria-label="Pesquisar livros">
                 <div class="search-input-wrapper">
                     <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 17 10.5 6.5 6.5 0 1 0 10.5 17c1.47 0 2.85-.49 4.01-1.33l.27.28v.79l5 5L20.49 19l-5-5zm-5 0C8.5 14 7 12.5 7 10.5S8.5 7 10.5 7s3.5 1.5 3.5 3.5-1.5 3.5-3.5 3.5z"></path>
+                        <path fill="#555" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 17 10.5 6.5 6.5 0 1 0 10.5 17c1.47 0 2.85-.49 4.01-1.33l.27.28v.79l5 5L20.49 19l-5-5zm-5 0C8.5 14 7 12.5 7 10.5S8.5 7 10.5 7s3.5 1.5 3.5 3.5-1.5 3.5-3.5 3.5z"></path>
                     </svg>
                     <input type="search" name="q" placeholder="Livros disponíveis" aria-label="Pesquisar livros">
                 </div>
             </form>
 
-            <i class="fas fa-user-circle open-btn" onclick="toggleSidebar()"></i>
+            <i class="fas fa-user-circle open-btn" onclick="toggleSidebar()" aria-hidden="true" title="Abrir menu"></i>
             
         </div>
     </header>
-
     <main class="main-content">
         <section class="catalog-grid-section">
             <h2 class="section-title">Todos os Livros Cadastrados</h2>
             
             <div class="book-grid" id="book-grid">
                 
-                <a href="cadastro.html" class="book-card add-book-card">
+                <a href="cadastro.html" class="book-card add-book-card hidden" id="add-book-card">
                     <div class="add-icon-wrapper">
                         <i class="fas fa-plus"></i>
-                        <p>Adicionar Livro</p>
+                        <p>Adicionar Novo Livro</p>
                     </div>
                 </a>
                 
@@ -52,49 +53,91 @@
         <button class="close-btn" onclick="toggleSidebar()">×</button>
         
         <div class="profile">
-            <div class="profile-info">
-                <span>Marcus vinicius</span>
-            </div>
+            <div class="profile-info"><span>Marcus vinicius</span></div>
         </div>
         
         <ul class="menu-list">
-            <li>
-                <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-book-open"></i> Meus livros</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-history"></i> Histórico</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
-            </li>
-             <li>
-                <a href="#"><i class="fas fa-book-open"></i> Clube Do Livro</a>
-            </li>
+            <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
+            <li><a href="#"><i class="fas fa-book-open"></i> Meus livros</a></li>
+            <li><a href="#"><i class="fas fa-history"></i> Histórico</a></li>
+            <li><a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a></li>
+             <li><a href="#"><i class="fas fa-book-open"></i> Clube Do Livro</a></li>
         </ul>
         
         <div class="footer-menu">
             <div class="school-info">
-                <img src="IMG-20250513-WA0005.jpg" alt="Logo da Escola">
+                <img src="fotos/IMG-20250513-WA0005.jpg" alt="Logo da Escola">
                 <div>
                     <h5>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</h5>
-                    <p>terceiro informatica 2025</p>
+                    <p>terceiro informatica</p>
                 </div>
             </div>
         </div>
     </div>
-
     <script>
+        // Função do Sidebar
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const body = document.body;
             sidebar.classList.toggle('open');
-            body.classList.toggle('menu-open'); // Adiciona/Remove classe no body para bloquear o scroll
+            body.classList.toggle('menu-open'); 
+        }
+
+        // --- LÓGICA DE EXIBIÇÃO DO LIVRO TEMPORÁRIO COM FADE-IN ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookGrid = document.getElementById('book-grid');
+            const addBookCard = document.getElementById('add-book-card');
+            const storedBook = localStorage.getItem('currentBook');
+
+            let allCards = [addBookCard]; // Fila de cards para a animação
+
+            if (storedBook && storedBook !== 'placeholder') {
+                try {
+                    const bookData = JSON.parse(storedBook);
+                    const bookCardHTML = createBookCard(bookData);
+                    
+                    // 1. Insere o card do livro antes do botão "Adicionar"
+                    addBookCard.insertAdjacentHTML('beforebegin', bookCardHTML);
+
+                    // 2. Adiciona o novo card à fila de animação
+                    const newCard = bookGrid.querySelector('.temporary-book-card');
+                    if(newCard) {
+                        newCard.classList.add('hidden'); 
+                        allCards.unshift(newCard); // Coloca o livro no início da fila
+                    }
+
+                } catch (e) {
+                    console.error("Erro ao processar dados do livro em localStorage:", e);
+                }
+            }
+
+            // 3. Efeito de Fade-in (CSS + JS)
+            allCards.forEach((card, index) => {
+                setTimeout(() => {
+                    // Remove a classe 'hidden' para ativar a transição CSS
+                    card.classList.remove('hidden'); 
+                }, 50 * index + 150); // Atraso progressivo
+            });
+        });
+
+        // Função para criar o HTML do card do livro
+        function createBookCard(book) {
+            // Usa Base64 da imagem ou um placeholder elegante se não houver imagem
+            const imgSrc = book.image && book.image !== 'placeholder' 
+                         ? book.image 
+                         : 'https://via.placeholder.com/220x330/e0e0e0/000000?text=Capa+Indispon%C3%ADvel'; 
+            
+            return `
+                <a href="#" class="book-card temporary-book-card">
+                    <img src="${imgSrc}" alt="Capa do livro ${book.title}" class="book-image">
+                    <div class="book-info">
+                        <h3 class="book-title">${book.title}</h3>
+                        <p class="book-author">Por: ${book.author} ${book.lastName}</p>
+                        <span class="book-quantity">Qtd: ${book.quantity}</span>
+                    </div>
+                </a>
+            `;
         }
     </script>
-    
-    <script src="script_catalogo.js"></script>
 </body>
 </html>
