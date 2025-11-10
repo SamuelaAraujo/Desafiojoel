@@ -11,7 +11,7 @@
 
 <header class="main-header">
     <nav class="header-nav">
-        <a href="#" class="nav-icon" aria-label="Página Inicial">
+        <a href="../inicio/index1.html" class="nav-icon" aria-label="Página Inicial">
             <i class="fas fa-home"></i>
         </a>
 
@@ -34,7 +34,7 @@
 
             <ul class="menu-list">
                 <li>
-                    <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
+                    <a href="../Obrasfavoritas/index.php"><i class="fas fa-heart"></i> Favoritos</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-book-open"></i> Meus livros</a>
@@ -46,7 +46,10 @@
                     <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-book-open"></i> Clube Do Livro</a>
+                    <a href="../clube.do.livro/index.php"><i class="fas fa-book-open"></i> Clube Do Livro</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-book-open"></i> Cadastro de livros</a>
                 </li>
             </ul>
 

@@ -18,7 +18,7 @@
 
     <header class="main-header">
         <div class="nav-icons">
-            <a href="#"><i class="fas fa-home"></i></a>
+            <a href="../inicio/index1.html"><i class="fas fa-home"></i></a>
         </div>
         
 <form class="search-bar">
