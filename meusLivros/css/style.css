@@ -1,3 +1,7 @@
+/* ==================================== */
+/* ESTILOS GERAIS E LAYOUT PRINCIPAL */
+/* ==================================== */
+
 /* Estilos Gerais */
 body {
     font-family: Arial, sans-serif;
@@ -81,10 +85,9 @@ body {
 .book-list {
     max-width: 1200px;
     margin: 20px auto;
-    /* Novo padding para evitar que o rodapé fixe cubra os itens */
-    padding: 0 20px 100px;
+    padding: 0 20px;
+    padding-bottom: 100px; /* Garante que o conteúdo não seja escondido pelo rodapé fixo */
 }
-
 
 .book-item {
     display: flex;
@@ -124,7 +127,130 @@ body {
     z-index: 50;
 }
 
-/* Media Queries para Responsividade (melhor experiência em telas menores) */
+/* ==================================== */
+/* ESTILOS DO SIDEBAR (MENU LATERAL) */
+/* ==================================== */
+
+/* Botão para abrir o menu */
+.open-btn {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 101;
+    color: white; /* Cor branca para combinar com o header roxo */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Classe para esconder o botão de abrir quando o menu está aberto */
+.open-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Estilo do menu lateral (sidebar) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Esconde o menu para fora da tela */
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 200; /* Garante que o menu fique acima de tudo */
+    transition: right 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Classe para mostrar o menu (adicionada pelo JavaScript) */
+.sidebar.open {
+    right: 0;
+}
+
+/* O botão de fechar dentro do menu */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Estilos dos itens do menu */
+.profile {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu-list li {
+    border-bottom: 1px solid #eee;
+}
+
+.menu-list a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.menu-list a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-list i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-menu {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.school-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.school-info img {
+    width: 50px;
+    height: auto;
+}
+
+.school-info h5 {
+    margin: 0;
+}
+
+.school-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* ==================================== */
+/* MEDIA QUERIES (RESPONSIVIDADE) */
+/* ==================================== */
 @media (max-width: 768px) {
     .header-content {
         flex-wrap: wrap;
@@ -133,7 +259,7 @@ body {
 
     .search-bar {
         width: 100%;
-        order: 3; /* Move a barra de pesquisa para baixo */
+        order: 3;
         margin-top: 10px;
     }
 
@@ -158,6 +284,4 @@ body {
         margin-right: 0;
         margin-bottom: 15px;
     }
-
 }
-
