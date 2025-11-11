@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Leituras</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+
+        <div class="profile">
+            <div class="profile-info">
+                <span>Marcus vinicius</span>
+            </div>
+        </div>
+
+        <ul class="menu-list">
+            <li>
+                <a href="../Obrasfavoritas/index.php"><i class="fas fa-heart"></i> Favoritos</a>
+            </li>
+                <li>
+            <a href=""><i class="fas fa-book-open"></i> Meus livros</a>
+        </li>
+             <li>
+            <a href="/Obrasfavoritas/favoritos.html"><i class="fas fa-heart"></i> Favoritos</a>
+        </li>
+            <li>
+                <a href=""><i class="fas fa-user-edit"></i> Meus Dados</a>
+            </li>
+            <li>
+                <a href="../clube.do.livro/index.php"><i class="fas fa-book-open"></i> Clube Do Livro</a>
+            </li>
+            <li>
+            <a href="/moskito/cadastro.html"><i class="fas fa-book-open"></i> Cadastro de livros</a>
+        </li>
+        </ul>
+
+        <div class="footer-menu">
+            <div class="school-info">
+                <img src="imagem/logo.png.png" alt="Logo da Escola">
+                <div>
+                    <h5>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</h5>
+                    <p>terceiro informatica 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="main-header">
+        <div class="header-content">
+            <nav class="top-nav">
+                <a href="/inicio/index1.html" class="nav-icon home-icon" aria-label="Início"><i class="fas fa-home"></i></a>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="" aria-label="Pesquisar">
+                </div>
+            </nav>
+
+            <div class="header-actions">
+                <h1 class="page-title">HISTORICO</h1>
+                <a href="#" class="nav-icon refresh-icon" aria-label="Recarregar Histórico"><i class="fas fa-redo-alt"></i></a>
+                
+                <a href="#" class="nav-icon profile-icon open-btn" id="open-btn" onclick="toggleSidebar()" aria-label="Perfil do Usuário">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-historico">
+        <div class="book-grid">
+            
+            <div class="book-card" style="background-image: url('capa1.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa2.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa3.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa4.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa5.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa6.jpg');"></div>
+
+            <div class="book-card" style="background-image: url('capa7.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa8.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa9.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa10.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa11.jpg');"></div>
+            <div class="book-card" style="background-image: url('capa12.jpg');"></div>
+            
+            </div>
+    </main>
+
+    <div class="bottom-strip"></div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const openBtn = document.getElementById('open-btn');
+    
+            sidebar.classList.toggle('open');
+            // Esconde o botão de abrir quando o menu está aberto para evitar cliques acidentais
+            openBtn.classList.toggle('hidden'); 
+        }
+    </script>
+    </body>
+</html>

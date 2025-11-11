@@ -166,7 +166,8 @@ body {
 
 /* ======= CARD DO LIVRO ======= */
 .book-card {
-    background: #f5f5f5;
+    /* MUDANÇA AQUI: Cor de fundo alterada para um cinza claro neutro */
+    background: #ebebeb;
     border-radius: 15px;
     padding: 30px;
     text-align: left;
@@ -181,10 +182,10 @@ body {
     transform: translateY(-8px);
 }
 
-/* Card specific styles */
-.card-red-queen { background: #f8e5e5; }
-.card-dom-casmurro { background: #e5e5f8; }
-.card-fault-in-stars { background: #e5f8e5; }
+/* Removidas as cores de fundo específicas por cartão para manter o cinza claro padrão */
+/* .card-red-queen { background: #f8e5e5; } */
+/* .card-dom-casmurro { background: #e5e5f8; } */
+/* .card-fault-in-stars { background: #e5f8e5; } */
 
 .book-title {
     font-size: 24px;
