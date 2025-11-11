@@ -1,0 +1,163 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 60px; /* Espaço para o cabeçalho fixo */
+    background-color: #f8f8f8;
+}
+
+/* Cores Principais */
+:root {
+    --roxo-principal: #a63d91; /* Cor roxa do cabeçalho */
+    --rosa-claro: #f4d3e8;   /* Cor de fundo próxima ao branco na imagem */
+    --faixa-inferior: #a63d91; /* Cor da faixa inferior */
+}
+
+/* Estilo do Cabeçalho Fixo */
+.main-header {
+    background-color: var(--roxo-principal);
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-header h1 {
+    font-size: 1.5em;
+    margin: 0;
+    flex-grow: 1;
+    text-align: right; /* Alinha o título "MEUS LIVROS" à direita */
+    margin-right: 10px;
+}
+
+/* Ícones do Cabeçalho */
+.main-header i {
+    font-size: 1.5em;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.header-content a i {
+    font-size: 2em; /* Ícone da casa maior */
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 30%; /* Ajusta a largura da barra de pesquisa */
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    flex-grow: 1;
+    color: black;
+}
+
+.search-bar .fa-search {
+    color: var(--roxo-principal);
+    font-size: 1em;
+}
+
+/* Lista de Livros (Main Content) */
+.book-list {
+    max-width: 1200px;
+    margin: 20px auto;
+    /* Novo padding para evitar que o rodapé fixe cubra os itens */
+    padding: 0 20px 100px;
+}
+
+
+.book-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white; /* Fundo branco para cada item */
+    border-radius: 5px;
+}
+
+.book-item img {
+    width: 100px; /* Largura da capa */
+    height: auto;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar destaque à capa */
+}
+
+.book-details p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1em;
+}
+
+.book-details strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Faixa Inferior */
+.footer-band {
+    background-color: var(--faixa-inferior);
+    height: 80px; /* Altura da faixa */
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+}
+
+/* Media Queries para Responsividade (melhor experiência em telas menores) */
+@media (max-width: 768px) {
+    .header-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-bar {
+        width: 100%;
+        order: 3; /* Move a barra de pesquisa para baixo */
+        margin-top: 10px;
+    }
+
+    .main-header h1 {
+        text-align: center;
+        margin: 0;
+        order: 2;
+    }
+
+    .header-content a, .header-icons {
+        order: 1;
+        margin: 0 10px;
+    }
+
+    .book-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-item img {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+}
+

@@ -1,0 +1,320 @@
+/* Estilos Gerais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fdfdfd; /* Fundo principal branco */
+    min-height: 100vh;
+    /* MUDANÇA: Adiciona espaço no fundo igual à altura da listra, e está no final do arquivo */
+}
+
+/* Variáveis de Cor */
+:root {
+    --main-color: #be078b; /* Roxo/Magenta da sua imagem */
+    --background-color: #fdfdfd;
+    --border-radius: 4px;
+}
+
+/* === CABEÇALHO (Header) === */
+.main-header {
+    background-color: var(--main-color);
+    padding: 15px 40px;
+    height: 100px; /* Altura fixa do topo */
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Barra de Navegação Superior (Home + Busca) */
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 300px; /* Largura ajustada para a barra de busca */
+}
+
+.nav-icon {
+    color: white;
+    font-size: 1.8rem;
+    text-decoration: none;
+}
+
+.home-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 10px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 100%;
+}
+
+.search-bar i {
+    color: #666;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px 0;
+}
+
+/* Título e Ícones de Ação (Direita) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.page-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.refresh-icon {
+    font-size: 1.5rem;
+}
+
+/* === CONTEÚDO PRINCIPAL (Livros) === */
+.content-historico {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.book-grid {
+    display: grid;
+    /* 6 colunas, como na imagem */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 20px;
+    justify-items: center;
+}
+
+.book-card {
+    width: 100%;
+    /* Mantém a proporção de um livro (cerca de 2:3) */
+    padding-bottom: 150%; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Responsividade --- */
+
+@media (max-width: 1024px) {
+    .book-grid {
+        /* Muda para 4 colunas em telas médias */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 10px 20px;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .header-content {
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+
+    .top-nav {
+        width: 100%;
+        justify-content: flex-start;
+        order: 2;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+        order: 1;
+    }
+
+    .book-grid {
+        /* Muda para 3 colunas em tablets e mobiles */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .book-grid {
+        /* Muda para 2 colunas em celulares menores */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* === LISTRA INFERIOR (Bottom Strip) === */
+.bottom-strip {
+    background-color: var(--main-color); /* Usando a cor roxa/magenta definida no :root */
+    width: 100%;
+    height: 60px; /* Altura da listra, ajustável */
+    position: fixed; /* Fixa a listra na parte inferior da tela */
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Garante que fique acima de outros elementos se necessário */
+}
+
+/* Ajuste o padding do corpo para garantir que a barra inferior não cubra o conteúdo */
+body {
+    background-color: #fdfdfd; 
+    min-height: 100vh;
+    padding-bottom: 60px; /* Adiciona espaço no fundo igual à altura da listra */
+}
+
+
+/* ======================================= */
+/* === ESTILOS DA SIDEBAR (DE style22.css) === */
+/* ======================================= */
+
+/* Botão para abrir o menu */
+.open-btn {
+    /* ADIÇÃO: Transição suave para o ícone de abrir */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Nova classe para esconder o botão de abrir */
+.open-btn.hidden {
+    opacity: 0;
+    pointer-events: none; /* Impede que seja clicável quando invisível */
+}
+
+
+/* Estilo do menu lateral (sidebar) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Esconde o menu para fora da tela */
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 2000; /* Z-index alto para ficar acima de tudo */
+    transition: right 0.5s ease-in-out; /* Adiciona a transição suave */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Classe para mostrar o menu (adicionada pelo JavaScript) */
+.sidebar.open {
+    right: 0; /* Move o menu para a posição visível */
+}
+
+/* O botão de fechar dentro do menu */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Estilos dos itens do menu */
+.profile {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu-list li {
+    border-bottom: 1px solid #eee;
+}
+
+.menu-list a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.menu-list a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-list i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-menu {
+    margin-top: auto; /* Empurra o rodapé para o final do menu */
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.school-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.school-info img {
+    width: 50px;
+    height: auto;
+}
+
+.school-info h5 {
+    margin: 0;
+}
+
+.school-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #777;
+}
