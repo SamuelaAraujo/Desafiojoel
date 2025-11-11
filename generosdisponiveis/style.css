@@ -1,253 +1,336 @@
+/* --- Configurações Globais --- */
+:root {
+    --cor-principal: #be078b; /* Roxo do cabeçalho */
+    --cor-borda-livro: #d1d1d1;
+    --cor-fundo: #f4f4f4;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 body {
-    background-color: #f5f7fa;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo);
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 20px 0;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.header h1 {
-    font-size: 2.5rem;
-    color: #be078b;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.header p {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.content {
+/* --- 1. Estilos do Cabeçalho --- */
+.site-header {
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 12px 15px;
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 30px;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
 
-.sidebar {
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    height: fit-content;
-}
-
-.sidebar h2 {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-    color: #be078b;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ecf0f1;
-}
-
-.filter-option {
-    margin-bottom: 15px;
+.logo-container {
     display: flex;
     align-items: center;
+    gap: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.filter-option input {
-    margin-right: 10px;
+.logo-container i {
+    font-size: 1.8rem;
 }
 
-.filter-option label {
+/* --- Barra de Busca --- */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    padding: 8px 15px;
+    width: 100%;
+    max-width: 500px;
+    justify-self: center;
+}
+
+.search-container i {
+    color: #555;
+    margin-right: 8px;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* --- Ícone de Abrir Menu (no Header) --- */
+.profile-container .open-btn {
+    font-size: 1.8rem;
+    color: white;
     cursor: pointer;
-    font-size: 0.95rem;
+    transition: opacity 0.5s ease-in-out;
 }
 
-.main-content {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+.profile-container .open-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- 2. Conteúdo Principal --- */
+main {
+    padding: 20px 0;
+}
+
+.section-title-container {
+    text-align: center;
+    margin: 20px 0;
 }
 
 .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 25px;
-    color: #be078b;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.search-box {
-    display: flex;
-    margin-bottom: 25px;
-}
-
-.search-box input {
-    flex: 1;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px 0 0 5px;
-    font-size: 1rem;
-}
-
-.search-box button {
-    background: #be078b;
-    color: white;
-    border: none;
-    padding: 0 20px;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background 0.3s ease;
-}
-
-.search-box button:hover {
-    background: #9d0673;
-}
-
-.genres-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.genre-card {
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    padding: 20px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.genre-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(190, 7, 139, 0.2);
-    border-color: #be078b;
-}
-
-.genre-card.selected {
-    background: #fce4f5;
-    border-color: #be078b;
-}
-
-.genre-name {
+    display: inline-block;
+    background-color: white;
+    padding: 8px 25px;
     font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #2c3e50;
+    font-weight: bold;
+    color: #333;
+    border: 3px solid black;
+    border-radius: 50px;
 }
 
-.genre-count {
-    font-size: 0.9rem;
-    color: #7f8c8d;
-}
-
-.actions {
+/* --- Lista de Gêneros (Responsiva) com Animação --- */
+.genre-list {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 30px;
     gap: 15px;
+    padding: 0 20px 20px 20px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.genre-list::-webkit-scrollbar {
+    display: none;
 }
 
-.btn {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-outline {
-    background: white;
-    color: #be078b;
-    border: 1px solid #be078b;
-}
-
-.btn-outline:hover {
-    background: #fce4f5;
-}
-
-.btn-primary {
-    background: #be078b;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #9d0673;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(190, 7, 139, 0.3);
-}
-
-.selected-count {
+.genre-item {
+    flex: 0 0 120px;
     text-align: center;
-    margin-top: 20px;
-    font-size: 0.95rem;
-    color: #7f8c8d;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Responsividade */
-@media (max-width: 992px) {
-    .content {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        order: 2;
-    }
-
-    .main-content {
-        order: 1;
-    }
+.genre-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 2rem;
-    }
-
-    .genres-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    }
-
-    .actions {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
+.genre-item p {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #444;
 }
 
-@media (max-width: 480px) {
-    .header h1 {
-        font-size: 1.7rem;
-    }
+.book-cover {
+    background-color: var(--cor-borda-livro);
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
 
-    .genres-grid {
-        grid-template-columns: 1fr;
-    }
+.book-cover img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
 
-    .section-title {
-        flex-direction: column;
-        align-items: flex-start;
+/* --- 3. Estilos do Rodapé Principal --- */
+.site-footer-bottom {
+    background-color: #be078b;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 15px;
+    margin-top: 30px;
+    border-top: 3px solid var(--cor-principal);
+    width: 100%;
+}
+
+.site-footer-bottom p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* --- 4. Estilos do Menu Lateral (Sidebar) --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: right 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+}
+
+/* Estilos dos itens do menu */
+.profile {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    overflow-y: auto;
+}
+
+.menu-list li {
+    border-bottom: 1px solid #eee;
+}
+
+.menu-list a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.menu-list a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-list i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-menu {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.school-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.school-info img {
+    width: 50px;
+    height: auto;
+}
+
+.school-info h5 {
+    margin: 0;
+}
+
+.school-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* --- Responsividade Geral --- */
+
+/* Responsividade Mobile (Prioridade) */
+@media (max-width: 767px) {
+    /* 1. Ajuste do Cabeçalho para Mobile */
+    .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .logo-container {
+        font-size: 1.2rem;
+        gap: 5px;
+        flex-shrink: 0;
+    }
+
+    .logo-container i {
+        font-size: 1.5rem;
+    }
+
+    .search-container {
+        flex-grow: 1;
+        padding: 6px 10px;
+        max-width: none;
+    }
+
+    .search-container input {
+        font-size: 0.9rem;
+    }
+
+    .search-container i {
+        margin-right: 5px;
+    }
+
+    .profile-container .open-btn {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    /* 2. Ajuste dos Gêneros em Mobile */
+    .genre-item {
+        flex: 0 0 100px;
+    }
+
+    .book-cover img {
+        height: 150px;
+    }
+}
+
+/* Responsividade Desktop (Min-Width 768px e maior) */
+@media (min-width: 768px) {
+    /* Lista de Gêneros */
+    .genre-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-x: visible;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 25px;
+    }
+    .genre-item {
+        flex-basis: 150px;
+    }
+    .book-cover img {
+        height: 220px;
     }
 }
