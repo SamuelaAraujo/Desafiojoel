@@ -37,27 +37,27 @@
         <div class="author-details-container">
             <div class="author-info">
                 <h3>Machado de Assis</h3>
-                <img src="foto-machado-assis.jpg" alt="Foto de Machado de Assis">
+                <img src="imagem/download.jpg" alt="Foto de Machado de Assis">
             </div>
 
             <div class="book-table-section">
                 <span class="table-label">LIVROS</span>
                 <table class="book-table">
                     <tr>
-                        <td>Dom Casmurro</td>
-                        <td>Memórias Póstumas de Brás Cubas</td>
+                        <td><a href="#" class="book-button">Dom Casmurro</a></td>
+                        <td><a href="#" class="book-button">Memórias Póstumas de Brás Cubas</a></td>
                     </tr>
                     <tr>
-                        <td>Quincas Borba</td>
-                        <td>O Alienista</td>
+                        <td><a href="#" class="book-button">Quincas Borba</a></td>
+                        <td><a href="#" class="book-button">O Alienista</a></td>
                     </tr>
                     <tr>
-                        <td>Ressurreição</td>
-                        <td>A Mão e a Luva</td>
+                        <td><a href="#" class="book-button">Ressurreição</a></td>
+                        <td><a href="#" class="book-button">A Mão e a Luva</a></td>
                     </tr>
                     <tr>
-                        <td>Helena</td>
-                        <td>Iaiá Garcia</td>
+                        <td><a href="#" class="book-button">Helena</a></td>
+                        <td><a href="#" class="book-button">Iaiá Garcia</a></td>
                     </tr>
                 </table>
             </div>

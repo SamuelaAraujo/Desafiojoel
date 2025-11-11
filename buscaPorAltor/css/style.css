@@ -352,3 +352,115 @@ body {
         min-width: 100%;
     }
 }
+
+
+/* ==================================== */
+/* ESTILOS PARA LIVROS DA TABELA (CLICÁVEL) */
+/* ==================================== */
+
+/* Ajusta o TD para que o link ocupe todo o espaço da célula */
+.book-table td {
+    padding: 0; /* Remove o padding padrão do TD */
+    border: 1px solid #333;
+    text-align: left;
+    min-width: 150px;
+}
+
+/* Estilo do link para que se pareça com um botão/campo clicável */
+.book-table td a.book-button {
+    display: block; /* Ocupa toda a largura do TD */
+    width: 100%;
+    padding: 10px 15px; /* Adiciona o espaçamento dentro do link */
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: #333;
+    box-sizing: border-box;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.book-table td a.book-button:hover {
+    background-color: var(--roxo-principal); /* Cor de fundo roxa ao passar o mouse */
+    color: white; /* Cor do texto branca ao passar o mouse */
+    cursor: pointer;
+}
+
+/* ... dentro da seção ESTILOS DA PÁGINA AUTORES ... */
+
+.author-info {
+    text-align: center;
+    max-width: 200px;
+}
+
+.author-info h3 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.author-info img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ... e os estilos para os links clicáveis do livro ... */
+
+.book-table td {
+    padding: 0; /* Remove o padding padrão do TD */
+    border: 1px solid #333;
+    text-align: left;
+    min-width: 150px;
+}
+
+.book-table td a.book-button {
+    display: block; /* Ocupa toda a largura do TD */
+    width: 100%;
+    padding: 10px 15px; /* Adiciona o espaçamento dentro do link */
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: #333;
+    box-sizing: border-box;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.book-table td a.book-button:hover {
+    background-color: var(--roxo-principal); /* Cor de fundo roxa ao passar o mouse */
+    color: white; /* Cor do texto branca ao passar o mouse */
+    cursor: pointer;
+}
+
+/* ==================================== */
+/* ESTILOS GERAIS, CABEÇALHO E RODAPÉ */
+/* ==================================== */
+
+/* ... (outros estilos do cabeçalho) ... */
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Regra para garantir que o ícone da casinha fique branco */
+.header-content a i {
+    font-size: 2em;
+    color: white; /* Corrigido: Garante que a casinha seja branca */
+}
+
+.main-header h1 {
+    font-size: 1.5em;
+    margin: 0;
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.header-icons i {
+    font-size: 1.5em;
+    margin-left: 10px;
+    /* Estes ícones já são brancos por herança do .main-header */
+}
+
+/* ... (o restante do seu style.css) ... */
