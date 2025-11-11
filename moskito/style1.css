@@ -1,351 +1,405 @@
-/* ================================================= */
-/* ======= RESET GERAL E VARIÁVEIS ======= */
-/* ================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
+/* GERAL E RESET BÁSICO */
 * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
- background-color: #fdfdfd;
- color: #000;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+    transition: margin-right 0.5s; /* Para o efeito de abertura da sidebar */
 }
 
-:root {
- --color-purple: #be078b; /* Cor principal (Roxo) */
- --color-dark: #333;
- --color-light-gray: #f0f0f0;
- --color-border: #eee;
-}
+/* --- HEADER / NAVEGAÇÃO --- */
 
-body.menu-open {
-    overflow: hidden; /* Bloqueia o scroll quando o menu está aberto */
-}
-
-
-/* ================================================= */
-/* ======= HEADER (CABEÇALHO) ======= */
-/* ================================================= */
-.site-header { 
- background-color: var(--color-purple);
- height: 72px;
- display: flex;
- align-items: center;
- justify-content: center;
- box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra elegante */
- position: sticky;
- top: 0;
- z-index: 900;
+.site-header {
+    /* Cor primária (Azul) para uniformizar com o cadastro */
+    background-color: #3498db; 
+    padding: 10px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .header-inner {
- width: 100%;
- max-width: 1200px;
- display: flex;
- align-items: center;
- justify-content: space-between;
- gap: 16px;
- padding: 0 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
- display: flex;
- align-items: center;
- gap: 10px;
- text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
-.brand, .logo i {
- color: white;
- font-size: 20px;
- font-weight: 700;
+.logo i {
+    margin-right: 8px;
 }
 
-.search-form { /* Estilo da barra de pesquisa */
- flex: 1;
- display: flex;
- justify-content: center;
- padding: 0 12px;
+/* Formulário de Pesquisa */
+.search-form {
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 20px;
 }
 
 .search-input-wrapper {
- position: relative;
- width: 100%;
- max-width: 360px;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .search-icon {
-    color: #555;
- position: absolute;
- left: 12px;
-top: 50%;
- transform: translateY(-50%);
- width: 18px;
- height: 18px;
- pointer-events: none;
+    position: absolute;
+    left: 10px;
+    fill: #7f8c8d;
+    width: 20px;
+    height: 20px;
 }
 
-.search-form input {
- background-color: #fff;
-border: none;
- border-radius: 999px;
- padding: 10px 18px 10px 44px;
- width: 100%;
- font-size: 14px;
- outline: none;
+.search-form input[type="search"] {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    background-color: #ecf0f1;
+    transition: background-color 0.3s;
 }
 
-.open-btn { /* Ícone de Perfil */
- font-size: 30px; 
- cursor: pointer;
- color: #ffffff; 
- flex-shrink: 0; 
+.search-form input[type="search"]:focus {
+    background-color: white;
+    box-shadow: 0 0 0 2px #2980b9;
+    outline: none;
 }
 
-/* ================================================= */
-/* ===== MENU SIDEBAR (MENU LATERAL) ===== */
-/* ================================================= */
-.sidebar {
- position: fixed;
- top: 0;
- right: -300px; /* Escondido */
- width: 300px;
- height: 100vh;
- background-color: #fff;
- box-shadow: -5px 0 15px rgba(0,0,0,0.1);
- z-index: 1000; 
- transition: right 0.5s ease-in-out; /* Transição fluida */
- display: flex;
- flex-direction: column;
+.open-btn {
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    transition: color 0.2s;
 }
 
-.sidebar.open {
- right: 0; /* Visível */
+.open-btn:hover {
+    color: #ecf0f1;
 }
 
-.close-btn {
- background: none;
- border: none;
- font-size: 2rem;
- cursor: pointer;
- position: absolute;
- top: 10px;
- right: 10px;
- z-index: 1001;
-}
+/* --- MAIN CONTENT / CATÁLOGO --- */
 
-.profile {
- padding: 20px;
- border-bottom: 1px solid var(--color-border);
-}
-
-.profile-info {
- font-size: 1.1rem;
- font-weight: bold;
-}
-
-.menu-list {
- list-style: none;
- padding: 0;
- margin: 20px 0;
-}
-
-.menu-list li { border-bottom: 1px solid var(--color-border); }
-
-.menu-list a {
- display: block;
- padding: 15px 20px;
- text-decoration: none;
- color: var(--color-dark);
- transition: background-color 0.3s;
-}
-
-.menu-list a:hover { background-color: #f0f0f0; }
-
-.menu-list i { 
-  margin-right: 15px; 
-  font-size: 1.2rem;
-}
-
-.footer-menu { 
-  margin-top: auto; 
-  padding: 20px; 
-  border-top: 1px solid var(--color-border); 
-}
-
-.school-info { 
-  display: flex; 
-  align-items: center; 
-  gap: 10px; 
-}
-
-.school-info img { 
-  width: 50px; 
-  height: auto; 
-  border-radius: 4px;
-}
-
-.school-info h5 { 
-  font-size: 0.9rem;
-  line-height: 1.2;
-}
-
-
-/* ================================================= */
-/* ======= CONTEÚDO PRINCIPAL E CATÁLOGO (Fluidz e Beleza) ======= */
-/* ================================================= */
-.main-content { 
- background: #fff;
- min-height: calc(100vh - 72px - 50px);
-}
-
-.catalog-grid-section { 
-    padding: 40px 20px;
+.main-content {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.catalog-grid-section {
+    padding: 20px 0;
 }
 
 .section-title {
-    text-align: center;
-    color: var(--color-purple);
-    margin-bottom: 40px; 
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    font-weight: 500;
 }
 
-.book-grid { 
+.book-grid {
     display: grid;
-    /* Layout responsivo com cards ligeiramente maiores */
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-    gap: 30px;
-    padding-bottom: 50px;
+    /* Grid responsivo: 200px é o mínimo para cada coluna */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 30px; 
+    padding: 0;
+    list-style: none;
 }
 
-/* ---------------------------------------------------- */
-/* ESTILO PRINCIPAL: Cards de Livro (Belo e Fluido) */
-/* ---------------------------------------------------- */
+/* --- Estilos do Cartão de Livro (Book Card) --- */
+
 .book-card {
-    display: block;
-    text-decoration: none;
-    background: white;
-    border-radius: 12px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombra suave */
-    /* Transições para o hover e a animação de fade-in */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease; 
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
     overflow: hidden;
-    color: var(--color-dark);
-    text-align: left;
-    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px; /* Altura fixa para uniformidade */
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid transparent; /* Para evitar salto ao adicionar borda */
 }
 
-.book-card:hover {
-    transform: translateY(-5px); /* Elevação suave */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra mais forte */
+.book-card:not(.add-book-card):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Classe para o Efeito de Fade-in (Inicialmente transparente e para baixo) */
-.book-card.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.book-image {
+.book-cover {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: 60%; 
+    overflow: hidden;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.book-cover img[src*="placeholder"] {
+    object-fit: contain; 
+    padding: 20px;
+}
+
 
 .book-info {
     padding: 15px;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .book-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--color-dark);
-    white-space: nowrap; 
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0 0 5px 0;
+    line-height: 1.3;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita a 2 linhas */
+    -webkit-box-orient: vertical;
 }
 
 .book-author {
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #7f8c8d;
+    margin-bottom: 5px;
 }
 
 .book-quantity {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-purple);
+    font-size: 0.9em;
+    color: #27ae60; 
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
-/* ---------------------------------------------------- */
-/* ESTILO: Card de Adicionar Livro */
-/* ---------------------------------------------------- */
-.add-book-card { 
-    background-color: var(--color-light-gray);
-    border: 3px dashed var(--color-purple); /* Borda tracejada roxa */
-    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.5s ease;
+/* --- Card de Adicionar Livro --- */
+
+.add-book-card {
+    background-color: #ecf0f1;
+    border: 3px dashed #bdc3c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-book-card:hover {
+    border-color: #3498db;
+    background-color: #f4f6f7;
+}
+
+.add-icon-wrapper i {
+    font-size: 3em;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.add-icon-wrapper p {
+    font-size: 1.1em;
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* --- Botões de Ação (Editar/Deletar) --- */
+
+.book-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    border-top: 1px solid #ecf0f1;
+    padding-top: 10px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+    transition: background-color 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.add-book-card:hover {
-    background-color: #fcfcfc;
-    transform: scale(1.02);
+.action-btn i {
+    margin-right: 5px;
 }
 
-.add-icon-wrapper {
-    color: var(--color-purple);
-    padding: 20px;
+.edit-btn {
+    background-color: #3498db; /* Azul para Editar */
+    color: white;
 }
 
-.add-icon-wrapper i {
-    font-size: 60px;
-    margin-bottom: 10px;
+.edit-btn:hover {
+    background-color: #2980b9;
 }
 
-.add-icon-wrapper p {
-    font-size: 18px;
+.delete-btn {
+    background-color: #e74c3c; /* Vermelho para Deletar */
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* --- DESTAQUE DO LIVRO RECÉM-ADICIONADO (Efeito temporário) --- */
+.new-book-highlight {
+    border: 3px solid #f39c12; /* Borda laranja/amarela para chamar atenção */
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.5);
+    animation: pulse 5s ease-out forwards; 
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 20px rgba(243, 156, 18, 0.5); }
+    10% { transform: scale(1.02); box-shadow: 0 0 30px rgba(243, 156, 18, 0.8); }
+    50% { box-shadow: 0 0 10px rgba(243, 156, 18, 0.3); }
+    100% { transform: scale(1); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border: 1px solid transparent; } 
+}
+
+
+/* --- SIDEBAR/MENU LATERAL --- */
+.sidebar {
+    height: 100%;
+    width: 280px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background-color: #2c3e50; /* Cor escura do menu */
+    overflow-x: hidden;
+    transition: 0.5s;
+    transform: translateX(280px); /* Inicialmente escondido */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    transform: translateX(0); /* Abre o menu */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.profile {
+    padding: 15px 20px;
+    border-bottom: 1px solid #34495e;
+    text-align: center;
+}
+
+.profile-info span {
+    color: white;
+    font-size: 1.2em;
     font-weight: bold;
-    color: var(--color-purple);
+    display: block;
 }
 
+.menu-list {
+    list-style: none;
+    padding: 20px 0;
+    flex-grow: 1;
+}
 
-/* ================================================= */
-/* ======= RODAPÉ E RESPONSIVIDADE ======= */
-/* ================================================= */
-.site-footer { 
+.menu-list li a {
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 1em;
+    color: #ecf0f1;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.menu-list li a i {
+    margin-right: 10px;
+}
+
+.menu-list li a:hover {
+    background-color: #34495e;
+    color: white;
+}
+
+.footer-menu {
+    padding: 20px;
+    border-top: 1px solid #34495e;
+}
+
+.school-info {
+    display: flex;
+    align-items: center;
+    color: #bdc3c7;
+}
+
+.school-info img {
+    width: 50px;
     height: 50px;
-    background-color: var(--color-purple);
-    width: 100%;
-    margin-top: auto; 
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
 }
 
-@media (max-width: 600px) {
-    .site-header {
-      height: auto;
-      padding: 15px 0;
-    }
-        
-    .header-inner {
-        flex-wrap: wrap; 
-        justify-content: space-between; 
-        gap: 10px;
-    }
-        
-    .search-form {
-        order: 10; 
-        width: 100%; 
-        max-width: none;
-    }
+.school-info h5 {
+    margin: 0;
+    font-size: 0.8em;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.school-info p {
+    margin: 0;
+    font-size: 0.7em;
+}
+
+/* Efeito de Overlay e Bloqueio de Scroll */
+body.menu-open {
+    overflow: hidden; 
+    position: relative;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    padding: 15px 20px;
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    text-align: center;
+    font-size: 0.8em;
 }
