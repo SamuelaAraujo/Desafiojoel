@@ -10,55 +10,14 @@
 <body>
     <header class="site-header">
         <div class="header-inner">
-            <a href="#" class="logo" aria-label="Ir para a página inicial">
+            <a href="catalogo.html" class="logo" aria-label="Ir para o Catálogo">
                 <i class="fas fa-home"></i>
                 <span class="brand">MLMB</span>
             </a>
-            <i class="fas fa-user-circle profile-icon" aria-hidden="true" title="Perfil" onclick="toggleSidebar()"></i>
+            <i class="fas fa-user-circle profile-icon" aria-hidden="true" title="Perfil"></i>
         </div>
     </header>
 
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">×</button>
-        
-        <div class="profile">
-            <div class="profile-info">
-                <span>Marcus vinicius</span>
-            </div>
-        </div>
-        
-        <ul class="menu-list">
-             <li>
-            <a href="/Obrasfavoritas/favoritos.html"><i class="fas fa-heart"></i> Favoritos</a>
-        </li>
-            <li>
-                <a href="#"><i class="fas fa-book-open"></i> Meus livros</a>
-            </li>
-           <li>
-                <a href="/historico/index.html"><i class="fas fa-history"></i> Histórico</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
-            </li>
-            <li>
-                <a href="../clube.do.livro/index.php"><i class="fas fa-book-open"></i> Clube Do Livro</a>
-            </li>
-          <li>
-            <a href="/moskito/cadastro.html"><i class="fas fa-book-open"></i> Cadastro de livros</a>
-        </li>
-
-        </ul>
-        
-        <div class="footer-menu">
-            <div class="school-info">
-                <img src="IMG-20250513-WA0005.jpg" alt="Logo da Escola">
-                <div>
-                    <h5>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</h5>
-                    <p>terceiro informatica</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <main class="form-container">
         <h1>Cadastro de Novo Livro</h1>
         
@@ -69,17 +28,11 @@
                     <label for="bookImage" class="image-placeholder">
                         <span id="image-text">Adicionar Imagem</span>
                         <input type="file" id="bookImage" accept="image/*" required>
-                        <img id="image-preview" src="#" alt="Prévia da capa" style="display:none;">
+                        <img id="image-preview" src="#" alt="Prévia da Capa" style="display:none; width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                     </label>
                 </div>
-
+                
                 <div class="fields-column">
-                    
-                    <div class="input-group">
-                        <label for="numero">Número do Livro:</label>
-                        <input type="text" id="numero" name="numero" required>
-                    </div>
-
                     <div class="input-group">
                         <label for="titulo">Título:</label>
                         <input type="text" id="titulo" name="titulo" required>
@@ -89,9 +42,7 @@
                         <label for="autor">Autor:</label>
                         <input type="text" id="autor" name="autor" required>
                     </div>
-
                  
-
                     <div class="input-group">
                         <label for="sobrenome">Sobrenome (Autor):</label>
                         <input type="text" id="sobrenome" name="sobrenome" required>
@@ -106,7 +57,20 @@
                         <label for="categorias">Categorias:</label>
                         <input type="text" id="categorias" name="categorias" placeholder="Ex: Romance, Aventura" required>
                     </div>
+                </div>
+            </div>
 
+            <div class="input-group full-width">
+                <label for="sinopse">Sinopse:</label>
+                <div class="textarea-wrapper">
+                    <textarea 
+                        id="sinopse" 
+                        name="sinopse" 
+                        rows="6" 
+                        maxlength="500" 
+                        placeholder="Insira aqui uma breve e cativante descrição do livro (máx. 500 caracteres)."
+                    ></textarea>
+                    <span class="char-count" id="sinopseCharCount">0 / 500 caracteres</span>
                 </div>
             </div>
             
@@ -116,17 +80,118 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-inner">
-            </div>
+        <div class="footer-inner"></div>
     </footer>
 
     <script>
-        // Função do menu sidebar
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('bookForm');
+            const imageInput = document.getElementById('bookImage');
+            const imagePreview = document.getElementById('image-preview');
+            const imageText = document.getElementById('image-text');
+            const sinopseTextarea = document.getElementById('sinopse');
+            const sinopseCharCount = document.getElementById('sinopseCharCount');
+            const maxChars = 500;
+            
+            let imageDataURL = null;
+
+            // Função para carregar os dados de um livro para edição
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookId = urlParams.get('editId');
+            
+            if (bookId) {
+                document.querySelector('h1').textContent = 'Editar Livro';
+                document.querySelector('.save-button').textContent = 'SALVAR ALTERAÇÕES';
+                
+                const books = JSON.parse(localStorage.getItem('books') || '[]');
+                const bookToEdit = books.find(b => b.id === bookId);
+                
+                if (bookToEdit) {
+                    document.getElementById('titulo').value = bookToEdit.title;
+                    document.getElementById('autor').value = bookToEdit.author;
+                    document.getElementById('sobrenome').value = bookToEdit.lastName;
+                    document.getElementById('quantidade').value = bookToEdit.quantity;
+                    document.getElementById('categorias').value = bookToEdit.categories;
+                    document.getElementById('sinopse').value = bookToEdit.sinopse;
+                    imageDataURL = bookToEdit.image;
+                    
+                    if (imageDataURL && imageDataURL !== 'placeholder') {
+                        imagePreview.src = imageDataURL;
+                        imagePreview.style.display = 'block';
+                        imageText.style.display = 'none';
+                    }
+                }
+            }
+
+
+            // LÓGICA DO CONTADOR DE CARACTERES
+            if (sinopseTextarea) {
+                sinopseTextarea.addEventListener('input', function() {
+                    const currentChars = this.value.length;
+                    sinopseCharCount.textContent = `${currentChars} / ${maxChars} caracteres`;
+                    
+                    // Feedback visual da contagem (CSS complementa a beleza)
+                    if (currentChars >= maxChars * 0.9) { 
+                        sinopseCharCount.style.color = '#e74c3c'; 
+                    } else if (currentChars >= maxChars * 0.7) {
+                        sinopseCharCount.style.color = '#f39c12';
+                    } else {
+                        sinopseCharCount.style.color = '#777'; 
+                    }
+                });
+                sinopseTextarea.dispatchEvent(new Event('input')); 
+            }
+
+            // Pré-visualização da imagem
+            imageInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imageDataURL = e.target.result;
+                        imagePreview.src = imageDataURL;
+                        imagePreview.style.display = 'block';
+                        imageText.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Lógica de salvamento e redirecionamento
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const newBookData = {
+                    id: bookId || Date.now().toString(), // Usa o ID existente para edição ou gera um novo
+                    title: document.getElementById('titulo').value,
+                    author: document.getElementById('autor').value,
+                    lastName: document.getElementById('sobrenome').value,
+                    quantity: document.getElementById('quantidade').value,
+                    categories: document.getElementById('categorias').value,
+                    sinopse: document.getElementById('sinopse').value, 
+                    image: imageDataURL || 'placeholder' 
+                };
+                
+                let books = JSON.parse(localStorage.getItem('books') || '[]');
+                
+                if (bookId) {
+                    // MODO EDIÇÃO: Encontra o índice e substitui
+                    const index = books.findIndex(b => b.id === bookId);
+                    if (index !== -1) {
+                        books[index] = newBookData;
+                    }
+                    alert('Livro atualizado com sucesso! Redirecionando para o catálogo.');
+                } else {
+                    // MODO CADASTRO: Adiciona novo livro
+                    books.push(newBookData);
+                    alert('Livro cadastrado com sucesso! Redirecionando para o catálogo.');
+                }
+
+                localStorage.setItem('books', JSON.stringify(books));
+                
+                window.location.href = 'catalogo.html';
+            });
+        });
     </script>
-    <script src="script_cadastro.js"></script>
 </body>   
 </html>
