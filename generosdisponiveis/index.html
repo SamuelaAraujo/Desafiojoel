@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gêneros Literários</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Gêneros Literários</h1>
+        <p>Explore nossa coleção de livros por gênero</p>
+    </div>
+
+    <div class="content">
+        <div class="sidebar">
+            <h2>Filtrar por</h2>
+            <div class="filter-option">
+                <input type="checkbox" id="filter-popular">
+                <label for="filter-popular">Mais populares</label>
+            </div>
+            <div class="filter-option">
+                <input type="checkbox" id="filter-new">
+                <label for="filter-new">Lançamentos</label>
+            </div>
+            <div class="filter-option">
+                <input type="checkbox" id="filter-classic">
+                <label for="filter-classic">Clássicos</label>
+            </div>
+            <div class="filter-option">
+                <input type="checkbox" id="filter-award">
+                <label for="filter-award">Premiados</label>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section-title">
+                <span>Gêneros Disponíveis</span>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar gênero...">
+                    <button>Buscar</button>
+                </div>
+            </div>
+
+            <div class="genres-grid" id="genresGrid">
+                <!-- Gêneros serão inseridos via JavaScript -->
+            </div>
+
+            <div class="selected-count" id="selectedCount">
+                Nenhum gênero selecionado
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-outline" id="clearBtn">Limpar Seleção</button>
+                <button class="btn btn-primary" id="confirmBtn">Confirmar Seleção</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
