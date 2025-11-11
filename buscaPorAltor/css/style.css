@@ -1,0 +1,466 @@
+/* ==================================== */
+/* ESTILOS GERAIS, CABEÇALHO E RODAPÉ */
+/* ==================================== */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 60px; /* Espaço para o cabeçalho fixo */
+    background-color: #f8f8f8;
+}
+
+:root {
+    --roxo-principal: #a63d91;
+    --faixa-inferior: #a63d91;
+}
+
+/* Estilo do Cabeçalho Fixo */
+.main-header {
+    background-color: var(--roxo-principal);
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-header h1 {
+    font-size: 1.5em;
+    margin: 0;
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.header-content a i {
+    font-size: 2em;
+}
+
+.header-icons i {
+    font-size: 1.5em;
+    margin-left: 10px;
+    /* O ícone de usuário foi movido para .open-btn, então esta regra afeta apenas o ícone do livro */
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 30%;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    flex-grow: 1;
+    color: black;
+}
+
+.search-bar .fa-search {
+    color: var(--roxo-principal);
+    font-size: 1em;
+}
+
+/* Faixa Inferior */
+.footer-band {
+    background-color: var(--faixa-inferior);
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+}
+
+
+/* ==================================== */
+/* ESTILOS DO SIDEBAR (MENU LATERAL) */
+/* ==================================== */
+
+/* Botão para abrir o menu (agora FIXADO na posição correta do header) */
+.open-btn {
+    position: fixed;
+    top: 15px; /* Ajustado para alinhar verticalmente no header */
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 101;
+    color: white; /* Cor branca para combinar com o header roxo */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.open-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 200;
+    transition: right 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.profile {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-info {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu-list li {
+    border-bottom: 1px solid #eee;
+}
+
+.menu-list a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.menu-list a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-list i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-menu {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.school-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.school-info img {
+    width: 50px;
+    height: auto;
+}
+
+.school-info h5 {
+    margin: 0;
+}
+
+.school-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* ==================================== */
+/* ESTILOS DA PÁGINA AUTORES (image_d96228.png) */
+/* ==================================== */
+
+.author-page {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    padding-bottom: 100px;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    background-color: var(--roxo-principal);
+    padding: 5px 15px;
+    display: inline-block;
+    border: 3px solid #333;
+    box-shadow: 6px 6px 0px #333;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    letter-spacing: 2px;
+}
+
+.author-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    min-height: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.author-details-container {
+    display: flex;
+    gap: 50px;
+}
+
+.author-info {
+    text-align: center;
+    max-width: 200px;
+}
+
+.author-info h3 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.author-info img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.book-table-section {
+    position: relative;
+    padding-top: 20px;
+}
+
+.table-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 0.9em;
+    border-radius: 3px;
+}
+
+.book-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 300px;
+    border: 2px solid #333;
+}
+
+.book-table td {
+    border: 1px solid #333;
+    padding: 10px 15px;
+    text-align: left;
+    min-width: 150px;
+}
+
+.school-logo-area {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.school-logo-area img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* ==================================== */
+/* MEDIA QUERIES (RESPONSIVIDADE) */
+/* ==================================== */
+
+@media (max-width: 768px) {
+    /* Ajustes para o Header no Mobile */
+    .header-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-bar {
+        width: 100%;
+        order: 3;
+        margin-top: 10px;
+    }
+
+    .main-header h1 {
+        text-align: center;
+        margin: 0;
+        order: 2;
+    }
+
+    .header-content a, .header-icons {
+        order: 1;
+        margin: 0 10px;
+    }
+
+    /* Ajustes para a página Autores no Mobile */
+    .author-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .author-details-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .school-logo-area {
+        margin-top: 40px;
+        text-align: center; /* Centraliza a logo da escola */
+    }
+
+    .book-table {
+        min-width: 100%;
+    }
+}
+
+
+/* ==================================== */
+/* ESTILOS PARA LIVROS DA TABELA (CLICÁVEL) */
+/* ==================================== */
+
+/* Ajusta o TD para que o link ocupe todo o espaço da célula */
+.book-table td {
+    padding: 0; /* Remove o padding padrão do TD */
+    border: 1px solid #333;
+    text-align: left;
+    min-width: 150px;
+}
+
+/* Estilo do link para que se pareça com um botão/campo clicável */
+.book-table td a.book-button {
+    display: block; /* Ocupa toda a largura do TD */
+    width: 100%;
+    padding: 10px 15px; /* Adiciona o espaçamento dentro do link */
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: #333;
+    box-sizing: border-box;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.book-table td a.book-button:hover {
+    background-color: var(--roxo-principal); /* Cor de fundo roxa ao passar o mouse */
+    color: white; /* Cor do texto branca ao passar o mouse */
+    cursor: pointer;
+}
+
+/* ... dentro da seção ESTILOS DA PÁGINA AUTORES ... */
+
+.author-info {
+    text-align: center;
+    max-width: 200px;
+}
+
+.author-info h3 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.author-info img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ... e os estilos para os links clicáveis do livro ... */
+
+.book-table td {
+    padding: 0; /* Remove o padding padrão do TD */
+    border: 1px solid #333;
+    text-align: left;
+    min-width: 150px;
+}
+
+.book-table td a.book-button {
+    display: block; /* Ocupa toda a largura do TD */
+    width: 100%;
+    padding: 10px 15px; /* Adiciona o espaçamento dentro do link */
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: #333;
+    box-sizing: border-box;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.book-table td a.book-button:hover {
+    background-color: var(--roxo-principal); /* Cor de fundo roxa ao passar o mouse */
+    color: white; /* Cor do texto branca ao passar o mouse */
+    cursor: pointer;
+}
+
+/* ==================================== */
+/* ESTILOS GERAIS, CABEÇALHO E RODAPÉ */
+/* ==================================== */
+
+/* ... (outros estilos do cabeçalho) ... */
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Regra para garantir que o ícone da casinha fique branco */
+.header-content a i {
+    font-size: 2em;
+    color: white; /* Corrigido: Garante que a casinha seja branca */
+}
+
+.main-header h1 {
+    font-size: 1.5em;
+    margin: 0;
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.header-icons i {
+    font-size: 1.5em;
+    margin-left: 10px;
+    /* Estes ícones já são brancos por herança do .main-header */
+}
+
+/* ... (o restante do seu style.css) ... */

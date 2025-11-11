@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores - Biblioteca Pessoal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<i class="fas fa-user-circle open-btn" id="open-btn" onclick="toggleSidebar()"></i>
+
+<header class="main-header">
+    <div class="header-content">
+        <a href="#"><i class="fas fa-home"></i></a>
+
+        <div class="search-bar">
+            <input type="text" placeholder="">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <h1>AUTORES</h1>
+
+        <div class="header-icons">
+            <i class="fas fa-book"></i>
+        </div>
+    </div>
+</header>
+
+<main class="author-page">
+
+    <h2 class="section-title">AUTORES</h2>
+
+    <div class="author-card">
+
+        <div class="author-details-container">
+            <div class="author-info">
+                <h3>Machado de Assis</h3>
+                <img src="imagem/download.jpg" alt="Foto de Machado de Assis">
+            </div>
+
+            <div class="book-table-section">
+                <span class="table-label">LIVROS</span>
+                <table class="book-table">
+                    <tr>
+                        <td><a href="#" class="book-button">Dom Casmurro</a></td>
+                        <td><a href="#" class="book-button">Memórias Póstumas de Brás Cubas</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="book-button">Quincas Borba</a></td>
+                        <td><a href="#" class="book-button">O Alienista</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="book-button">Ressurreição</a></td>
+                        <td><a href="#" class="book-button">A Mão e a Luva</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="book-button">Helena</a></td>
+                        <td><a href="#" class="book-button">Iaiá Garcia</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="school-logo-area">
+            <img src="imagem/logo.png-removebg-preview.png" alt="Logo da Escola">
+        </div>
+    </div>
+</main>
+
+<div class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+
+    <div class="profile">
+        <div class="profile-info">
+            <span>Marcus vinicius</span>
+        </div>
+    </div>
+
+    <ul class="menu-list">
+        <li>
+            <a href="../Obrasfavoritas/favoritos.html"><i class="fas fa-heart"></i> Favoritos</a>
+        </li>
+        <li>
+            <a href="../meusLivros/index.php"><i class="fas fa-book-open"></i> Meus livros</a>
+        </li>
+        <li>
+            <a href="../historico/index.html"><i class="fas fa-history"></i> Histórico</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
+        </li>
+        <li>
+            <a href="../clube.do.livro/index.php"><i class="fas fa-book-open"></i> Clube Do Livro</a>
+        </li>
+        <li>
+            <a href="../moskito/catalogo.html"><i class="fas fa-book-open"></i> Cadastro de livros</a>
+        </li>
+    </ul>
+
+    <div class="footer-menu">
+        <div class="school-info">
+            <img src="imagem/logo.png-removebg-preview.png" alt="Logo da Escola">
+            <div>
+                <h5>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</h5>
+                <p>terceiro informatica</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer-band"></footer>
+
+<script>
+    // Função JavaScript para abrir e fechar o menu
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const openBtn = document.getElementById('open-btn');
+
+        sidebar.classList.toggle('open');
+        openBtn.classList.toggle('hidden');
+    }
+</script>
+
+</body>
+</html>
