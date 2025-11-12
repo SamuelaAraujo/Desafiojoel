@@ -13,7 +13,7 @@
 
 <header class="main-header">
     <div class="header-content">
-        <a href="#"><i class="fas fa-home"></i></a>
+        <a href="../inicio/index1.html"><i class="fas fa-home"></i></a>
 
         <div class="search-bar">
             <input type="text" placeholder="">
@@ -89,7 +89,7 @@
             <a href="../historico/index.html"><i class="fas fa-history"></i> Histórico</a>
         </li>
         <li>
-            <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
+            <a href="../MeusDados/index.html"><i class="fas fa-user-edit"></i> Meus Dados</a>
         </li>
         <li>
             <a href="../clube.do.livro/index.php"><i class="fas fa-book-open"></i> Clube Do Livro</a>

@@ -33,26 +33,25 @@
             </div>
 
             <ul class="menu-list">
-                 <li>
-            <a href="/Obrasfavoritas/favoritos.html"><i class="fas fa-heart"></i> Favoritos</a>
-        </li>
                 <li>
-            <a href=""><i class="fas fa-book-open"></i> Meus livros</a>
-        </li>
+                    <a href="../Obrasfavoritas/favoritos.html"><i class="fas fa-heart"></i> Favoritos</a>
+                </li>
                 <li>
-                <a href="/historico/index.html"><i class="fas fa-history"></i> Histórico</a>
-            </li>
+                    <a href="../meusLivros/index.php"><i class="fas fa-book-open"></i> Meus livros</a>
+                </li>
                 <li>
-                    <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
+                    <a href="../historico/index.html"><i class="fas fa-history"></i> Histórico</a>
+                </li>
+                <li>
+                    <a href="../MeusDados/index.html"><i class="fas fa-user-edit"></i> Meus Dados</a>
                 </li>
                 <li>
                     <a href="../clube.do.livro/index.php"><i class="fas fa-book-open"></i> Clube Do Livro</a>
                 </li>
                 <li>
-            <a href="/moskito/cadastro.html"><i class="fas fa-book-open"></i> Cadastro de livros</a>
-        </li>
+                    <a href="../moskito/catalogo.html"><i class="fas fa-book-open"></i> Cadastro de livros</a>
+                </li>
             </ul>
-
             <div class="footer-menu">
                 <div class="school-info">
                     <img src="fotos/IMG-20250513-WA0005.jpg" alt="Logo da Escola">
