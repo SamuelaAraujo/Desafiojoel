@@ -7,11 +7,13 @@
 
 /* Ajuste do BODY para a barra inferior e Sidebar */
 body {
-    background-color: var(--background-color); 
+    background-color: var(--background-color);
     min-height: 100vh;
     padding-bottom: 60px; /* Espaço igual à altura da .bottom-strip */
     margin: 0; /* Adicionado do style22.css */
     font-family: Arial, sans-serif; /* Adicionado para consistência */
+    /* === MODIFICAÇÃO PRINCIPAL: Adiciona padding para compensar o header fixo (100px) === */
+    padding-top: 100px;
 }
 
 /* ======================================= */
@@ -25,6 +27,11 @@ body {
     height: 100px;
     display: flex;
     align-items: center;
+    /* === MODIFICAÇÃO PRINCIPAL: Fixa o cabeçalho no topo === */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
 }
 
 /* O header-content pode ser o elemento flexível principal */
@@ -105,7 +112,7 @@ body {
 .book-grid-favoritos {
     display: grid;
     /* 4 colunas, como na imagem de Favoritos */
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     justify-items: center;
 }
@@ -113,7 +120,7 @@ body {
 .book-cover-favorito {
     width: 100%;
     /* Proporção vertical de capa de livro (cerca de 2:3) */
-    padding-bottom: 140%; 
+    padding-bottom: 140%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -128,10 +135,10 @@ body {
 
 /* === LISTRA INFERIOR (Bottom Strip) === */
 .bottom-strip {
-    background-color: var(--main-color); 
+    background-color: var(--main-color);
     width: 100%;
-    height: 60px; 
-    position: fixed; 
+    height: 60px;
+    position: fixed;
     bottom: 0;
     left: 0;
     z-index: 100;
@@ -145,7 +152,7 @@ body {
 .open-btn {
     transition: opacity 0.5s ease-in-out; /* Transição suave */
     /* Garante que o ícone de perfil no header seja grande e branco */
-    color: white !important; 
+    color: white !important;
     font-size: 1.8rem !important;
     cursor: pointer;
 }
@@ -272,7 +279,7 @@ body {
         height: auto;
         flex-direction: column;
     }
-    
+
     .header-content {
         flex-direction: column;
         gap: 10px;
@@ -302,7 +309,7 @@ body {
         /* Muda para 2 colunas em telas menores */
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .content-favoritos {
         padding: 20px 15px;
     }
@@ -314,7 +321,7 @@ body {
 .nav-icon {
     color: white;
     /* TAMANHO BASE DOS ÍCONES: 2.0rem (AUMENTADO de 1.8rem) */
-    font-size: 2.0rem; 
+    font-size: 2.0rem;
     text-decoration: none;
 }
 
@@ -322,7 +329,7 @@ body {
 .home-icon {
     background-color: rgba(255, 255, 255, 0.2);
     /* AUMENTADO o padding para o fundo roxo ficar maior */
-    padding: 10px 12px; 
+    padding: 10px 12px;
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
