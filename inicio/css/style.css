@@ -423,3 +423,14 @@ body {
         width: 100%; /* Ocupa a largura total da tela no celular */
     }
 }
+
+
+/* ▼▼▼ REGRA ADICIONADA PARA O AJUSTE DA IMAGEM ▼▼▼ */
+/* Garante que a imagem dentro da capa se ajuste ao contêiner .book-cover (200px de altura) */
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    /* 'contain' garante que a imagem caiba inteira sem distorcer, mantendo a proporção */
+    object-fit: contain;
+}
+/* ▲▲▲ FIM DA REGRA ADICIONADA ▲▲▲ */
