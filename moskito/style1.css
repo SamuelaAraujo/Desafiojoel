@@ -17,7 +17,7 @@ body {
 
 .site-header {
     /* Cor primária (Azul) para uniformizar com o cadastro */
-    background-color: #3498db; 
+    background-color: #be078b;
     padding: 10px 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
@@ -76,7 +76,7 @@ body {
 
 .search-form input[type="search"]:focus {
     background-color: white;
-    box-shadow: 0 0 0 2px #2980b9;
+    box-shadow: 0 0 0 2px #be078b;
     outline: none;
 }
 
@@ -296,7 +296,7 @@ body {
     z-index: 1000;
     top: 0;
     right: 0;
-    background-color: #2c3e50; /* Cor escura do menu */
+    background-color: white; /* Cor escura do menu */
     overflow-x: hidden;
     transition: 0.5s;
     transform: translateX(280px); /* Inicialmente escondido */
@@ -398,7 +398,7 @@ body.menu-open {
 /* --- FOOTER --- */
 .site-footer {
     padding: 15px 20px;
-    background-color: #2c3e50;
+    background-color:#be078b;
     color: #bdc3c7;
     text-align: center;
     font-size: 0.8em;
