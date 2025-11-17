@@ -29,23 +29,22 @@
             </div>
 
             <div class="inputBox">
-                <input type="text" name="name" autocomplete="off" autofocus="" required>
+                <input type="text" name="Email" autocomplete="off" autofocus="" required>
                 <label for="">Email</label>
             </div>
 
             <div class="inputBox">
-                <input type="text" name="name" autocomplete="off" autofocus="" required>
+                <input type="text" name="Telefone" autocomplete="off" autofocus="" required>
                 <label for="">Telefone</label>
             </div>
 
             <div class="inputBox">
-            <label for="">Cargo</label><br><br>
+            <label for="">Tipo de usuario</label><br><br>
     <select name="sexo">
         <option value="0"></option>
-        <option value="1">Bibliotecaria</option>
-        <option value="2">Profesor</option>
-        <option value="3">Aluno</option>
-         <option value="4">Funcionário</option>
+        <option value="1">Profesor</option>
+        <option value="2">Aluno</option>
+         <option value="3">Funcionário</option>
     </select>
            </div>
             <div class="inputBox">
@@ -56,7 +55,7 @@
             </div>
 
             <div class="inputBox">
-                <input type="password" id="senha" name="senha" autocomplete="off" required>
+                <input type="password" id="senha"  autocomplete="off" required>
                 <label for="">Confirmar Senha</label>
                 <button type="button" onclick="mostrarSenha()"
                     style="margin-left:5px; vertical-align: middle;">👁︎</button>
@@ -71,8 +70,8 @@
 
         </form>
         
-        <input type="submit" value="Entrar">
-        
+        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Canselar">
         </form>
 
     </div>
