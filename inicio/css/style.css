@@ -15,7 +15,6 @@ body {
 /* ======= HEADER & NAVIGATION ======= */
 .main-header {
     background-color: #be078b;
-    /* Removido position: sticky para melhor responsividade em mobile */
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -47,23 +46,20 @@ body {
     margin: 0 auto;
     padding: 20px;
     display: grid;
-    /* Layout principal de 3 colunas para desktop */
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 40px;
 }
 
-/* ÍCONE E TÍTULO */
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: white; /* Adicionado para garantir a cor */
-    font-size: 40px; /* Tamanho ajustado */
+    color: white;
+    font-size: 40px;
     font-weight: 700;
 }
 
-/* CAMPO DE PESQUISA */
 .search-bar {
     position: relative;
     max-width: 600px;
@@ -93,12 +89,10 @@ body {
     padding: 8px;
 }
 
-/* USER ACTIONS */
 .user-actions {
     display: flex;
     align-items: center;
     gap: 20px;
-    /* Removidos estilos inline do HTML para melhor manutenção */
     align-items: center !important;
     justify-content: flex-end !important;
 }
@@ -110,24 +104,22 @@ body {
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    margin-right: 18px; /* Mantido o espaçamento */
+    margin-right: 18px;
 }
 
 .heart-icon {
     font-size: 20px;
 }
 
-/* ÍCONE PERFIL */
 .fa-user-circle {
-    color: white; /* Cor do ícone */
+    color: white;
     margin-left: 12px;
     font-size: 2rem;
     cursor: pointer;
     position: relative;
-    top: 0px; /* Resetando a posição para a nova estrutura */
+    top: 0px;
 }
 
-/* BOTTOM NAV */
 .bottom-nav {
     background: white;
     padding: 15px 0;
@@ -164,9 +156,7 @@ body {
     gap: 30px;
 }
 
-/* ======= CARD DO LIVRO ======= */
 .book-card {
-    /* MUDANÇA AQUI: Cor de fundo alterada para um cinza claro neutro */
     background: #ebebeb;
     border-radius: 15px;
     padding: 30px;
@@ -182,10 +172,28 @@ body {
     transform: translateY(-8px);
 }
 
-/* Removidas as cores de fundo específicas por cartão para manter o cinza claro padrão */
-/* .card-red-queen { background: #f8e5e5; } */
-/* .card-dom-casmurro { background: #e5e5f8; } */
-/* .card-fault-in-stars { background: #e5f8e5; } */
+/* NOVO ESTILO PARA O BOTÃO FAVORITOS */
+.favorite-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+.favorite-btn:hover {
+    color: #666;
+    transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+    color: #be078b;
+}
+/* FIM DO ESTILO FAVORITOS */
+
 
 .book-title {
     font-size: 24px;
@@ -241,28 +249,23 @@ body {
     background: #a00676;
 }
 
-/* Definições de imagem para cada capa (se houver imagens de fundo no CSS) */
-/* Exemplo: .book-cover-red-queen { background-image: url('path/to/red-queen.jpg'); } */
-
-/* ===== SIDEBAR / MENU (copiado de menu/style22.css, adaptado) ===== */
-
-/* estilo do sidebar e animação de entrada/saída */
+/* ===== SIDEBAR / MENU ===== */
 .sidebar {
     position: fixed;
     top: 0;
-    right: -300px; /* escondido fora da tela */
+    right: -300px;
     width: 300px;
     height: 100vh;
     background-color: #fff;
     box-shadow: -5px 0 15px rgba(0,0,0,0.1);
     z-index: 2000;
-    transition: right 0.5s ease-in-out; /* transição suave */
+    transition: right 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
 }
 
 .sidebar.open {
-    right: 0; /* visível */
+    right: 0;
 }
 
 .close-btn {
@@ -319,118 +322,239 @@ body {
 .school-info p { margin: 0; font-size: 0.8rem; color: #777; }
 
 
-/* ======= NOVAS REGRAS DE RESPONSIVIDADE ======= */
+/* ======= CSS CORRIGIDO DO CARROSSEL DE LIVROS ======= */
+.hero-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
 
-/* --- Tablets e Telas Médias (max-width: 900px) --- */
+.carousel-track {
+    display: flex;
+    /* LINHA REMOVIDA: width: 100%; */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    flex-basis: 100%; /* Garante que cada slide ocupe 100% da largura do container */
+    flex-shrink: 0;
+    height: 380px;
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-content {
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.carousel-item-left, .carousel-item-right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.carousel-item-center {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000;
+    padding: 20px;
+}
+
+.carousel-image-book {
+    height: 95%;
+    object-fit: contain;
+    transform: translateX(40px);
+}
+
+.carousel-element-circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: translateX(-40px);
+}
+
+.carousel-icon-large {
+    font-size: 80px;
+    color: white;
+}
+
+.carousel-tag {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.carousel-title {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.carousel-offer-box {
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin: 10px 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-offer-box:hover {
+    transform: translateY(-3px);
+    background-color: #a00676 !important;
+}
+
+.carousel-offer-box i {
+    font-size: 16px;
+}
+
+.carousel-validity {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+/* ======= REGRAS DE RESPONSIVIDADE (TUDO JUNTO) ======= */
+
 @media (max-width: 900px) {
-
     /* CABEÇALHO */
     .main-header {
-        position: static; /* Remove o sticky para evitar problemas em mobile */
+        position: static;
     }
-
     .logo-search-user {
-        /* Layout de 2 colunas: (Logo/Ações) e a busca na linha de baixo */
         grid-template-columns: 1fr auto;
         gap: 20px;
         padding: 15px 20px;
     }
-
     .logo {
         font-size: 30px;
-        order: -1; /* Coloca o logo na primeira posição (canto esquerdo) */
+        order: -1;
     }
-
-    /* Oculta as navs superiores e inferiores no topo para economizar espaço */
     .top-nav, .bottom-nav {
         display: none;
     }
-
     .search-bar {
-        grid-column: 1 / span 2; /* Faz a barra de pesquisa ocupar as 2 colunas */
+        grid-column: 1 / span 2;
         max-width: none;
         margin: 0;
-        order: 3; /* Coloca a barra de pesquisa abaixo do logo e das ações */
+        order: 3;
     }
-
     .user-actions {
-        order: 2; /* Coloca as ações do usuário (ícone) ao lado do logo */
+        order: 2;
         justify-content: flex-end;
     }
-
     .user-actions .action-link {
-        display: none; /* Oculta "Minhas Listas" em telas menores */
+        display: none;
     }
 
     /* CONTEÚDO */
     .content {
         padding: 0 15px;
     }
-
     .book-cards-container {
-        /* Muda de 3 colunas para 2 colunas */
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
-
     .sidebar {
-        width: 250px; /* Diminui a largura da sidebar */
+        width: 250px;
+    }
+
+    /* CARROSSEL (RESPONSIVO) */
+    .carousel-slide {
+        height: 280px;
+    }
+    .carousel-content {
+        grid-template-columns: 1fr;
+    }
+    .carousel-item-left, .carousel-item-right {
+        display: none;
+    }
+    .carousel-item-center {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .carousel-title {
+        font-size: 28px;
+    }
+    .carousel-offer-box {
+        padding: 8px 15px;
+        font-size: 14px;
     }
 }
 
-/* --- Celulares (max-width: 550px) --- */
 @media (max-width: 550px) {
+    /* CABEÇALHO */
     .logo-search-user {
-        /* Ajusta o padding */
         padding: 10px 15px;
     }
-
     .logo {
         font-size: 24px;
     }
-
     .search-bar {
-        /* Garante que ocupe a linha inteira */
         grid-column: 1 / -1;
         margin-top: 5px;
     }
 
+    /* CONTEÚDO */
     .book-cards-container {
-        /* Muda de 2 colunas para 1 coluna */
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
-    /* AJUSTES NOS CARTÕES */
     .book-card {
         min-height: auto;
         text-align: center;
     }
-
     .book-card h2, .book-card p {
         text-align: center;
     }
-
     .btn-more {
-        align-self: center; /* Centraliza o botão */
+        align-self: center;
     }
 
-    .book-cover {
-        height: 150px; /* Diminui a altura da capa */
+    /* CARROSSEL (RESPONSIVO) */
+    .carousel-slide {
+        height: 220px;
     }
-
+    .carousel-title {
+        font-size: 22px;
+    }
+    .carousel-validity {
+        font-size: 12px;
+    }
+    .carousel-tag {
+        font-size: 14px;
+    }
     .sidebar {
-        width: 100%; /* Ocupa a largura total da tela no celular */
+        width: 100%;
     }
 }
 
-
-/* ▼▼▼ REGRA ADICIONADA PARA O AJUSTE DA IMAGEM ▼▼▼ */
-/* Garante que a imagem dentro da capa se ajuste ao contêiner .book-cover (200px de altura) */
+/* AJUSTE FINAL IMAGEM CARDS */
 .book-cover img {
     width: 100%;
     height: 100%;
-    /* 'contain' garante que a imagem caiba inteira sem distorcer, mantendo a proporção */
     object-fit: contain;
 }
-/* ▲▲▲ FIM DA REGRA ADICIONADA ▲▲▲ */
