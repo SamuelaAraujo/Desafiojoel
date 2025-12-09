@@ -16,22 +16,21 @@
     <div class="profile">
         <div class="profile-info">
             <span>Marcus vinicius</span>
-
         </div>
     </div>
 
     <ul class="menu-list">
-         <li>
+        <li>
             <a href="../Obrasfavoritas/favoritos.html"><i class="fas fa-heart"></i> Favoritos</a>
         </li>
-         <li>
-            <a href=""><i class="fas fa-book-open"></i> Meus livros</a>
+        <li>
+            <a href="../meusLivros/index.php"><i class="fas fa-book-open"></i> Meus livros</a>
         </li>
         <li>
-                <a href="../historico/index.html"><i class="fas fa-history"></i> Histórico</a>
-            </li>
+            <a href="../historico/index.html"><i class="fas fa-history"></i> Histórico</a>
+        </li>
         <li>
-            <a href=""><i class="fas fa-user-edit"></i> Meus Dados</a>
+            <a href="../MeusDados/index.html"><i class="fas fa-user-edit"></i> Meus Dados</a>
         </li>
         <li>
             <a href="../clube.do.livro/index.php"><i class="fas fa-book-open"></i> Clube Do Livro</a>
@@ -74,7 +73,7 @@
 
 
         <div class="user-actions" style="display: flex; align-items: flex-end; justify-content: flex-start;">
-            <a href="/Obrasfavoritas/favoritos.html" class="action-link" aria-label="Minhas Listas">
+            <a href="../Obrasfavoritas/favoritos.html" class="action-link" aria-label="Minhas Listas">
                 <span class="material-icons heart-icon">favorite_border</span>
                 Minhas Listas
             </a>
@@ -86,9 +85,8 @@
     </div>
 
     <nav class="bottom-nav">
-        <a href="#" class="bottom-nav-item">LIVROS COM MAIS DEMANDA</a>
-        <a href="#" class="bottom-nav-item">BUSQUE POR AUTORES</a>
-        <a href="#" class="bottom-nav-item "> CATEGORIAS <span class="material-icons menu-icon">menu</span>
+        <a href="../buscaPorAltor/index.php" class="bottom-nav-item">BUSQUE POR AUTORES</a>
+        <a href="../generosdisponiveis/index.html" class="bottom-nav-item "> CATEGORIAS <span class="material-icons menu-icon">menu</span>
         </a>
     </nav>
 </header>
@@ -97,10 +95,14 @@
     <div class="book-cards-container">
 
         <div class="book-card card-red-queen">
+            <i class="far fa-heart favorite-btn" onclick="toggleFavorite(this)"></i>
+
             <h2 class="book-title">A Rainha<br>Vermelha</h2>
             <p class="book-author">VICTORIA AVEYARD</p>
             <div class="book-cover book-cover-red-queen">
+                <img src="fotos/aRainhaVermelha.jpg" alt="Capa do livro A Rainha Vermelha">
             </div>
+
             <p class="book-snippet">
                 UMA SOCIEDADE DIVIDIDA PELO SANGUE.
                 E UMA JOVEM REDEFINIRÁ TUDO.
@@ -109,9 +111,12 @@
         </div>
 
         <div class="book-card card-dom-casmurro">
+            <i class="far fa-heart favorite-btn" onclick="toggleFavorite(this)"></i>
+
             <h2 class="book-title-small">Dom<br>Casmurro</h2>
             <p class="book-author-machado">MACHADO DE ASSIS</p>
             <div class="book-cover book-cover-dom-casmurro">
+                <img src="fotos/61x1ZHomWUL.jpg" alt="Capa do livro Dom Casmurro">
             </div>
             <p class="book-snippet snippet-casmurro">
                 Publicado em 1899, Dom Casmurro é uma das principais
@@ -121,9 +126,12 @@
         </div>
 
         <div class="book-card card-fault-in-stars">
+            <i class="far fa-heart favorite-btn" onclick="toggleFavorite(this)"></i>
+
             <h2 class="book-title">A Culpa é<br>Das Estrelas</h2>
             <p class="book-author-john-green">JOHN GREEN</p>
             <div class="book-cover book-cover-fault-in-stars">
+                <img src="fotos/aCulpadasEstrelas_UF1000,1000_QL80_.jpg" alt="Capa do livro A Culpa é das Estrelas">
             </div>
             <p class="book-snippet snippet-john-green">
                 O maior best-seller de John Green que emocionou
@@ -138,9 +146,19 @@
 <script>
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
+        // Adiciona ou remove a classe 'open', que é controlada pelo CSS
         sidebar.classList.toggle('open');
     }
-</script>
 
+    // Função para alternar o estado do favorito (coração)
+    function toggleFavorite(element) {
+        // Alterna entre o ícone 'far' (regular/vazio) e 'fas' (solid/cheio)
+        element.classList.toggle('far');
+        element.classList.toggle('fas');
+        
+        // Adiciona a classe que muda a cor para vermelho
+        element.classList.toggle('active-heart');
+    }
+</script>
 </body>
 </html>

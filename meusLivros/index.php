@@ -153,7 +153,7 @@
             <a href="../historico/index.html"><i class="fas fa-history"></i> Histórico</a>
         </li>
         <li>
-            <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
+            <a href="../MeusDados/index.html"><i class="fas fa-user-edit"></i> Meus Dados</a>
         </li>
         <li>
             <a href="../clube.do.livro/index.php"><i class="fas fa-book-open"></i> Clube Do Livro</a>
@@ -162,7 +162,6 @@
             <a href="../moskito/catalogo.html"><i class="fas fa-book-open"></i> Cadastro de livros</a>
         </li>
     </ul>
-
     <div class="footer-menu">
         <div class="school-info">
             <img src="imagem/logo.png.png" alt="Logo da Escola">

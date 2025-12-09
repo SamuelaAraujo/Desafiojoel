@@ -12,9 +12,9 @@ body {
 
 /* Cores Principais */
 :root {
-    --roxo-principal: #a63d91; /* Cor roxa do cabeçalho */
+    --roxo-principal: #be078b; /* Cor roxa do cabeçalho */
     --rosa-claro: #f4d3e8;   /* Cor de fundo próxima ao branco na imagem */
-    --faixa-inferior: #a63d91; /* Cor da faixa inferior */
+    --faixa-inferior: #be078b; /* Cor da faixa inferior */
 }
 
 /* Estilo do Cabeçalho Fixo */

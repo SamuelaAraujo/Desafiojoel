@@ -15,7 +15,6 @@ body {
 /* ======= HEADER & NAVIGATION ======= */
 .main-header {
     background-color: #be078b;
-    /* Removido position: sticky para melhor responsividade em mobile */
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -47,7 +46,6 @@ body {
     margin: 0 auto;
     padding: 20px;
     display: grid;
-    /* Layout principal de 3 colunas para desktop */
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 40px;
@@ -58,8 +56,8 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: white; /* Adicionado para garantir a cor */
-    font-size: 40px; /* Tamanho ajustado */
+    color: white; 
+    font-size: 40px; 
     font-weight: 700;
 }
 
@@ -98,7 +96,6 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
-    /* Removidos estilos inline do HTML para melhor manutenção */
     align-items: center !important;
     justify-content: flex-end !important;
 }
@@ -110,7 +107,7 @@ body {
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    margin-right: 18px; /* Mantido o espaçamento */
+    margin-right: 18px; 
 }
 
 .heart-icon {
@@ -119,12 +116,12 @@ body {
 
 /* ÍCONE PERFIL */
 .fa-user-circle {
-    color: white; /* Cor do ícone */
+    color: white; 
     margin-left: 12px;
     font-size: 2rem;
     cursor: pointer;
     position: relative;
-    top: 0px; /* Resetando a posição para a nova estrutura */
+    top: 0px; 
 }
 
 /* BOTTOM NAV */
@@ -166,12 +163,11 @@ body {
 
 /* ======= CARD DO LIVRO ======= */
 .book-card {
-    /* MUDANÇA AQUI: Cor de fundo alterada para um cinza claro neutro */
     background: #ebebeb;
     border-radius: 15px;
     padding: 30px;
     text-align: left;
-    position: relative;
+    position: relative; /* IMPORTANTE para posicionar o coração */
     min-height: 400px;
     display: flex;
     flex-direction: column;
@@ -182,10 +178,26 @@ body {
     transform: translateY(-8px);
 }
 
-/* Removidas as cores de fundo específicas por cartão para manter o cinza claro padrão */
-/* .card-red-queen { background: #f8e5e5; } */
-/* .card-dom-casmurro { background: #e5e5f8; } */
-/* .card-fault-in-stars { background: #e5f8e5; } */
+/* ======= ESTILO DO BOTÃO FAVORITO (CORAÇÃO) ======= */
+.favorite-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #be078b; /* Mesma cor do tema */
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.15);
+}
+
+.active-heart {
+    color: red !important; /* Cor quando favoritado */
+}
+/* ================================================== */
 
 .book-title {
     font-size: 24px;
@@ -216,6 +228,13 @@ body {
     margin: 20px 0;
 }
 
+/* Ajuste da imagem dentro da capa */
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .book-snippet {
     font-size: 14px;
     line-height: 1.4;
@@ -241,28 +260,23 @@ body {
     background: #a00676;
 }
 
-/* Definições de imagem para cada capa (se houver imagens de fundo no CSS) */
-/* Exemplo: .book-cover-red-queen { background-image: url('path/to/red-queen.jpg'); } */
-
-/* ===== SIDEBAR / MENU (copiado de menu/style22.css, adaptado) ===== */
-
-/* estilo do sidebar e animação de entrada/saída */
+/* ===== SIDEBAR / MENU ===== */
 .sidebar {
     position: fixed;
     top: 0;
-    right: -300px; /* escondido fora da tela */
+    right: -300px;
     width: 300px;
     height: 100vh;
     background-color: #fff;
     box-shadow: -5px 0 15px rgba(0,0,0,0.1);
     z-index: 2000;
-    transition: right 0.5s ease-in-out; /* transição suave */
+    transition: right 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
 }
 
 .sidebar.open {
-    right: 0; /* visível */
+    right: 0; 
 }
 
 .close-btn {
@@ -319,18 +333,13 @@ body {
 .school-info p { margin: 0; font-size: 0.8rem; color: #777; }
 
 
-/* ======= NOVAS REGRAS DE RESPONSIVIDADE ======= */
+/* ======= RESPONSIVIDADE ======= */
 
-/* --- Tablets e Telas Médias (max-width: 900px) --- */
+/* --- Tablets (max-width: 900px) --- */
 @media (max-width: 900px) {
-
-    /* CABEÇALHO */
-    .main-header {
-        position: static; /* Remove o sticky para evitar problemas em mobile */
-    }
+    .main-header { position: static; }
 
     .logo-search-user {
-        /* Layout de 2 colunas: (Logo/Ações) e a busca na linha de baixo */
         grid-template-columns: 1fr auto;
         gap: 20px;
         padding: 15px 20px;
@@ -338,88 +347,61 @@ body {
 
     .logo {
         font-size: 30px;
-        order: -1; /* Coloca o logo na primeira posição (canto esquerdo) */
+        order: -1;
     }
 
-    /* Oculta as navs superiores e inferiores no topo para economizar espaço */
-    .top-nav, .bottom-nav {
-        display: none;
-    }
+    .top-nav, .bottom-nav { display: none; }
 
     .search-bar {
-        grid-column: 1 / span 2; /* Faz a barra de pesquisa ocupar as 2 colunas */
+        grid-column: 1 / span 2; 
         max-width: none;
         margin: 0;
-        order: 3; /* Coloca a barra de pesquisa abaixo do logo e das ações */
+        order: 3;
     }
 
     .user-actions {
-        order: 2; /* Coloca as ações do usuário (ícone) ao lado do logo */
+        order: 2; 
         justify-content: flex-end;
     }
 
-    .user-actions .action-link {
-        display: none; /* Oculta "Minhas Listas" em telas menores */
-    }
+    .user-actions .action-link { display: none; }
 
-    /* CONTEÚDO */
-    .content {
-        padding: 0 15px;
-    }
+    .content { padding: 0 15px; }
 
     .book-cards-container {
-        /* Muda de 3 colunas para 2 colunas */
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
-    .sidebar {
-        width: 250px; /* Diminui a largura da sidebar */
-    }
+    .sidebar { width: 250px; }
 }
 
 /* --- Celulares (max-width: 550px) --- */
 @media (max-width: 550px) {
-    .logo-search-user {
-        /* Ajusta o padding */
-        padding: 10px 15px;
-    }
+    .logo-search-user { padding: 10px 15px; }
 
-    .logo {
-        font-size: 24px;
-    }
+    .logo { font-size: 24px; }
 
     .search-bar {
-        /* Garante que ocupe a linha inteira */
         grid-column: 1 / -1;
         margin-top: 5px;
     }
 
     .book-cards-container {
-        /* Muda de 2 colunas para 1 coluna */
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    /* AJUSTES NOS CARTÕES */
     .book-card {
         min-height: auto;
         text-align: center;
     }
 
-    .book-card h2, .book-card p {
-        text-align: center;
-    }
+    .book-card h2, .book-card p { text-align: center; }
 
-    .btn-more {
-        align-self: center; /* Centraliza o botão */
-    }
+    .btn-more { align-self: center; }
 
-    .book-cover {
-        height: 150px; /* Diminui a altura da capa */
-    }
+    .book-cover { height: 150px; }
 
-    .sidebar {
-        width: 100%; /* Ocupa a largura total da tela no celular */
-    }
+    .sidebar { width: 100%; }
 }
