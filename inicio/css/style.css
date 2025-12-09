@@ -323,6 +323,7 @@ body {
 
 
 /* ======= CSS CORRIGIDO DO CARROSSEL DE LIVROS ======= */
+ /* O tamanho do carousel é Largura: 1920 px Altura: 380 px */
 .hero-carousel-container {
     width: 100%;
     overflow: hidden;

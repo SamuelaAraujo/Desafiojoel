@@ -69,9 +69,9 @@
             </script>
 
         </form>
-        
-        <input type="submit" value="Cadastrar">
-        <input type="submit" value="Canselar">
+
+        <a href="index.php" class="CA">Cadastrar</a>
+        <input type="submit" value="Cancelar">
         </form>
 
     </div>
