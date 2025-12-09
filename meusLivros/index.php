@@ -14,7 +14,7 @@
 
 <header class="main-header">
     <div class="header-content">
-        <a href="../index1.html"><i class="fas fa-home"></i></a>
+        <a href="../inicio/index1.html"><i class="fas fa-home"></i></a>
 
         <div class="search-bar">
             <input type="text" placeholder="">
