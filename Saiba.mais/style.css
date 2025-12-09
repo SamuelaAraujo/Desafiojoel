@@ -117,7 +117,7 @@ body {
     font-size: 20px;
 }
 
-/* ÍCONE PERFIL */
+/* ÍCONE PERFIL (na header de index.php) */
 .fa-user-circle {
     color: white;
     margin-left: 12px;
@@ -270,7 +270,8 @@ body {
 
 /*
  * ===========================================
- * ===== SIDEBAR / MENU (COMUM E index.php) =====
+ * ===== SIDEBAR / MENU (index.php) - COM NOME DO ALUNO =====
+ * (Mantido caso você use este estilo em outro arquivo)
  * ===========================================
  */
 .sidebar {
@@ -301,22 +302,23 @@ body {
     right: 10px;
 }
 
+/* ESTILO RESTAURADO PARA O NOME DO ALUNO */
 .profile {
     padding: 20px;
     border-bottom: 1px solid #eee;
+    text-align: center; /* Centraliza o nome */
 }
 
 .profile-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     font-size: 1.1rem;
     font-weight: bold;
+    color: #333; /* Cor preta para o nome */
 }
 
 .menu-list {
     list-style: none;
     padding: 0;
+    /* Volta para o espaçamento original após o profile */
     margin: 20px 0;
 }
 
@@ -332,7 +334,12 @@ body {
 
 .menu-list a:hover { background-color: #f0f0f0; }
 
-.menu-list i { margin-right: 15px; font-size: 1.2rem; }
+/* Ícones do menu principal para preto */
+.menu-list i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
 
 .footer-menu { margin-top: auto; padding: 20px; border-top: 1px solid #eee; }
 
@@ -346,7 +353,8 @@ body {
 
 /*
  * ===========================================
- * ===== SIDE MENU NOVO (index.html) =====
+ * ===== SIDE MENU NOVO (index.html) - COM NOME DO ALUNO =====
+ * (Estilos para o menu lateral na página de detalhes)
  * ===========================================
  */
 .side-menu {
@@ -379,6 +387,7 @@ body {
     color: #333;
 }
 
+/* ESTILO RESTAURADO PARA O NOME DO ALUNO */
 .profile-section {
     text-align: center;
     padding: 20px 0;
@@ -386,21 +395,18 @@ body {
     margin-bottom: 20px;
 }
 
-.profile-icon-large {
-    font-size: 3.5rem;
-    color: #be078b;
-    margin-bottom: 10px;
-}
-
 .side-menu h2 {
     font-size: 1.2rem;
-    color: #333;
+    color: #333; /* Cor preta para o nome */
+    margin: 0;
 }
 
 /* Estilos de lista e link do side-menu */
 .side-menu ul {
     list-style: none;
     padding: 0;
+    /* Margem removida pois o profile-section já tem margin-bottom */
+    margin: 0;
 }
 
 .side-menu li a {
@@ -413,14 +419,16 @@ body {
     border-bottom: 1px solid #f0f0f0;
 }
 
+/* Cor do texto no hover para preto */
 .side-menu li a:hover {
     background-color: #f8f8f8;
-    color: #be078b;
+    color: #000;
 }
 
+/* Ícones do menu de detalhes para preto */
 .side-menu i {
     margin-right: 10px;
-    color: #be078b;
+    color: #333;
 }
 
 .school-logo-container {
@@ -458,6 +466,7 @@ body {
 .overlay.active {
     display: block;
 }
+
 
 /*
  * ===========================================
