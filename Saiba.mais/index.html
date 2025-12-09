@@ -32,17 +32,16 @@
         <button class="icone" aria-label="Minha Biblioteca">
             <i class="fas fa-bookmark"></i>
         </button>
-        <button class="icone" aria-label="Meu Perfil" id="profile-icon">
+        <button class="icone" aria-label="Meu Perfil" id="profile-icon" onclick="toggleSideMenu()">
             <i class="fas fa-user"></i>
         </button>
     </div>
 </header>
 
 <div id="side-menu" class="side-menu">
-    <button id="close-menu" class="close-menu">&times;</button>
+    <button id="close-menu" class="close-menu" onclick="toggleSideMenu()">&times;</button>
     <div class="profile-section">
-        <i class="fas fa-user-circle profile-icon-large"></i>
-        <h2>Nome do Aluno</h2>
+        <h2>Marcus vinicius</h2>
     </div>
     <ul>
         <li><a href="/Obrasfavoritas/favoritos.html"><i class="fas fa-heart"></i> Favoritos</a></li>
@@ -60,7 +59,7 @@
         <p>terceiro informatica 2025</p>
     </div>
 </div>
-<div id="overlay" class="overlay"></div>
+<div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
 
 <main class="main-content">
     <section class="secao-livro">
@@ -97,21 +96,17 @@
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const profileIcon = document.getElementById('profile-icon');
-        const closeMenuBtn = document.getElementById('close-menu');
+    // Função para alternar a visibilidade do menu lateral
+    function toggleSideMenu() {
         const sideMenu = document.getElementById('side-menu');
         const overlay = document.getElementById('overlay');
 
-        function toggleMenu() {
-            sideMenu.classList.toggle('open');
-            overlay.classList.toggle('active');
-        }
+        // Alterna a classe 'open' no menu para fazê-lo deslizar para a tela (controlado pelo CSS)
+        sideMenu.classList.toggle('open');
 
-        profileIcon.addEventListener('click', toggleMenu);
-        closeMenuBtn.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-    });
+        // Alterna a classe 'active' no overlay para fazê-lo aparecer ou desaparecer
+        overlay.classList.toggle('active');
+    }
 </script>
 </body>
 </html>
