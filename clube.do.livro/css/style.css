@@ -19,7 +19,7 @@ body {
 
 /* --- CABEÇALHO E RODAPÉ ROXO --- */
 .main-header, .main-footer {
-    background-color: #812483; /* O roxo exato da imagem */
+    background-color: #be078b; /* O roxo exato da imagem */
     color: white;
     width: 100%;
 }
