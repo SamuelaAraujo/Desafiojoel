@@ -1,479 +1,753 @@
-
-      
-      
-/* Basic Reset and Global Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-        }
-
-        /* Header Style (Dark Blue Bar) */
-        .header {
-            background-color: #97287a ; /* Bright Blue */
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px; /* Adjust height as needed */
-        }
-
-        /* Header Navigation/Icons */
-        .nav-left {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        .nav-right {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            font-size: 1.5em; /* For icons */
-        }
-        .header-icon {
-            cursor: pointer;
-        }
-
-        /* Search Bar Style */
-        .search-bar {
-            background-color: white;
-            border-radius: 5px;
-            padding: 5px 10px;
-            width: 250px;
-            height: 20px;
-        }
-
-        /* Main Content Layout */
-   .content-container {
-       padding: 30px 50px;
-       display: flex;
-       gap: 50px;
-       align-items: center; /* Centraliza verticalmente os blocos */
-       justify-content: center; /* Centraliza horizontalmente */
-   = = = = = = =
-       /* Variáveis CSS para cores e fontes */: root {
-       --cor-principal: #9B499B; /* Roxo/Magenta */
-       --cor-secundaria: #FFFFFF;
-       --cor-texto: #000000;
-       --cor-amarelo-destaque: #FCEE21;
-       --fonte-principal: 'Montserrat', sans-serif;
-   >>> >>> > f101452078a75077a53dc7b1f2ef79f61f4e86dd
-   }
-
-       /* 1. RESET BÁSICO E MOBILE FIRST */
-
-       * {
-           margin: 0;
-           padding: 0;
-           box-sizing: border-box;
-       }
-
-       body {
-
-           background-color: var(--cor-secundaria);
-           color: var(--cor-texto);
-           line-height: 1.6;
-           min-height: 100vh;
-           display: flex;
-           flex-direction: column;
-       }
-
-       /* Icones e Botões (Estilização de ícones simples) */
-
-       .icone {
-           font-size: 1.5rem; /* Tamanho base dos ícones */
-           padding: 0.5rem;
-           color: var(--cor-secundaria);
-           cursor: pointer;
-           transition: color 0.3s, background-color 0.3s;
-           border: none;
-           background: none;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-       }
-
-   < < < < < < < HEAD
-       /* Footer (Bottom Dark Blue Bar) */
-   . footer {
-       background-color: #97287a; /* Bright Blue */
-       height: 50px;
-       width: 100%;
-       position: fixed; /* Keep it at the bottom */
-       bottom: 0;
-       left: 0;
-   } = = = = = = = >>> >>> > f101452078a75077a53dc7b1f2ef79f61f4e86dd . icone: hover {
-       color: var(--cor-amarelo-destaque); /* Estado hover */
-   }
-
-       /* 2. HEADER SEMÂNTICO (Cabeçalho) */
-
-       .header {
-           background-color: var(--cor-principal);
-           padding: 1rem;
-           display: flex;
-           align-items: center;
-           justify-content: space-between;
-           position: sticky;
-           top: 0;
-           z-index: 1000;
-       }
-
-       /* Grupo de ícones à esquerda */
-
-       .header-left {
-           display: flex;
-           align-items: center;
-           gap: 0.5rem;
-           flex-grow: 1;
-           position: relative;
-       }
-
-       /* Barra de Pesquisa Responsiva */
-
-       .barra-pesquisa {
-           background-color: var(--cor-secundaria);
-           border-radius: 20px;
-           display: flex;
-           align-items: center;
-           padding: 0.4rem 1rem;
-           width: 80%; /* Mobile: ocupa boa parte da largura */
-           max-width: 300px;
-           position: relative;
-       }
-
-       .barra-pesquisa input[type="search"] {
-           border: none;
-           background: transparent;
-           outline: none;
-           width: 100%;
-           font-size: 1rem;
-           color: var(--cor-texto);
-       }
-
-       .search-icon {
-           color: var(--cor-principal);
-           margin-right: 0.5rem;
-       }
-
-       /* Título "GÊNERO" e Ícones à direita */
-
-       .header-right {
-           display: flex;
-           align-items: center;
-           gap: 1rem;
-       }
-
-       .titulo-genero {
-           color: var(--cor-secundaria);
-           font-weight: 900;
-           font-size: 1.8rem;
-           letter-spacing: 0.2rem;
-           text-transform: uppercase;
-       }
-
-       .titulo-genero {
-           display: none;
-           align-items: center;
-       }
-
-       .main-content {
-           flex-grow: 1;
-           padding: 2rem 1rem;
-       }
-
-       .secao-livro {
-           max-width: 1200px;
-           margin: 0 auto;
-       }
-
-       .container-detalhes {
-           display: flex;
-           flex-direction: column;
-           gap: 2rem;
-       }
-
-       .capa-container {
-           position: relative;
-           display: flex;
-           justify-content: center;
-           margin-bottom: 3rem;
-       }
-
-       .capa-livro {
-           width: 80%;
-           max-width: 350px;
-           height: auto;
-           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-           border-radius: 4px;
-       }
-
-       .marcador-flutuante {
-           position: absolute;
-           bottom: 15px;
-           right: 15%;
-           background-color: var(--cor-secundaria);
-           color: var(--cor-principal);
-           padding: 0.2rem 0.5rem;
-           border: 2px solid var(--cor-principal);
-           border-radius: 50%;
-           font-weight: bold;
-           font-size: 1rem;
-           line-height: 1;
-       }
-
-       .detalhes-sinopse {
-           display: flex;
-           flex-direction: column;
-           gap: 1.5rem;
-           font-size: 1.1rem;
-       }
-
-       .info-basica, .sinopse-bloco {
-           padding: 1rem 0;
-       }
-
-       .label {
-           font-weight: bold;
-           text-transform: uppercase;
-           color: #666;
-           margin-bottom: 0.2rem;
-           display: block;
-           font-size: 0.9rem;
-       }
-
-       .valor {
-           font-weight: 700;
-           font-size: 1.2rem;
-           margin-bottom: 1rem;
-           display: block;
-       }
-
-       .sinopse-bloco {
-           border-top: 2px solid #EEE;
-           padding-top: 2rem;
-       }
-
-       .sinopse-bloco h2 {
-           font-size: 1.5rem;
-           margin-bottom: 1rem;
-           font-weight: 700;
-           text-transform: uppercase;
-       }
-
-       .sinopse-bloco p {
-           font-size: 1.1rem;
-           text-align: justify;
-       }
-
-       .footer {
-           background-color: var(--cor-principal);
-           height: 50px;
-           width: 100%;
-       }
-
-       .side-menu {
-           position: fixed;
-           top: 0;
-           right: 0; /* Alterado de left para right */
-           width: 280px;
-           height: 100%;
-           background-color: #fff;
-           box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra invertida */
-           transform: translateX(100%); /* Alterado de -100% para 100% */
-           transition: transform 0.3s ease-in-out;
-           z-index: 1001;
-           display: flex;
-           flex-direction: column;
-       }
-
-       .side-menu.active {
-           transform: translateX(0);
-       }
-
-       .close-menu {
-           position: absolute;
-           top: 10px;
-           left: 15px; /* Alterado de right para left */
-           font-size: 2rem;
-           background: none;
-           border: none;
-           cursor: pointer;
-       }
-
-       .profile-section {
-           padding: 20px;
-           text-align: center;
-           border-bottom: 1px solid #eee;
-       }
-
-       .profile-icon-large {
-           font-size: 4rem;
-           color: var(--cor-principal);
-       }
-
-       .profile-section h2 {
-           margin-top: 10px;
-           font-size: 1.2rem;
-       }
-
-       .side-menu ul {
-           list-style: none;
-           padding: 0;
-           margin: 0;
-           flex-grow: 1;
-       }
-
-       .side-menu ul li a {
-           display: flex;
-           align-items: center;
-           padding: 15px 20px;
-           text-decoration: none;
-           color: #333;
-           border-bottom: 1px solid #f4f4f4;
-           transition: background-color 0.2s;
-       }
-
-       .side-menu ul li a:hover {
-           background-color: #f4f4f9;
-       }
-
-       .side-menu ul li a i {
-           margin-right: 15px;
-           color: var(--cor-principal);
-       }
-
-       .school-logo-container {
-           padding: 20px;
-           text-align: center;
-       }
-
-       .school-logo-container img {
-           width: 80px;
-           margin-bottom: 10px;
-       }
-
-       .school-logo-container p {
-           font-size: 0.8rem;
-           color: #777;
-       }
-
-       .overlay {
-           position: fixed;
-           top: 0;
-           left: 0;
-           width: 100%;
-           height: 100%;
-           background-color: rgba(0, 0, 0, 0.5);
-           z-index: 1000;
-           display: none;
-       }
-
-       .overlay.active {
-           display: block;
-       }
-
-       .search-results {
-           position: absolute;
-           top: calc(100% + 5px);
-           left: 0;
-           width: 100%;
-           background-color: white;
-           border: 1px solid #ccc;
-           border-top: none;
-           border-radius: 0 0 5px 5px;
-           display: none;
-           max-height: 300px;
-           overflow-y: auto;
-           z-index: 10;
-       }
-
-       .search-result-item {
-           display: flex;
-           padding: 10px;
-           border-bottom: 1px solid #eee;
-           cursor: pointer;
-       }
-
-       .search-result-item:hover {
-           background-color: #f4f4f9;
-       }
-
-       .search-result-item img {
-           width: 50px;
-           height: 70px;
-           margin-right: 10px;
-       }
-
-       @media (min-width: 768px) {
-
-           .titulo-genero {
-               display: block;
-               order: 2;
-           }
-
-           .header-left {
-               order: 1;
-               flex-grow: 0;
-           }
-
-           .header-right {
-               order: 3;
-           }
-
-           .barra-pesquisa {
-               width: 250px;
-               max-width: none;
-           }
-
-           .header {
-               justify-content: space-between;
-           }
-
-           .icone {
-               font-size: 1.7rem;
-           }
-
-           .container-detalhes {
-               display: grid;
-               grid-template-columns: 400px 1fr;
-               gap: 4rem;
-               align-items: start;
-           }
-
-           .capa-container {
-               justify-content: flex-start;
-               margin-bottom: 0;
-           }
-
-           .capa-livro {
-               width: 100%;
-               max-width: 400px;
-           }
-
-           .marcador-flutuante {
-               right: -10px;
-               bottom: 10px;
-           }
-
-           .detalhes-sinopse {
-               padding-top: 0;
-               gap: 2rem;
-           }
-
-           .sinopse-bloco {
-               border-top: none;
-               padding-top: 0;
-           }
-
-           .main-content {
-               padding: 4rem 2rem;
-           }
-
-           .side-menu {
-               width: 320px;
-           }
-       }
-   }
+/* ======= RESET GERAL ======= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #fdfdfd;
+    color: #000;
+    min-height: 100vh;
+    /* FIX: Rodapé colado com Flexbox */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ======= HEADER & NAVIGATION (Estilos para index.php) ======= */
+.main-header {
+    background-color: #be078b;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.top-bar {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.top-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.logo-search-user {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 40px;
+}
+
+/* ÍCONE E TÍTULO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+/* CAMPO DE PESQUISA */
+.search-bar {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+}
+
+.search-bar button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #be078b;
+    padding: 8px;
+}
+
+/* USER ACTIONS */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    align-items: center !important;
+    justify-content: flex-end !important;
+}
+
+.action-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-right: 18px;
+}
+
+.heart-icon {
+    font-size: 20px;
+}
+
+/* ÍCONE PERFIL */
+.fa-user-circle {
+    color: white;
+    margin-left: 12px;
+    font-size: 2rem;
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.bottom-nav-item {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-icon {
+    font-size: 18px;
+}
+
+/* ======= CONTENT & BOOK CARDS (Estilos para index.php) ======= */
+.content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    /* FIX: Permite que o conteúdo principal cresça (Sticky Footer) */
+    flex-grow: 1;
+}
+
+.book-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* ======= CARD DO LIVRO ======= */
+.book-card {
+    background: #ebebeb;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+}
+
+/* ======= ESTILO DO BOTÃO FAVORITO (CORAÇÃO) ======= */
+.favorite-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #be078b;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.favorite-btn:hover {
+    transform: scale(1.15);
+}
+
+/* Estado quando clicado (Favoritado) */
+.active-heart {
+    color: red !important;
+}
+/* ================================================== */
+
+
+.book-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.book-title-small {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.book-author {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.book-cover {
+    width: 100%;
+    height: 200px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 20px 0;
+}
+
+/* Ajuste da imagem dentro da capa */
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.book-snippet {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.btn-more {
+    display: inline-block;
+    background: #be078b;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: auto;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+}
+
+.btn-more:hover {
+    background: #a00676;
+}
+
+/*
+ * ===========================================
+ * ===== SIDEBAR / MENU (COMUM E index.php) =====
+ * ===========================================
+ */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 2000;
+    transition: right 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.profile {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu-list li { border-bottom: 1px solid #eee; }
+
+.menu-list a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.menu-list a:hover { background-color: #f0f0f0; }
+
+.menu-list i { margin-right: 15px; font-size: 1.2rem; }
+
+.footer-menu { margin-top: auto; padding: 20px; border-top: 1px solid #eee; }
+
+.school-info { display: flex; align-items: center; gap: 10px; }
+
+.school-info img { width: 50px; height: auto; }
+
+.school-info h5 { margin: 0; }
+
+.school-info p { margin: 0; font-size: 0.8rem; color: #777; }
+
+/*
+ * ===========================================
+ * ===== SIDE MENU NOVO (index.html) =====
+ * ===========================================
+ */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -320px; /* Esconde o menu fora da tela */
+    width: 300px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+    transition: right 0.4s ease-in-out;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.open {
+    right: 0; /* Mostra o menu */
+}
+
+.close-menu {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+.profile-section {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.profile-icon-large {
+    font-size: 3.5rem;
+    color: #be078b;
+    margin-bottom: 10px;
+}
+
+.side-menu h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Estilos de lista e link do side-menu */
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li a {
+    display: block;
+    padding: 12px 0;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.side-menu li a:hover {
+    background-color: #f8f8f8;
+    color: #be078b;
+}
+
+.side-menu i {
+    margin-right: 10px;
+    color: #be078b;
+}
+
+.school-logo-container {
+    margin-top: auto;
+    padding-top: 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.school-logo-container img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.school-logo-container p {
+    font-size: 0.75rem;
+    color: #777;
+    margin: 3px 0;
+}
+
+/* === OVERLAY PARA O MENU === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2500;
+    display: none; /* Inicialmente escondido */
+    transition: opacity 0.4s;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/*
+ * ===========================================
+ * === ESTILOS DA PÁGINA DE DETALHES (index.html) ===
+ * ===========================================
+ */
+
+/* === HEADER NOVO (index.html) === */
+.header {
+    background-color: #be078b;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Ícones de Navegação */
+.icone {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.icone:hover {
+    color: #f0f0f0;
+}
+
+/* Barra de Pesquisa Nova */
+.barra-pesquisa {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px 15px;
+}
+
+.barra-pesquisa input {
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.search-icon {
+    color: #be078b;
+    margin-right: 8px;
+}
+
+/* Título Gênero (Centralizado) */
+.titulo-genero {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    /* FIX: Permite que o conteúdo principal cresça (Sticky Footer) */
+    flex-grow: 1;
+}
+
+.secao-livro {
+    background-color: #f7f7f7;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.container-detalhes {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.capa-container {
+    position: relative;
+    flex-shrink: 0;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.capa-livro {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.marcador-flutuante {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #be078b;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+.detalhes-sinopse {
+    flex-grow: 1;
+}
+
+.info-basica {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 20px;
+}
+
+.label {
+    font-weight: 700;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.valor {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.sinopse-bloco h2 {
+    color: #be078b;
+    font-size: 1.6rem;
+    border-bottom: 2px solid #be078b;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.sinopse-bloco p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    text-align: justify;
+}
+
+/* === FOOTER COMUM === */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #be078b;
+    color: white;
+}
+
+/* ======= RESPONSIVIDADE (Estilos para index.php) ======= */
+
+/* --- Tablets (max-width: 900px) --- */
+@media (max-width: 900px) {
+    .main-header { position: static; }
+
+    .logo-search-user {
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 30px;
+        order: -1;
+    }
+
+    .top-nav, .bottom-nav { display: none; }
+
+    .search-bar {
+        grid-column: 1 / span 2;
+        max-width: none;
+        margin: 0;
+        order: 3;
+    }
+
+    .user-actions {
+        order: 2;
+        justify-content: flex-end;
+    }
+
+    .user-actions .action-link { display: none; }
+
+    .content { padding: 0 15px; }
+
+    .book-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .sidebar { width: 250px; }
+}
+
+/* --- Celulares (max-width: 550px) --- */
+@media (max-width: 550px) {
+    .logo-search-user { padding: 10px 15px; }
+
+    .logo { font-size: 24px; }
+
+    .search-bar {
+        grid-column: 1 / -1;
+        margin-top: 5px;
+    }
+
+    .book-cards-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .book-card {
+        min-height: auto;
+        text-align: center;
+    }
+
+    .book-card h2, .book-card p { text-align: center; }
+
+    .btn-more { align-self: center; }
+
+    .book-cover { height: 150px; }
+
+    .sidebar { width: 100%; }
+}
+
+/* === RESPONSIVIDADE PARA DETALHES DO LIVRO (index.html) === */
+@media (max-width: 800px) {
+    .header {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header-left, .header-right {
+        order: 1;
+    }
+
+    .titulo-genero {
+        order: 3;
+        width: 100%;
+        text-align: center;
+        font-size: 1.4rem;
+        margin-top: 10px;
+    }
+
+    .barra-pesquisa {
+        width: 100%;
+        margin-top: 10px;
+        order: 2;
+    }
+
+    .container-detalhes {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .capa-container {
+        width: 60%;
+        max-width: 250px;
+    }
+
+    .secao-livro {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 550px) {
+    .header-left {
+        gap: 10px;
+    }
+
+    .icone {
+        font-size: 1.2rem;
+    }
+}
