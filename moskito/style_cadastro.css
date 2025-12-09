@@ -16,7 +16,7 @@ body {
 /* --- HEADER / NAVEGAÇÃO --- */
 
 .site-header {
-    background-color: #8e44ad; /* COR PRIMÁRIA ROXA */
+    background-color: #be078b; /* COR PRIMÁRIA: Roxo/Magenta */
     padding: 10px 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
@@ -106,8 +106,8 @@ body {
 }
 
 .image-placeholder:hover {
-    border-color: #8e44ad; /* Roxo no hover */
-    color: #8e44ad;
+    border-color: #be078b; /* Roxo/Magenta no hover */
+    color: #be078b;
 }
 
 #image-text {
@@ -156,8 +156,8 @@ body {
 
 .input-group input:focus,
 .input-group textarea:focus {
-    border-color: #8e44ad; /* Roxo no foco */
-    box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
+    border-color: #be078b; /* Roxo/Magenta no foco */
+    box-shadow: 0 0 5px rgba(190, 7, 139, 0.5);
     outline: none;
 }
 
@@ -213,7 +213,7 @@ body {
     z-index: 1000;
     top: 0;
     right: 0;
-    background-color: #2c3e50; 
+    background-color: #ffffff; /* COR DO SIDEBAR: Roxo/Magenta */
     overflow-x: hidden;
     transition: 0.5s;
     transform: translateX(280px); 
@@ -232,7 +232,7 @@ body {
     top: 10px;
     right: 15px;
     font-size: 2em;
-    color: white;
+    color: #333(250, 0, 0);
     background: none;
     border: none;
     cursor: pointer;
@@ -240,12 +240,12 @@ body {
 
 .profile {
     padding: 15px 20px;
-    border-bottom: 1px solid #34495e;
+    border-bottom: 1px solid #858184; /* Borda de contraste */
     text-align: center;
 }
 
 .profile-info span {
-    color: white;
+    color: #333;
     font-size: 1.2em;
     font-weight: bold;
     display: block;
@@ -261,7 +261,7 @@ body {
     padding: 12px 20px;
     text-decoration: none;
     font-size: 1em;
-    color: #ecf0f1;
+    color: #333;
     display: block;
     transition: background-color 0.2s;
 }
@@ -271,13 +271,13 @@ body {
 }
 
 .menu-list li a:hover {
-    background-color: #34495e;
-    color: white;
+    background-color: #a1a1a1; /* Fundo do hover de contraste */
+    color: #333;
 }
 
 .footer-menu {
     padding: 20px;
-    border-top: 1px solid #34495e;
+    border-top: 1px solid #c8359d; /* Borda de contraste */
 }
 
 .school-info {
@@ -314,7 +314,7 @@ body.menu-open {
 /* --- FOOTER --- */
 .site-footer {
     padding: 15px 20px;
-    background-color: #2c3e50;
+    background-color: #2c3e50; /* Mantido o azul escuro para o rodapé */
     color: #bdc3c7;
     text-align: center;
     font-size: 0.8em;
