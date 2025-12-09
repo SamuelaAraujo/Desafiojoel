@@ -22,7 +22,7 @@
 
     <form action="">
         <div class="inputBox">
-            <input type="text" name="name" autocomplete="off" autofocus required>
+            <input type="text" name="Email" autocomplete="off" autofocus required>
             <label>Email</label>
         </div>
 
@@ -33,7 +33,7 @@
         </div>
 
         <input type="submit" value="Entrar">
-        <a href="Cadastro.html" class="CA">Cadastrar</a>
+        <a href="Cadastro.php" class="CA">Cadastrar</a>
     </form>
 </div>
 
