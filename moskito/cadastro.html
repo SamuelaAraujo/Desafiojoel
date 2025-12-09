@@ -6,6 +6,53 @@
     <title>Cadastro de Livros - MLMB</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style_cadastro.css"> 
+    <style>
+        /* Estilos para a Sinopse (Container Fixo e Agradável) */
+        .textarea-wrapper {
+            position: relative;
+        }
+        /* Estilo do container completo da sinopse */
+        .input-group.full-width {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc; /* Borda leve no container */
+            border-radius: 8px; /* Cantos arredondados */
+            background-color: #f9f9f9; /* Fundo suave */
+        }
+        /* Estilo do TEXTAREA */
+        #sinopse {
+            width: 100%; /* Ocupa a largura total do container */
+            padding: 10px; /* Preenchimento interno */
+            border: 1px solid #ddd; /* Borda suave */
+            border-radius: 6px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            resize: vertical;
+            min-height: 120px; /* Altura mínima fixa */
+            box-sizing: border-box; 
+            font-family: inherit; 
+        }
+        #sinopse:focus {
+            border-color: #3498db; /* Cor azul ao focar */
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+            outline: none;
+        }
+        /* Estilos Interativos (do JavaScript) */
+        #sinopse.warning {
+            border-color: #f39c12; /* Laranja */
+            box-shadow: 0 0 5px rgba(243, 156, 18, 0.5);
+        }
+        #sinopse.danger {
+            border-color: #e74c3c; /* Vermelho */
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.7);
+        }
+        .char-count {
+            display: block;
+            margin-top: 5px;
+            text-align: right;
+            font-size: 0.8em;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
     <header class="site-header">
@@ -14,7 +61,7 @@
                 <i class="fas fa-home"></i>
                 <span class="brand">MLMB</span>
             </a>
-            <i class="fas fa-user-circle profile-icon" aria-hidden="true" title="Perfil"></i>
+            <i class="fas fa-user-circle open-btn" onclick="toggleSidebar()"></i>
         </div>
     </header>
 
@@ -27,8 +74,7 @@
                 <div class="image-upload-wrapper">
                     <label for="bookImage" class="image-placeholder">
                         <span id="image-text">Adicionar Imagem</span>
-                        <input type="file" id="bookImage" accept="image/*" required>
-                        <img id="image-preview" src="#" alt="Prévia da Capa" style="display:none; width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                        <input type="file" id="bookImage" accept="image/*"> <img id="image-preview" src="#" alt="Prévia da Capa" style="display:none; width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                     </label>
                 </div>
                 
@@ -68,7 +114,8 @@
                         name="sinopse" 
                         rows="6" 
                         maxlength="500" 
-                        placeholder="Insira aqui uma breve e cativante descrição do livro (máx. 500 caracteres)."
+                        placeholder="✨ Desvende o mistério em poucas linhas! Insira aqui uma sinopse cativante que fará o leitor querer devorar a obra (máx. 500 caracteres)."
+                        required
                     ></textarea>
                     <span class="char-count" id="sinopseCharCount">0 / 500 caracteres</span>
                 </div>
@@ -82,8 +129,56 @@
     <footer class="site-footer">
         <div class="footer-inner"></div>
     </footer>
-
+    
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        
+        <div class="profile">
+            <div class="profile-info">
+                <span>Marcus vinicius</span>
+            </div>
+        </div>
+        
+        <ul class="menu-list">
+             <li>
+            <a href="/Obrasfavoritas/favoritos.html"><i class="fas fa-heart"></i> Favoritos</a>
+        </li>
+            <li>
+                <a href="#"><i class="fas fa-book-open"></i> Meus livros</a>
+            </li>
+            <li>
+                <a href="/historico/index.html"><i class="fas fa-history"></i> Histórico</a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-user-edit"></i> Meus Dados</a>
+            </li>
+            <li>
+                <a href="../clube.do.livro/index.php"><i class="fas fa-book-open"></i> Clube Do Livro</a>
+            </li>
+            <li>
+            <a href="/moskito/cadastro.html"><i class="fas fa-book-open"></i> Cadastro de livros</a>
+        </li>
+        </ul>
+        
+        <div class="footer-menu">
+            <div class="school-info">
+                <img src="IMG-20250513-WA0005.jpg" alt="Logo da Escola">
+                <div>
+                    <h5>ESCOLA ESTADUAL MARIA LUIZA MIRANDA BASTOS</h5>
+                    <p>terceiro informatica 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const body = document.body;
+            sidebar.classList.toggle('open');
+            body.classList.toggle('menu-open'); 
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('bookForm');
             const imageInput = document.getElementById('bookImage');
@@ -94,61 +189,77 @@
             const maxChars = 500;
             
             let imageDataURL = null;
+            let bookId = null; 
 
-            // Função para carregar os dados de um livro para edição
+            // Lógica de Edição: Verifica se a página foi carregada com um ID de edição
             const urlParams = new URLSearchParams(window.location.search);
-            const bookId = urlParams.get('editId');
+            const editId = urlParams.get('editId');
             
-            if (bookId) {
-                document.querySelector('h1').textContent = 'Editar Livro';
-                document.querySelector('.save-button').textContent = 'SALVAR ALTERAÇÕES';
-                
-                const books = JSON.parse(localStorage.getItem('books') || '[]');
-                const bookToEdit = books.find(b => b.id === bookId);
-                
-                if (bookToEdit) {
-                    document.getElementById('titulo').value = bookToEdit.title;
-                    document.getElementById('autor').value = bookToEdit.author;
-                    document.getElementById('sobrenome').value = bookToEdit.lastName;
-                    document.getElementById('quantidade').value = bookToEdit.quantity;
-                    document.getElementById('categorias').value = bookToEdit.categories;
-                    document.getElementById('sinopse').value = bookToEdit.sinopse;
-                    imageDataURL = bookToEdit.image;
+            // Recupere a lista de livros (deve ter no máximo 1)
+            let books = JSON.parse(localStorage.getItem('books') || '[]');
+            
+            if (editId) {
+                // Se o modo é edição e há um livro, carrega seus dados
+                if (books.length > 0) {
+                    const bookToEdit = books[0]; 
+                    bookId = bookToEdit.id; 
                     
-                    if (imageDataURL && imageDataURL !== 'placeholder') {
-                        imagePreview.src = imageDataURL;
-                        imagePreview.style.display = 'block';
-                        imageText.style.display = 'none';
+                    document.querySelector('h1').textContent = 'Editar Livro';
+                    document.querySelector('.save-button').textContent = 'SALVAR ALTERAÇÕES';
+                    
+                    if (bookToEdit) {
+                        document.getElementById('titulo').value = bookToEdit.title;
+                        document.getElementById('autor').value = bookToEdit.author;
+                        document.getElementById('sobrenome').value = bookToEdit.lastName;
+                        document.getElementById('quantidade').value = bookToEdit.quantity;
+                        document.getElementById('categorias').value = bookToEdit.categories;
+                        document.getElementById('sinopse').value = bookToEdit.sinopse;
+                        
+                        imageDataURL = bookToEdit.image; 
+                        
+                        if (imageDataURL && imageDataURL !== 'placeholder') {
+                            imagePreview.src = imageDataURL;
+                            imagePreview.style.display = 'block';
+                            imageText.style.display = 'none';
+                        }
                     }
                 }
+            } else if (books.length > 0) {
+                // Se for um novo cadastro, mas já há um livro, usamos o ID dele 
+                // para sobrescrever na lógica de salvamento
+                bookId = books[0].id;
             }
 
 
-            // LÓGICA DO CONTADOR DE CARACTERES
+            // Lógica do contador de caracteres (Interativa e mais bonita)
             if (sinopseTextarea) {
                 sinopseTextarea.addEventListener('input', function() {
                     const currentChars = this.value.length;
                     sinopseCharCount.textContent = `${currentChars} / ${maxChars} caracteres`;
                     
-                    // Feedback visual da contagem (CSS complementa a beleza)
+                    // Adiciona/Remove classes para feedback visual no textarea
+                    sinopseTextarea.classList.remove('warning', 'danger');
                     if (currentChars >= maxChars * 0.9) { 
-                        sinopseCharCount.style.color = '#e74c3c'; 
+                        sinopseCharCount.style.color = '#e74c3c'; // Vermelho
+                        sinopseTextarea.classList.add('danger');
                     } else if (currentChars >= maxChars * 0.7) {
-                        sinopseCharCount.style.color = '#f39c12';
+                        sinopseCharCount.style.color = '#f39c12'; // Laranja
+                        sinopseTextarea.classList.add('warning');
                     } else {
-                        sinopseCharCount.style.color = '#777'; 
+                        sinopseCharCount.style.color = '#777'; // Cinza padrão
                     }
                 });
+                // Garante que o contador seja exibido corretamente ao carregar
                 sinopseTextarea.dispatchEvent(new Event('input')); 
             }
 
-            // Pré-visualização da imagem
+            // Lógica do Preview da Imagem
             imageInput.addEventListener('change', function(event) {
                 const file = event.target.files[0];
                 if (file) {
                     const reader = new FileReader();
                     reader.onload = function(e) {
-                        imageDataURL = e.target.result;
+                        imageDataURL = e.target.result; 
                         imagePreview.src = imageDataURL;
                         imagePreview.style.display = 'block';
                         imageText.style.display = 'none';
@@ -157,12 +268,14 @@
                 }
             });
 
-            // Lógica de salvamento e redirecionamento
+            // Lógica de salvamento (Mantém APENAS UM LIVRO e DELETA O ANTERIOR)
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
                 
+                const isEditing = !!editId; 
+                
                 const newBookData = {
-                    id: bookId || Date.now().toString(), // Usa o ID existente para edição ou gera um novo
+                    id: bookId || Date.now().toString(), 
                     title: document.getElementById('titulo').value,
                     author: document.getElementById('autor').value,
                     lastName: document.getElementById('sobrenome').value,
@@ -172,23 +285,22 @@
                     image: imageDataURL || 'placeholder' 
                 };
                 
-                let books = JSON.parse(localStorage.getItem('books') || '[]');
+                // MUDANÇA ESSENCIAL: Zera o array de livros. O livro anterior é EXCLUÍDO AQUI.
+                books = []; 
                 
-                if (bookId) {
-                    // MODO EDIÇÃO: Encontra o índice e substitui
-                    const index = books.findIndex(b => b.id === bookId);
-                    if (index !== -1) {
-                        books[index] = newBookData;
-                    }
-                    alert('Livro atualizado com sucesso! Redirecionando para o catálogo.');
+                // Marca o novo livro como "novo"
+                newBookData.isNew = true; 
+                books.push(newBookData); // Adiciona APENAS o livro atual
+                
+
+                if (isEditing) {
+                    alert('Livro atualizado com sucesso! O catálogo continua com apenas este livro.');
                 } else {
-                    // MODO CADASTRO: Adiciona novo livro
-                    books.push(newBookData);
-                    alert('Livro cadastrado com sucesso! Redirecionando para o catálogo.');
+                    alert('Novo livro cadastrado com sucesso! O livro anterior foi removido do catálogo para manter apenas um.');
                 }
 
+                // Salva o array contendo apenas 1 livro
                 localStorage.setItem('books', JSON.stringify(books));
-                
                 window.location.href = 'catalogo.html';
             });
         });

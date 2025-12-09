@@ -6,11 +6,106 @@
     <title>MLMB - Catálogo de Livros</title>
     <link rel="stylesheet" href="style1.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <style>
+        /* Estilos básicos para exibir o livro e os botões */
+        .no-books-message {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2em;
+            color: #777;
+        }
+        .book-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .book-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Tamanho fixo para o card */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .book-cover {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .book-info {
+            padding: 15px;
+        }
+        .book-title {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .book-author, .book-category, .book-quantity {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .book-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        .action-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.2s;
+        }
+        .edit-btn {
+            background-color: #3498db;
+            color: white;
+        }
+        .edit-btn:hover {
+            background-color: #2980b9;
+        }
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+        /* Estilo para o novo botão de adicionar livro */
+        .add-book-container {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .add-book-btn {
+            background-color: #27ae60; /* Verde */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .add-book-btn:hover {
+            background-color: #2ecc71;
+        }
+    </style>
 </head>
 <body>
     <header class="site-header">
         <div class="header-inner">
-            <a href="#" class="logo" aria-label="Ir para a página inicial">
+            <a href="../inicio/index1.html" class="logo" aria-label="Ir para a página inicial">
                 <i class="fas fa-home"></i>
                 <span class="brand">MLMB</span>
             </a>
@@ -23,7 +118,6 @@
                     <input type="search" name="q" placeholder="Livros disponíveis" aria-label="Pesquisar livros">
                 </div>
             </form>
-
             <i class="fas fa-user-circle open-btn" onclick="toggleSidebar()"></i>
             
         </div>
@@ -33,8 +127,12 @@
         <section class="catalog-grid-section">
             <h2 class="section-title">Todos os Livros Cadastrados</h2>
             
+            <div class="add-book-container">
+                <a href="/moskito/cadastro.html" class="add-book-btn">
+                    <i class="fas fa-plus-circle"></i> Adicionar Novo Livro
+                </a>
+            </div>
             <div class="book-grid" id="book-grid">
-                
                 </div>
         </section>
     </main>
@@ -89,8 +187,72 @@
             sidebar.classList.toggle('open');
             body.classList.toggle('menu-open'); 
         }
+        
+        // FUNÇÃO PARA DELETAR O ÚNICO LIVRO
+        function deleteBook() {
+            if (confirm("Tem certeza que deseja remover este livro do catálogo?")) {
+                // Remove o array 'books' inteiro do localStorage
+                localStorage.removeItem('books'); 
+                renderCatalog(); // Recarrega o catálogo (agora vazio)
+                alert("Livro removido com sucesso!");
+            }
+        }
+
+        // FUNÇÃO PARA REDIRECIONAR PARA EDIÇÃO
+        function editBook(bookId) {
+            // Redireciona para a página de cadastro com o ID do livro para edição
+            window.location.href = 'cadastro.html?editId=' + bookId;
+        }
+        
+        // FUNÇÃO PRINCIPAL PARA RENDERIZAR O CATÁLOGO
+        function renderCatalog() {
+            const bookGrid = document.getElementById('book-grid');
+            bookGrid.innerHTML = ''; // Limpa o grid antes de renderizar
+            
+            const books = JSON.parse(localStorage.getItem('books') || '[]');
+            
+            if (books.length === 0) {
+                bookGrid.innerHTML = '<p class="no-books-message">Nenhum livro cadastrado. <a href="/moskito/cadastro.html">Cadastre um livro agora!</a></p>';
+                return;
+            }
+
+            // Pega o único livro (books[0])
+            const book = books[0];
+            
+            const bookCard = document.createElement('div');
+            bookCard.className = 'book-card';
+            // Adiciona classe de 'novo' se a flag estiver setada
+            if (book.isNew) {
+                 bookCard.classList.add('new-book');
+            }
+
+            const defaultImage = 'placeholder.jpg'; // Assumindo uma imagem padrão
+            // Verifica se a imagem existe ou se é o placeholder
+            const imageUrl = (book.image && book.image !== 'placeholder') ? book.image : defaultImage;
+
+            bookCard.innerHTML = `
+                <img src="${imageUrl}" alt="Capa do livro ${book.title}" class="book-cover">
+                <div class="book-info">
+                    <h3 class="book-title">${book.title}</h3>
+                    <p class="book-author">Autor: ${book.author} ${book.lastName}</p>
+                    <p class="book-category">Categorias: ${book.categories}</p>
+                    <p class="book-quantity">Quantidade: ${book.quantity}</p>
+                    <div class="book-actions">
+                        <button class="action-btn edit-btn" onclick="editBook('${book.id}')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="action-btn delete-btn" onclick="deleteBook()">
+                            <i class="fas fa-trash"></i> Excluir
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            bookGrid.appendChild(bookCard);
+        }
+
+        // Executa a renderização ao carregar a página
+        document.addEventListener('DOMContentLoaded', renderCatalog);
     </script>
-    
-    <script src="script_catalogo.js"></script>
 </body>
 </html>
